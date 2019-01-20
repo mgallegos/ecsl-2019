@@ -72,7 +72,7 @@
 		  return t;
 		}(document, "script", "twitter-wjs"));</script>
 		<a href="#page-container" class="sr-only">Skip to content</a>
-		@include('ecsl-2019::top-bar')
+		@include('ecsl-2019::top-bar-inicio')
 	</header>
 	<main role="main">
 		<div id='page-container' class="site-background-color" role="main" data-current-page-width="">
