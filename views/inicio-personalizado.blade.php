@@ -105,15 +105,15 @@
     // Add plane
     var plane = lineSeries.mapLines.getIndex(0).lineObjects.create();
     plane.position = 0;
-    plane.width = 28;
-    plane.height = 28;
+    plane.width = 10;
+    plane.height = 10;
 
     plane.adapter.add("scale", (scale, target) => {
       return 0.5 * (1 - (Math.abs(0.5 - target.position)));
     })
 
     var planeImage = plane.createChild(am4core.Sprite);
-    planeImage.scale = 0.08;
+    planeImage.scale = 0.04;
     planeImage.horizontalCenter = "middle";
     planeImage.verticalCenter = "middle";
     planeImage.path = "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47";
@@ -122,11 +122,11 @@
 
     var shadowPlane = shadowLineSeries.mapLines.getIndex(0).lineObjects.create();
     shadowPlane.position = 0;
-    shadowPlane.width = 28;
-    shadowPlane.height = 28;
+    shadowPlane.width = 10;
+    shadowPlane.height = 10;
 
     var shadowPlaneImage = shadowPlane.createChild(am4core.Sprite);
-    shadowPlaneImage.scale = 0.05;
+    shadowPlaneImage.scale = 0.01;
     shadowPlaneImage.horizontalCenter = "middle";
     shadowPlaneImage.verticalCenter = "middle";
     shadowPlaneImage.path = "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47";
@@ -222,19 +222,16 @@
 </div>
 
 <!-- CARRUSEL-->
-<header>
+<!-- <header>
   <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselIndicators" data-slide-to="1"></li>
-      <!-- <li data-target="#carouselIndicators" data-slide-to="2"></li> -->
     </ol>
 
     <div class="carousel-inner" role="listbox">
-      <!-- Slide One-->
       <div class="carousel-item active" style="background-image: url('https://storage.googleapis.com/decimaerp/organizations/15/carousel2.jpg')"></div>
 
-      <!-- Slide Two-->
       <div class="carousel-item" style="background-image: url('https://storage.googleapis.com/decimaerp/organizations/15/carousel3.jpg')"></div>
 
     </div>
@@ -250,7 +247,7 @@
         <span class="sr-only">Next</span>
       </a>
   </div>
-</header>
+</header> -->
 
 <!--Acerca de-->
 <section class="">
