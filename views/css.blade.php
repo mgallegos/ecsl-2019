@@ -8,7 +8,7 @@
   }
 
   body {
-    padding-top: 86px;
+    padding-top: 55px;
   }
 
   .card-logo{
