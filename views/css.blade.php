@@ -15,6 +15,10 @@
     border: 0 !important;
   }
 
+  .bg-darkblue{
+    background-color: #2c3e50
+  }
+
   .same-height{
     height: 230px;
     width: 100%;
@@ -416,5 +420,263 @@
     text-shadow: 3px 3px 2px #696;
   }
 
+
+
+
+
+  /* Banner styles */
+
+  .oadh-banner {
+  	width: 100%;
+    height: 500px;
+  	background-color: #ffffff;
+  }
+
+  .oadh-banner .banner-wrapper {
+  	width: 100%;
+  	height: 100%;
+  	overflow-x: hidden;
+  }
+
+  .oadh-banner .banner-wrapper .oadh-website-map {
+  	margin-top: 5%;
+
+  }
+
+  .oadh-banner .banner-wrapper .oadh-banner-description {
+  	z-index: 100;
+  }
+
+  .oadh-banner .banner-wrapper .oadh-banner-description p {
+  	color: #2c3e50;
+  }
+
+  .oadh-banner .banner-wrapper .oadh-banner-description .website-description {
+  	width: 100%;
+  	color: #2c3e50;
+  	font-weight: 600;
+  }
+
+  .oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome {
+  	color: #ffffff;
+  	border: 1px solid #2c3e50;
+  	background-color: rgba(0,0,0,.5);
+  }
+
+  .oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome:hover {
+  	background-color: #222222;
+  }
+
+
+  /* RESPONSIVE */
+  @media (max-width: 575.98px) {
+  	.oadh-banner {
+  		width: 100%;
+  		height: auto;
+  		margin-top: 12%
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description {
+  		padding: 5%;
+  		width: 100%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description p {
+  		color: #222222;
+  		font-weight: 600;
+  		text-align: center;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-description {
+  		width: 100%;
+  		font-size: 2em;
+  		text-align: left;
+  	}
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-date {
+  		width: 100%;
+  		text-align: center;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome {
+  		width: 100%;
+  		margin-top: 20px;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome:hover {
+  		background-color: #222222;
+  	}
+
+  	#map-preview {
+  		width: 100%;
+  		height: 350px
+  	}
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {
+  	.oadh-banner {
+  		width: 100%;
+  		height: auto;
+  		margin-top: 7%
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-website-map {
+  		margin-top: 5%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description {
+  		width: 100%;
+  		padding: 10%
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description p {
+  		color: #222222;
+  		font-weight: 600;
+  		margin-top: 15px;
+  		font-size: 1em;
+  		text-align: center;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-description {
+  		width: 100%;
+  		font-size: 2em;
+  		text-align: left;
+  	}
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-date {
+  		width: 100%;
+  		text-align: center;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome {
+  		width: 100%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome:hover {
+  		background-color: #222222;
+  	}
+
+  	#map-preview {
+  		width: 2600px;
+  		height: 600px;
+  		position: relative;
+  		top: 0%;
+  		left: 50%;
+  		margin-left: -1425px;
+  		margin-bottom: -300px;
+  		transform: scale(0.5);
+  		transform-origin: top;
+  		z-index: 1;
+  	}
+  }
+
+  @media (min-width: 725.98px) and (max-width: 991.98px) {
+  	.oadh-banner {
+  		width: 100%;
+  		height: 600px;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-website-map {
+  		margin-top: 5%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description {
+  		width: 30%;
+  		z-index: 100;
+  		margin-top: 20%;
+  		position: absolute;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description p {
+  		color: #2c3e50;
+  		font-weight: 600;
+  		margin-top: 15px;
+  		text-align: justify;
+  		font-size: 10pt;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-description {
+  		width: 100%;
+  		font-size: 1.2em;
+  		text-align: left;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-date {
+  		width: 100%;
+  		text-align: center;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome {
+  		width: 100%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome:hover {
+  		background-color: #222222;
+  	}
+
+  	#map-preview {
+  		width: 2600px;
+  		height: 600px;
+  		position: absolute;
+  		top: 0%;
+  		left: 50%;
+  		margin-left: -1300px;
+  		transform: scale(1.0);
+  		transform-origin: bottom;
+  		z-index: 1;
+  	}
+  }
+
+  @media (min-width: 992px) {
+  	.oadh-banner {
+  		width: 100%;
+  		height: 600px;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-website-map {
+  		margin-top: 5%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description {
+  		width: 30%;
+  		z-index: 100;
+  		margin-top: 15%;
+  		position: absolute;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description p {
+  		color: #2c3e50;
+  		font-weight: 600;
+  		margin-top: 15px;
+  		text-align: justify;
+  		font-size: 12pt;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-description {
+  		width: 100%;
+  		font-size: 2.1em;
+  		text-align: left;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-date{
+  		width: 100%;
+  		text-align: center;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome {
+  		width: 100%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome:hover {
+  		background-color: #222222;
+  	}
+
+  	#map-preview {
+  		width: 2600px;
+  		height: 600px;
+  		position: absolute;
+  		top: 0%;
+  		left: 45%;
+  		margin-left: -1300px;
+  	}
+  }
 
 </style>

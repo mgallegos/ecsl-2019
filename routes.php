@@ -25,9 +25,6 @@
 
 $ecslsv =  function ()
 {
-
-	Route::group(array('prefix' => 'ecsl2019/'), function()
-	{
 		Route::get('/ecsltest', function()
 		{
 			// return Redirect::to('cms/dashboard')->with('ecsl2019login', true);
@@ -180,7 +177,7 @@ $ecslsv =  function ()
 		});
 
 		// AdvancedRoute::controller('/cms/ecsl-2019', 'Mgallegos\ECSL2019\Controllers\GestorCms');
-	});
+
 };
 
 Route::group(['domain' => 'localhost'], $ecslsv);

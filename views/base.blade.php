@@ -4,6 +4,8 @@
 	<!-- <link rel="icon" href="https://storage.googleapis.com/decimaerp/organizations/8/Cabeza_Ob_vectorx16.ico"> -->
 	<link rel="shortcut icon" href="https://storage.googleapis.com/decimaerp/organizations/15/favico.png" type="image/vnd.microsoft.icon" />
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
+
 	@include('layouts.header-css-cdn-b4-latest')
 	@include('layouts.header-javascript-cdn-b4-latest')
 

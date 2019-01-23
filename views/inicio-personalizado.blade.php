@@ -9,217 +9,417 @@
   height: 500px;
 }
 
-.ecsl-banner {
-	width: 100%;
-	background-color: #fff;
-}
-
-.ecsl-banner .banner-wrapper {
-	width: 100%;
-	height: 100%;
-	overflow-x: hidden;
-}
-
-.ecsl-banner .banner-wrapper .ecsl-banner-description {
-	z-index: 100;
-  background-color:transparent;
-  float : left;
-  margin-top: -220px;
-  padding: 10px;
-}
 
 </style>
 
 <script type="text/javascript">
   $(document).ready(function(){
-    // Themes begin
-    am4core.useTheme(am4themes_animated);
-    // Themes end
+    am4core.options.commercialLicense = true
 
-    // Create map instance
-    var chart = am4core.create("chartdiv", am4maps.MapChart);
-    chart.geodata = am4geodata_worldLow;
-    chart.projection = new am4maps.projections.Miller();
-    chart.homeZoomLevel = 10;
-    chart.homeGeoPoint = {
-      latitude: 14,
-      longitude: -89
-    };
+    var city
+    var tm = 1
+    var country
+    var mapChart
+    var lineChart
+    var lineSeries
 
-    // Create map polygon series
-    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
-    polygonSeries.useGeodata = true;
-    polygonSeries.mapPolygons.template.fill = chart.colors.getIndex(0).lighten(0.5);
-    polygonSeries.exclude = ["AQ"];
+    var valueAxis
 
-    // Add line bullets
-    var cities = chart.series.push(new am4maps.MapImageSeries());
-    cities.mapImages.template.nonScaling = true;
+    var pieChart
+    var pieSeries
+    var mapPreview
 
-    var city = cities.mapImages.template.createChild(am4core.Circle);
-    city.radius = 6;
-    city.fill = chart.colors.getIndex(0).brighten(-0.2);
-    city.strokeWidth = 2;
-    city.stroke = am4core.color("#fff");
+    var colorSet
+    var cityCircle
 
-    function addCity(coords, title) {
-      var city = cities.mapImages.create();
-      city.latitude = coords.latitude;
-      city.longitude = coords.longitude;
-      city.tooltipText = title;
-      return city;
+    // Set themes
+    am4core.useTheme(am4themes_animated)
+    am4core.useTheme(am4themes_amchartsdark)
+
+    colorSet = new am4core.ColorSet()
+
+
+    setTimeout (init, 500)
+
+
+    function init () {
+      mainContainer = am4core.create("map-preview", am4core.Container)
+      mainContainer.width = am4core.percent(100)
+      mainContainer.height = am4core.percent(100)
+      mainContainer.preloader.disabled = true
+
+      // area chart on initial screen (the one which bends around pie chart)
+      lineChart = mainContainer.createChild(am4charts.XYChart)
+      lineChart.padding(0,0,0,0)
+
+      var data = []
+      var date = new Date(2000, 0, 1, 0, 0, 0, 0)
+
+      for (var i = 0; i < 6; i ++) {
+        var newDate = new Date(date.getTime())
+        newDate.setDate(i + 1)
+
+        data.push({ date: newDate, value: 32 })
+      }
+
+      lineChart.data = data
+
+      var dateAxis = lineChart.xAxes.push(new am4charts.DateAxis())
+      dateAxis.renderer.grid.template.location = 0
+      dateAxis.renderer.ticks.template.disabled = true
+      dateAxis.renderer.axisFills.template.disabled = true
+
+      dateAxis.renderer.labels.template.disabled = true
+      dateAxis.renderer.inside = true
+      dateAxis.renderer.grid.template.disabled = true
+      dateAxis.startLocation = 0.5
+      dateAxis.endLocation = 0.5
+      dateAxis.renderer.baseGrid.disabled = true
+      dateAxis.tooltip.disabled = true
+      dateAxis.renderer.line.disabled = true
+
+      valueAxis = lineChart.yAxes.push(new am4charts.ValueAxis())
+      valueAxis.tooltip.disabled = true
+      valueAxis.renderer.ticks.template.disabled = true
+      valueAxis.renderer.axisFills.template.disabled = true
+      valueAxis.renderer.labels.template.disabled = true
+      valueAxis.renderer.inside = true
+      valueAxis.renderer.grid.template.disabled = true
+      valueAxis.min = 0
+      valueAxis.max = 100
+      valueAxis.strictMinMax = true
+      valueAxis.tooltip.disabled = true
+      valueAxis.renderer.line.disabled = true
+      valueAxis.renderer.baseGrid.disabled = true
+
+      lineSeries = lineChart.series.push(new am4charts.LineSeries())
+      lineSeries.dataFields.dateX = "date"
+      lineSeries.dataFields.valueY = "value"
+      lineSeries.sequencedInterpolation = true
+      lineSeries.fillOpacity = 0.3
+      lineSeries.strokeOpacity = 0
+      lineSeries.tensionX = 0.75
+      lineSeries.fill = am4core.color("#222a3f")
+      lineSeries.fillOpacity = 1
+      lineSeries.hidden = true
+      // when line series is inited, start everything
+      lineSeries.events.on("inited", startEverything);
     }
 
-    var elSalvador = addCity({ "latitude": 13.8333000, "longitude": -88.9167000 }, "El Salvador");
-    var guatemala = addCity({ "latitude": 15.5000000, "longitude": -90.2500000 }, "Guatemala");
+    function startEverything() {
+      lineChart.visible = true;
+      lineSeries.defaultState.transitionDuration = 1000 * tm;
+      var animation = lineSeries.show();
 
-    // Add lines
-    var lineSeries = chart.series.push(new am4maps.MapArcSeries());
-    lineSeries.mapLines.template.line.strokeWidth = 2;
-    lineSeries.mapLines.template.line.strokeOpacity = 0.5;
-    lineSeries.mapLines.template.line.stroke = city.fill;
-    lineSeries.mapLines.template.line.nonScalingStroke = true;
-    lineSeries.mapLines.template.line.strokeDasharray = "1,1";
-    lineSeries.zIndex = 10;
-
-    var shadowLineSeries = chart.series.push(new am4maps.MapLineSeries());
-    shadowLineSeries.mapLines.template.line.strokeOpacity = 0;
-    shadowLineSeries.mapLines.template.line.nonScalingStroke = true;
-    shadowLineSeries.mapLines.template.shortestDistance = false;
-    shadowLineSeries.zIndex = 5;
-
-    function addLine(from, to) {
-      var line = lineSeries.mapLines.create();
-      line.imagesToConnect = [from, to];
-      line.line.controlPointDistance = -0.3;
-
-      var shadowLine = shadowLineSeries.mapLines.create();
-      shadowLine.imagesToConnect = [from, to];
-
-      return line;
+      animation.events.on("animationended", function() {
+        setTimeout(stage0, 500 * tm)
+      })
     }
 
-    addLine(elSalvador, guatemala);
 
+    function stage0 () {
+    	if (!pieChart) {
+    		pieChart = mainContainer.createChild(am4charts.PieChart)
 
-    // Add plane
-    var plane = lineSeries.mapLines.getIndex(0).lineObjects.create();
-    plane.position = 0;
-    plane.width = 10;
-    plane.height = 10;
+    		pieChart.zindex = 15
+    		pieChart.hiddenState.properties.opacity = 0
+    		pieChart.width = 400
+    		pieChart.x = am4core.percent(300 / 5)
+    		pieChart.horizontalCenter = "middle"
 
-    plane.adapter.add("scale", (scale, target) => {
-      return 0.5 * (1 - (Math.abs(0.5 - target.position)));
-    })
+    		pieChart.hiddenState.properties.opacity = 0
+    		pieChart.defaultState.transitionDuration = 3500 * tm
+    		pieChart.defaultState.transitionEasing = am4core.ease.elasticOut
 
-    var planeImage = plane.createChild(am4core.Sprite);
-    planeImage.scale = 0.04;
-    planeImage.horizontalCenter = "middle";
-    planeImage.verticalCenter = "middle";
-    planeImage.path = "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47";
-    planeImage.fill = chart.colors.getIndex(2).brighten(-0.2);
-    planeImage.strokeOpacity = 0;
+        pieChart.data = [{
+          "answer": "[bold]No[/b]",
+          "value": 400,
+          "fontColor": am4core.color("#222a3f")
+        }, {
+          "answer": "Derecho a la vida",
+          "value": 200,
+          "radius": 10
+        }, {
+          "answer": "Derecho a la educación",
+          "value": 40,
+          "disabled": true
+        }, {
+          "answer": "Derecho a la salud",
+          "value": 30,
+          "disabled": true
+        }]
 
-    var shadowPlane = shadowLineSeries.mapLines.getIndex(0).lineObjects.create();
-    shadowPlane.position = 0;
-    shadowPlane.width = 10;
-    shadowPlane.height = 10;
+    		pieSeries = pieChart.series.push(new am4charts.PieSeries())
+        pieSeries.dataFields.value = "value"
+        pieSeries.dataFields.category = "answer"
+        pieChart.innerRadius = 75
+        pieChart.radius = 150
 
-    var shadowPlaneImage = shadowPlane.createChild(am4core.Sprite);
-    shadowPlaneImage.scale = 0.01;
-    shadowPlaneImage.horizontalCenter = "middle";
-    shadowPlaneImage.verticalCenter = "middle";
-    shadowPlaneImage.path = "m2,106h28l24,30h72l-44,-133h35l80,132h98c21,0 21,34 0,34l-98,0 -80,134h-35l43,-133h-71l-24,30h-28l15,-47";
-    shadowPlaneImage.fill = am4core.color("#000");
-    shadowPlaneImage.strokeOpacity = 0;
+        // this makes initial animation
+        pieSeries.hiddenState.properties.opacity = 0
+        pieSeries.slices.template.cornerRadius = 7
+        pieSeries.defaultState.transitionDuration = 2000 * tm
+        pieSeries.hiddenState.transitionEasing = am4core.ease.sinOut
 
-    shadowPlane.adapter.add("scale", (scale, target) => {
-      target.opacity = (0.6 - (Math.abs(0.5 - target.position)));
-      return 0.5 - 0.3 * (1 - (Math.abs(0.5 - target.position)));
-    })
+        pieSeries.labels.template.fillOpacity = 0.8
+        pieSeries.labels.template.text = "{category}"
+        pieSeries.alignLabels = false
+        pieSeries.labels.template.radius = -53
+        pieSeries.labels.template.propertyFields.disabled = "disabled"
+        pieSeries.labels.template.propertyFields.fill = "fontColor"
+        pieSeries.labels.template.propertyFields.radius = "radius"
+        pieSeries.ticks.template.disabled = true
 
-    // Plane animation
-    var currentLine = 0;
-    var direction = 1;
+        //this makes initial animation from bottom
+        pieSeries.hiddenState.properties.dy = 400
+        pieSeries.defaultState.transitionEasing = am4core.ease.elasticOut
+        pieSeries.defaultState.transitionDuration = 3500 * tm
+      }
 
-    function flyPlane() {
+      pieChart.hide(0)
+      pieChart.show()
 
-      // Get current line to attach plane to
-      plane.mapLine = lineSeries.mapLines.getIndex(currentLine);
-      plane.parent = lineSeries;
-      shadowPlane.mapLine = shadowLineSeries.mapLines.getIndex(currentLine);
-      shadowPlane.parent = shadowLineSeries;
-      shadowPlaneImage.rotation = planeImage.rotation;
+      pieSeries.hide(0)
+      var animation = pieSeries.show()
+      animation.events.on("animationended", createMap)
+       // change duration and easing
+      lineSeries.interpolationDuration = 3000 * tm;
+      lineSeries.interpolationEasing = am4core.ease.elasticOut;
 
-      // Set up animation
-      var from, to;
-      var numLines = lineSeries.mapLines.length;
-      if (direction == 1) {
-          from = 0
-          to = 1;
-          if (planeImage.rotation != 0) {
-              planeImage.animate({ to: 0, property: "rotation" }, 1000).events.on("animationended", flyPlane);
-              return;
+      lineSeries.dataItems.getIndex(3).setValue("valueY", 80, 3500 * tm);
+    }
+
+    function stage1 () {
+    	var series = pieChart.series.getIndex(0)
+      var firstDataItem = series.dataItems.getIndex(0)
+
+      setTimeout(function() {
+        var animation
+        series.dataItems.each(function(dataItem) {
+          if (dataItem.index != 1) {
+            animation = dataItem.hide()
           }
+          dataItem.label.hide()
+        })
+
+        animation.events.on("animationended", function() {
+          var animation = series.dataItems.getIndex(1).slice.animate({ property: "innerRadius", to: 0 }, 300 * tm)
+          animation.events.on("animationended", function() {
+            setTimeout(showMap, 50)
+          })
+        })
+      }, 1000 * tm)
+    }
+
+    function stage2 () {
+    	polygonSeries.show(0)
+
+      var polygonPoint = { x: initialPolygon.polygon.bbox.x + initialPolygon.polygon.bbox.width / 2, y: initialPolygon.polygon.bbox.y + initialPolygon.polygon.bbox.height / 2 }
+      var seriesPoint = am4core.utils.spritePointToSprite(polygonPoint, initialPolygon.polygon, polygonSeries)
+
+      var geoPoint = mapChart.seriesPointToGeo(seriesPoint)
+      mapChart.zoomToGeoPoint(geoPoint, mapChart.zoomLevel, true, 0)
+
+      initialPolygon.polygon.morpher.morphToCircle(slice.radius / mapChart.zoomLevel / mapChart.scaleRatio, 0)
+      initialPolygon.visible = true
+      initialPolygon.fillOpacity = 1
+      initialPolygon.opacity = 1
+      initialPolygon.strokeOpacity = 0
+      initialPolygon.toFront()
+      initialPolygon.tooltipText = "{title}"
+      polygonSeries.opacity = 1
+
+      setTimeout(function() {
+      	pieChart.visible = false
+
+      	var animation = initialPolygon.polygon.morpher.morphBack(1500 * tm)
+     	 	animation.events.on("animationended", function() {
+    	   	pieSeries.dataItems.each(function(dataItem) {
+    	      dataItem.show(0)
+    	   	})
+
+          lineSeries.interpolationEasing = am4core.ease.cubicOut;
+          lineSeries.hiddenState.transitionDuration = 700 * tm;
+
+          var hideAnimation = lineSeries.hide();
+
+          hideAnimation.events.on("animationended", function() {
+            lineSeries.dataItems.getIndex(3).setValue("valueY", 31, 0);
+            lineSeries.dataItems.getIndex(3).setWorkingValue("valueY", 0, 0);
+            lineChart.visible = false;
+
+            continentSeries.show();
+            setTimeout(stage3, 1000 * tm);
+          })
+    	  }, 100)
+    	})
+    }
+
+    function stage3 () {
+    	cityCircle.hide(0)
+      var animation = cityCircle.show(1500 * tm)
+
+      cityLabel.hide(0)
+      cityLabel.show(1000)
+
+      animation.events.on("animationended", function() {
+        var zoomAnim = mapChart.zoomToMapObject(city, 4, true, 500 * tm)
+      })
+    }
+
+    var polygonSeries
+    var continentSeries
+    var cityLabel
+    var sfLabel
+
+    function createMap () {
+    	country = { id: "SV", city: "El Salvador", latitude: 13.7, longitude: -89.2 }
+
+    	mapChart = mainContainer.createChild(am4maps.MapChart)
+    	mapChart.seriesContainer.draggable = false
+      mapChart.seriesContainer.resizable = false
+      mapChart.resizable = false
+
+      mapChart.geodataSource.url = "//www.amcharts.com/lib/4/geodata/json/continentsHigh.json"
+      mapChart.projection = new am4maps.projections.Mercator()
+      mapChart.x = am4core.percent(300 / 5)
+      mapChart.y = mainContainer.pixelHeight / 2
+      mapChart.horizontalCenter = "middle"
+      mapChart.verticalCenter = "middle"
+      mapChart.showOnInit = false
+      mapChart.hiddenState.properties.opacity = 1
+      mapChart.deltaLongitude = -11
+      mapChart.zIndex = 10
+      mapChart.mouseWheelBehavior = "none"
+
+       // make it pacific centered
+      if (country.longitude > 90) {
+        mapChart.deltaLongitude = -160
+      }
+
+      continentSeries = mapChart.series.push(new am4maps.MapPolygonSeries())
+      continentSeries.useGeodata = true
+      continentSeries.exclude = ["antarctica"]
+
+      continentSeries.mapPolygons.template.fill = am4core.color("#2c3e50")
+      continentSeries.mapPolygons.template.stroke = am4core.color("#313950")
+      continentSeries.mapPolygons.template.hiddenState.properties.visible = true
+      continentSeries.mapPolygons.template.hiddenState.properties.opacity = 1
+      continentSeries.hidden = true
+
+      polygonSeries = mapChart.series.push(new am4maps.MapPolygonSeries())
+      polygonSeries.useGeodata = true
+
+      polygonSeries.geodataSource.url = "https://www.amcharts.com/wp-content/uploads/assets/maps/worldCustomHigh.json"
+      polygonSeries.include = ["US", country.id]
+
+      polygonSeries.mapPolygons.template.fill = am4core.color("#2c3e50")
+      polygonSeries.mapPolygons.template.stroke = am4core.color("#313950")
+      polygonSeries.mapPolygons.template.hiddenState.properties.visible = true
+      polygonSeries.mapPolygons.template.hiddenState.properties.opacity = 1
+      polygonSeries.showOnInit = true
+      polygonSeries.hiddenState.properties.opacity = 1
+      polygonSeries.hidden = true
+
+      var mapImageSeries = mapChart.series.push(new am4maps.MapImageSeries())
+
+      city = mapImageSeries.mapImages.create()
+      city.latitude = country.latitude
+      city.longitude = country.longitude
+      city.nonScaling = true
+
+      cityLabel = city.createChild(am4core.Label)
+      cityLabel.text = country.city
+      cityLabel.verticalCenter = "middle"
+
+      cityLabel.dx = 15
+      cityLabel.dy = -1
+      cityLabel.fontSize = 16
+      cityLabel.hiddenState.properties.dy = 100
+      cityLabel.hide(0)
+
+      cityCircle = city.createChild(am4core.Circle)
+      cityCircle.fill = colorSet.getIndex(0)
+      cityCircle.stroke = cityCircle.fill
+      cityCircle.radius = 7
+
+      cityCircle.hiddenState.properties.radius = 0
+      cityCircle.defaultState.transitionEasing = am4core.ease.elasticOut
+      cityCircle.defaultState.transitionDuration = 2000 * tm
+      cityCircle.hide(0)
+
+      mapChart.events.on("inited",
+        function() {
+          setTimeout(stage1, 100)
+        }
+      )
+    }
+
+    function showMap () {
+    	var polygon = polygonSeries.getPolygonById(country.id)
+      if (!polygon) {
+        polygonSeries.geodataSource.events.on("ended", function() {
+          setTimeout(function() {
+            preStage2(country)
+          }, 100)
+        })
       }
       else {
-          from = 1;
-          to = 0;
-          if (planeImage.rotation != 180) {
-              planeImage.animate({ to: 180, property: "rotation" }, 1000).events.on("animationended", flyPlane);
-              return;
-          }
+        preStage2(country)
       }
-
-      // Start the animation
-      var animation = plane.animate({
-          from: from,
-          to: to,
-          property: "position"
-      }, 5000, am4core.ease.sinInOut);
-      animation.events.on("animationended", flyPlane)
-      /*animation.events.on("animationprogress", function(ev) {
-        var progress = Math.abs(ev.progress - 0.5);
-        //console.log(progress);
-        //planeImage.scale += 0.2;
-      });*/
-
-      shadowPlane.animate({
-          from: from,
-          to: to,
-          property: "position"
-      }, 5000, am4core.ease.sinInOut);
-
-      // Increment line, or reverse the direction
-      currentLine += direction;
-      if (currentLine < 0) {
-          currentLine = 0;
-          direction = 1;
-      }
-      else if ((currentLine + 1) > numLines) {
-          currentLine = numLines - 1;
-          direction = -1;
-      }
-
     }
 
-    // Go!
-    flyPlane();
+    function preStage2 (country) {
+      initialPolygon = polygonSeries.getPolygonById(country.id)
+
+      slice = pieChart.series.getIndex(0).dataItems.getIndex(1).slice
+
+      var w = initialPolygon.polygon.bbox.width * mapChart.scaleRatio
+      var h = initialPolygon.polygon.bbox.height * mapChart.scaleRatio
+
+      initialPolygon.fill = slice.fill
+
+      mapChart.zoomToGeoPoint({ latitude: initialPolygon.latitude, longitude: initialPolygon.longitude }, (slice.radius * 2) / Math.max(w, h), true, 0)
+
+      continentSeries.visible = false
+      continentSeries.opacity = 0
+
+      polygonSeries.dataItems.each(function(dataItem) {
+        dataItem.mapPolygon.visible = false
+        dataItem.mapPolygon.fillOpacity = 0
+      })
+
+      setTimeout(stage2, 100 * tm)
+    }
+
   });
 </script>
 
+<div class="oadh-banner">
+  <div class="banner-wrapper">
+    <div id="map-preview"></div>
+    <div class="container">
+      <div class="oadh-banner-description">
+        <h2 class="website-description">XI Encuentro Centroamérica de Sofware Libre.</h2>
+        <p class="website-date">?, ? y ? de julio del 2019.</p>
+        <button class="btn-lg btn-welcome">Explorar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="ecsl-banner">
+
+<!-- <div class="ecsl-banner">
   <div class="banner-wrapper">
     <div id="chartdiv"></div>
     <div class="container">
       <div class="ecsl-banner-description">
         <h2 class="font-weight-bold">XI Encuentro Centroamericano de <br> Sofware Libre.</h2>
-        <p class="font-weight-bold">12, 13 y 14 de julio del 2019</p>
+        <p class="font-weight-bold">?, ? y ? de julio del 2019</p>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- CARRUSEL-->
 <!-- <header>
@@ -251,15 +451,15 @@
 
 <!--Acerca de-->
 <section class="">
-  <div class="jumbotron jumbotron-fluid bg-dark">
+  <div class="jumbotron jumbotron-fluid bg-darkblue">
     <div class="container">
-      <h2 class="text-center text-white"><strong>X Encuentro Centroamericano de Software Libre</strong></h2>
-      <h4 class="text-center text-white font-weight-bold">12, 13 y 14 de julio del 2019</h4>
+      <h2 class="text-center text-white"><strong>XI Encuentro Centroamericano de Software Libre</strong></h2>
+      <h4 class="text-center text-white font-weight-bold">?, ? y ? de julio del 2019</h4>
       <p class="lead text-center text-white">El Encuentro Centroamericano de Software Libre (ECSL) es un evento anual organizado desde el año 2009 por y para la comunidad  de Software Libre Centroamérica (SLCA). El ECSL es una reunión de activistas e integrantes de comunidades y grupos de
         usuarios/as que sirve como punto de encuentro y espacio de articulación, educación, coordinación e intercambio de ideas para fortalecer acuerdos y formas de trabajo conjuntas que faciliten la promoción del uso y desarrollo del Software Libre en
         la región.</p>
       <!-- <div id="btn-registration" class="text-center" style="margin:0 auto;">
-        <a class="btn btn-lg btn-secondary" href="{{ URL::to('/registro') }}">Registrarse</a>
+        <a class="btn btn-lg btn-info" href="{{ URL::to('/registro') }}">Registrarse</a>
       </div> -->
     </div>
   </div>
@@ -275,14 +475,30 @@
         <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" data-toggle="lightbox" data-gallery="youtubevideos">
           <img src="http://i3.ytimg.com/vi/gY9b9RMMqCU/mqdefault.jpg" class="card-img-top img-fluid">
         </a> -->
+        <a href="http://ecsl2018.softwarelibre.ca/" target="_blank">
+          <img src="https://storage.googleapis.com/decimaerp/organizations/15/ECSL_2018_036.jpg" class="card-img-top img-fluid">
+        </a>
+        <div class="card-body">
+          <h5 id="ecsl-2017-card-title" class="card-title text-center">X ECSL 2018 <br> San Salvador, El Salvador</h5>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <a href="http://ecsl2018.softwarelibre.ca/" target="_blank" class="btn btn-info">Ver sitio web</a>
+          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-info" data-toggle="lightbox">Ver video</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card">
+        <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" data-toggle="lightbox" data-gallery="youtubevideos">
+          <img src="http://i3.ytimg.com/vi/gY9b9RMMqCU/mqdefault.jpg" class="card-img-top img-fluid">
+        </a> -->
         <a href="http://ecsl2017.softwarelibre.ca/" target="_blank">
           <img src="https://storage.googleapis.com/decimaerp/organizations/15/costarica_thumbnail.jpg" class="card-img-top img-fluid">
         </a>
         <div class="card-body">
           <h5 id="ecsl-2017-card-title" class="card-title text-center">IX ECSL 2017 <br> San José, Costa Rica</h5>
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-          <a href="http://ecsl2017.softwarelibre.ca/" target="_blank" class="btn btn-secondary">Ver sitio web</a>
-          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-secondary" data-toggle="lightbox">Ver video</a> -->
+          <a href="http://ecsl2017.softwarelibre.ca/" target="_blank" class="btn btn-info">Ver sitio web</a>
+          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-info" data-toggle="lightbox">Ver video</a> -->
         </div>
       </div>
     </div>
@@ -294,24 +510,8 @@
         <div class="card-body">
           <h5 class="card-title text-center">VIII ECSL 2016 <br> Managua, Nicaragua</h5>
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-          <a href="http://encuentro.softwarelibre.ca/2016/" target="_blank" class="btn btn-secondary">Ver sitio web</a>
-          <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-secondary" data-toggle="lightbox">Ver video</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 mb-4">
-      <div class="card">
-        <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" data-toggle="lightbox" data-gallery="youtubevideos">
-          <img src="http://i3.ytimg.com/vi/gY9b9RMMqCU/mqdefault.jpg" class="card-img-top img-fluid">
-        </a> -->
-        <a href="http://ecsl2015.softwarelibre.ca/" target="_blank">
-          <img src="https://storage.googleapis.com/decimaerp/organizations/15/honduras_thumbnail.jpg" class="card-img-top img-fluid">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title text-center">VII ECSL 2015 <br> San Pedro Sula, Honduras</h5>
-          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-          <a href="http://ecsl2015.softwarelibre.ca/" target="_blank" class="btn btn-secondary">Ver sitio web</a>
-          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-secondary" data-toggle="lightbox">Ver video</a> -->
+          <a href="http://encuentro.softwarelibre.ca/2016/" target="_blank" class="btn btn-info">Ver sitio web</a>
+          <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-info" data-toggle="lightbox">Ver video</a>
         </div>
       </div>
     </div>
@@ -334,7 +534,7 @@
       <p class="text-center">¡Conoce los países y lugares en los que el Encuentro Centroamericano de Software Libre se ha venido realizando desde al año 2009 y no pierdas la oportunidad de participar en la décima edición del evento El Salvador 2019!</p>
     </div>
     <div class="col-md-4">
-      <a class="btn btn-lg btn-secondary btn-block" href="{{URL::to('cms/eventos-anteriores')}}">Ver todos los eventos anteriores</a>
+      <a class="btn btn-lg btn-info btn-block" href="{{URL::to('cms/eventos-anteriores')}}">Ver todos los eventos anteriores</a>
     </div>
   </div>
 
@@ -344,7 +544,7 @@
 
 <!--Informacion General-->
 <section class="about-us section-padding">
-  <div class="jumbotron jumbotron-fluid bg-dark">
+  <div class="jumbotron jumbotron-fluid bg-darkblue">
     <div class="container">
       <h2 class="display-5 text-center text-white">Información General</h2><br>
       <div class="row">
@@ -389,14 +589,14 @@
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card card-logo">
         <div class="card-header-logo card-header-logo-padding">
-          <a href="http://www.uca.edu.sv" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_uca.png">
+          <a href="#" target="_blank">
+            <img class="card-img-top img-fluid" src='data:image/svg+xml;charset=UTF-8,<svg%20width%3D"200"%20height%3D"200"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20200%20200"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1687c9c531f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1687c9c531f"><rect%20width%3D"200"%20height%3D"200"%20fill%3D"%23777"><%2Frect><g><text%20x%3D"73.640625"%20y%3D"104.5">200x200<%2Ftext><%2Fg><%2Fg><%2Fsvg>'>
           </a>
         </div>
         <div class="card-body">
           <h6 class="card-title text-center">
-            <a href="http://www.uca.edu.sv" target="_blank" class="card-logo-title">
-              Universidad Centroamericana José Simeón Cañas
+            <a href="#" target="_blank" class="card-logo-title">
+              Patrocinador
             </a>
           </h6>
         </div>
@@ -405,79 +605,14 @@
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card card-logo">
         <div class="card-header-logo card-header-logo-padding">
-          <a href="http://www.slsv.org/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_slsv.png">
+          <a href="#" target="_blank">
+            <img class="card-img-top img-fluid" src='data:image/svg+xml;charset=UTF-8,<svg%20width%3D"200"%20height%3D"200"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20200%20200"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1687c9c531f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1687c9c531f"><rect%20width%3D"200"%20height%3D"200"%20fill%3D"%23777"><%2Frect><g><text%20x%3D"73.640625"%20y%3D"104.5">200x200<%2Ftext><%2Fg><%2Fg><%2Fsvg>'>
           </a>
         </div>
         <div class="card-body">
           <h6 class="card-title text-center">
-            <a href="http://www.slsv.org/" target="_blank" class="card-logo-title">
-              Comunidad Salvadoreña de Software Libre
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo mt-2">
-          <a href="http://www.salud.gob.sv/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_minsal.png">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="http://www.salud.gob.sv/" target="_blank" class="card-logo-title">
-              Ministerio de Salud
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="http://www.decimaerp.com/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_decimaerp_.png">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="http://www.decimaerp.com/" target="_blank" class="card-logo-title">
-              DecimaERP
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="https://uls.edu.sv/sitioweb/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_luterana.jpg">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="https://uls.edu.sv/sitioweb/" target="_blank" class="card-logo-title">
-              Universidad Luterana Salvadoreña
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="http://delfos-cloud.com/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_delfos_cloud.jpg">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="http://delfos-cloud.com/" target="_blank" class="card-logo-title">
-              Delfos Cloud
+            <a href="#" target="_blank" class="card-logo-title">
+              Patrocinador
             </a>
           </h6>
         </div>
@@ -486,14 +621,14 @@
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card card-logo">
         <div class="card-header-logo card-header-logo-padding">
-          <a href="http://www.ieproes.edu.sv/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_ieproes.jpg">
+          <a href="#" target="_blank">
+            <img class="card-img-top img-fluid" src='data:image/svg+xml;charset=UTF-8,<svg%20width%3D"200"%20height%3D"200"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20200%20200"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1687c9c531f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1687c9c531f"><rect%20width%3D"200"%20height%3D"200"%20fill%3D"%23777"><%2Frect><g><text%20x%3D"73.640625"%20y%3D"104.5">200x200<%2Ftext><%2Fg><%2Fg><%2Fsvg>'>
           </a>
         </div>
         <div class="card-body">
           <h6 class="card-title text-center">
-            <a href="http://www.ieproes.edu.sv/" target="_blank" class="card-logo-title">
-              IEPROES
+            <a href="#" target="_blank" class="card-logo-title">
+              Patrocinador
             </a>
           </h6>
         </div>
@@ -501,85 +636,20 @@
     </div>
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="https://www.pagadito.com/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_pagadito.png">
+        <div class="card-header-logo card-header-logo-padding">
+          <a href="#" target="_blank">
+            <img class="card-img-top img-fluid" src='data:image/svg+xml;charset=UTF-8,<svg%20width%3D"200"%20height%3D"200"%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20viewBox%3D"0%200%20200%20200"%20preserveAspectRatio%3D"none"><defs><style%20type%3D"text%2Fcss">%23holder_1687c9c531f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20<%2Fstyle><%2Fdefs><g%20id%3D"holder_1687c9c531f"><rect%20width%3D"200"%20height%3D"200"%20fill%3D"%23777"><%2Frect><g><text%20x%3D"73.640625"%20y%3D"104.5">200x200<%2Ftext><%2Fg><%2Fg><%2Fsvg>'>
           </a>
         </div>
         <div class="card-body">
           <h6 class="card-title text-center">
-            <a href="https://www.pagadito.com/" target="_blank" class="card-logo-title">
-              Pagadito
+            <a href="#" target="_blank" class="card-logo-title">
+              Patrocinador
             </a>
           </h6>
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="https://es-la.facebook.com/LabCTsv/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_labCT.png">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="https://es-la.facebook.com/LabCTsv/" target="_blank" class="card-logo-title">
-              LabCT
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="http://hackerspace.teubi.co/" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_hackerspace.png">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="http://hackerspace.teubi.co/" target="_blank" class="card-logo-title">
-              Hacker space
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="http://www.sv" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_svnet.jpg">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="http://www.sv" target="_blank" class="card-logo-title">
-              SVNet
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="https://www.gridshield.com" target="_blank">
-            <img class="card-img-top img-fluid" src="https://storage.googleapis.com/decimaerp/organizations/15/logo_gridshield.jpg">
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="https://www.gridshield.com" target="_blank" class="card-logo-title">
-              Gridshield
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-
   </div>
   <!-- /.row -->
 </div>

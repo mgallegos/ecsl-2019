@@ -1,5 +1,5 @@
 <!-- Barra de Navegacion -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-darkblue">
   <div class="container">
     <a class="navbar-brand font-weight-bold" href="{{URL::to('cms/inicio')}}" style="padding:0;">ECSL 2019</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
