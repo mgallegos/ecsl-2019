@@ -4,9 +4,8 @@
 
 <style>
 
-#chartdiv {
-  width: 100%;
-  height: 500px;
+body {
+  padding-top: 0px;
 }
 
 
@@ -459,7 +458,7 @@
         usuarios/as que sirve como punto de encuentro y espacio de articulación, educación, coordinación e intercambio de ideas para fortalecer acuerdos y formas de trabajo conjuntas que faciliten la promoción del uso y desarrollo del Software Libre en
         la región.</p>
       <!-- <div id="btn-registration" class="text-center" style="margin:0 auto;">
-        <a class="btn btn-lg btn-info" href="{{ URL::to('/registro') }}">Registrarse</a>
+        <a class="btn btn-lg btn-outline-primary" href="{{ URL::to('/registro') }}">Registrarse</a>
       </div> -->
     </div>
   </div>
@@ -481,8 +480,8 @@
         <div class="card-body">
           <h5 id="ecsl-2017-card-title" class="card-title text-center">X ECSL 2018 <br> San Salvador, El Salvador</h5>
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-          <a href="http://ecsl2018.softwarelibre.ca/" target="_blank" class="btn btn-info">Ver sitio web</a>
-          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-info" data-toggle="lightbox">Ver video</a> -->
+          <a href="http://ecsl2018.softwarelibre.ca/" target="_blank" class="btn btn-outline-primary">Ver sitio web</a>
+          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-outline-primary" data-toggle="lightbox">Ver video</a> -->
         </div>
       </div>
     </div>
@@ -497,8 +496,8 @@
         <div class="card-body">
           <h5 id="ecsl-2017-card-title" class="card-title text-center">IX ECSL 2017 <br> San José, Costa Rica</h5>
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-          <a href="http://ecsl2017.softwarelibre.ca/" target="_blank" class="btn btn-info">Ver sitio web</a>
-          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-info" data-toggle="lightbox">Ver video</a> -->
+          <a href="http://ecsl2017.softwarelibre.ca/" target="_blank" class="btn btn-outline-primary">Ver sitio web</a>
+          <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-outline-primary" data-toggle="lightbox">Ver video</a> -->
         </div>
       </div>
     </div>
@@ -510,8 +509,8 @@
         <div class="card-body">
           <h5 class="card-title text-center">VIII ECSL 2016 <br> Managua, Nicaragua</h5>
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-          <a href="http://encuentro.softwarelibre.ca/2016/" target="_blank" class="btn btn-info">Ver sitio web</a>
-          <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-info" data-toggle="lightbox">Ver video</a>
+          <a href="http://encuentro.softwarelibre.ca/2016/" target="_blank" class="btn btn-outline-primary">Ver sitio web</a>
+          <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-outline-primary" data-toggle="lightbox">Ver video</a>
         </div>
       </div>
     </div>
@@ -534,7 +533,7 @@
       <p class="text-center">¡Conoce los países y lugares en los que el Encuentro Centroamericano de Software Libre se ha venido realizando desde al año 2009 y no pierdas la oportunidad de participar en la décima edición del evento El Salvador 2019!</p>
     </div>
     <div class="col-md-4">
-      <a class="btn btn-lg btn-info btn-block" href="{{URL::to('cms/eventos-anteriores')}}">Ver todos los eventos anteriores</a>
+      <a class="btn btn-lg btn-outline-primary btn-block" href="{{URL::to('cms/eventos-anteriores')}}">Ver todos los eventos anteriores</a>
     </div>
   </div>
 
