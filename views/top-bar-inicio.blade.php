@@ -25,7 +25,7 @@
               </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarEvento">
             <!-- <a class="dropdown-item" href="{{URL::to('cms/inicio/registro')}}"><i class="fa fa-address-card-o" aria-hidden="true"></i> Registro</a> -->
-            <a class="dropdown-item" href="{{URL::to('cms/estadisticas')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Estadísticas</a>
+            <a class="dropdown-item disabled" href="{{URL::to('cms/estadisticas')}}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Estadísticas</a>
             <a class="dropdown-item" href="{{URL::to('cms/ejes-tematicos')}}"><i class="fa fa-list-ul" aria-hidden="true"></i> Ejes Temáticos</a>
             <a class="dropdown-item" href="{{URL::to('cms/becas')}}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Becas</a>
             <a class="dropdown-item" href="{{URL::to('cms/eventos-anteriores')}}"><i class="fa fa-calendar" aria-hidden="true"></i> Eventos Anteriores</a>
@@ -33,7 +33,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{URL::to('cms/agenda')}}">Agenda</a>
+          <a class="nav-link disabled" href="{{URL::to('cms/agenda')}}">Agenda</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link fake-link" data-toggle="modal" data-target="#Contact" role="button">Contacto</a>

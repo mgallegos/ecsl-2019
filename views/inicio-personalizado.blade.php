@@ -131,19 +131,19 @@ body {
     		pieChart.defaultState.transitionEasing = am4core.ease.elasticOut
 
         pieChart.data = [{
-          "answer": "[bold]No[/b]",
+          "answer": "Linux Mint",
           "value": 400,
           "fontColor": am4core.color("#222a3f")
         }, {
-          "answer": "Derecho a la vida",
+          "answer": "Ubuntu",
           "value": 200,
           "radius": 10
         }, {
-          "answer": "Derecho a la educación",
+          "answer": "Debian",
           "value": 40,
           "disabled": true
         }, {
-          "answer": "Derecho a la salud",
+          "answer": "Fedora",
           "value": 30,
           "disabled": true
         }]
