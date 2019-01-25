@@ -207,7 +207,8 @@ body {
     lineSeries.fillOpacity = 0.3
     lineSeries.strokeOpacity = 0
     lineSeries.tensionX = 0.75
-    lineSeries.fill = am4core.color("#222a3f")
+    // lineSeries.fill = am4core.color("#222a3f")
+    lineSeries.fill = am4core.color("#2b3e50")
     lineSeries.fillOpacity = 1
     lineSeries.hidden = true
     // when line series is inited, start everything
