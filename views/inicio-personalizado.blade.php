@@ -24,10 +24,10 @@ body {
   var userCountryId = "US";
   // am4core.options.commercialLicense = true;
 
-  jQuery.getJSON( "https://services.amcharts.com/ip/?v=xz6Z", function( geo ) {
-    console.log('hola mundo');
-    console.log(geo);
-  });
+  // jQuery.getJSON( "https://services.amcharts.com/ip/?v=xz6Z", function( geo ) {
+  //   console.log('hola mundo');
+  //   console.log(geo);
+  // });
 
 
   var ds = new am4core.DataSource();
@@ -434,8 +434,8 @@ body {
     // animation.events.on("animationended", preStage7);
     // animation.events.on("animationended", plane.hide(0));
 
-    // stage7();
-    preStage7()
+    stage7();
+    // preStage7()
   }
 
   function preStage7()
@@ -465,6 +465,8 @@ body {
 
     endPolygon = polygonSeries.getPolygonById("GT")
 
+    console.log(endPolygon);
+
     // slice = pieChart.series.getIndex(0).dataItems.getIndex(1).slice
 
     // var w = initialPolygon.polygon.bbox.width * mapChart.scaleRatio
@@ -472,6 +474,15 @@ body {
 
     // tempInitialPolygon = initialPolygon.fill
     endPolygon.fill = tempSliceFill
+
+    // endPolygon.polygon.morpher.morphToCircle(slice.radius / mapChart.zoomLevel / mapChart.scaleRatio, 0)
+    endPolygon.visible = true
+    endPolygon.fillOpacity = 1
+    endPolygon.opacity = 1
+    endPolygon.strokeOpacity = 0
+    endPolygon.toFront()
+    // initialPolygon.tooltipText = "{title}"
+    // polygonSeries.opacity = 1
 
     var animation = destinationCityCircle.show(1500 * tm)
 
@@ -551,7 +562,10 @@ body {
     polygonSeries.useGeodata = true
 
     polygonSeries.geodataSource.url = "https://www.amcharts.com/wp-content/uploads/assets/maps/worldCustomHigh.json"
-    polygonSeries.include = ["US", country.id]
+    // polygonSeries.geodataSource.url = "//www.amcharts.com/wp-content/uploads/assets/maps/worldCustomHigh.json"
+    // polygonSeries.include = ["US", country.id]
+    polygonSeries.include = ["MX", "SV", "CR", "PA", "NI", "HN", "GT"];
+
 
     polygonSeries.mapPolygons.template.fill = am4core.color("#2c3e50")
     polygonSeries.mapPolygons.template.stroke = am4core.color("#313950")
