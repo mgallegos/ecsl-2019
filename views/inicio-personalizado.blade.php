@@ -390,7 +390,7 @@ body {
     connectingLine.show();
     connectingLine.arrow.show();
 
-    footerLabel.text = "Bienvenido a Guatemala!";
+    footerLabel.text = "Este año el ECSL será en Guatemala!";
     footerLabel.zIndex = 10000;
     footerLabel.show();
 
