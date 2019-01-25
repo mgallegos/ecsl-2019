@@ -1,9 +1,6 @@
 @extends('ecsl-2019::base')
 
 @section('container')
-
-<<?php  header("Access-Control-Allow-Origin: *"); ?>
-
 <style>
 
 body {
@@ -21,8 +18,17 @@ body {
   //   }
   // });
 
+  jQuery.support.cors = true;
+
+
   var userCountryId = "US";
   // am4core.options.commercialLicense = true;
+
+  jQuery.getJSON( "https://services.amcharts.com/ip/?v=xz6Z", function( geo ) {
+    console.log('hola mundo');
+    console.log(geo);
+  });
+
 
   var ds = new am4core.DataSource();
   ds.url = "https://services.amcharts.com/ip/?v=xz6Z";
