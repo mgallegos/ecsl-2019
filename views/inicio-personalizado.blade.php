@@ -2,6 +2,8 @@
 
 @section('container')
 
+<<?php  header("Access-Control-Allow-Origin: *"); ?>
+
 <style>
 
 body {
@@ -12,6 +14,12 @@ body {
 </style>
 
 <script type="text/javascript">
+
+  // $.ajaxSetup({
+  //   headers: {
+  //       'X-CSRF-TOKEN': $('#app-token').val(),
+  //   }
+  // });
 
   var userCountryId = "US";
   // am4core.options.commercialLicense = true;
@@ -417,17 +425,21 @@ body {
     // plane.hide(0);
     plane.animate([{ property: "rotation", to: 360 }, { property: "scale", from: currentScale, to: 0.22 }], 1000 * tm, am4core.ease.quadOut);
     var animation = sfCircle.animate([{ property: "radius", to: 1000 }, { property: "opacity", to: 0 }], 1000 * tm);
-    animation.events.on("animationended", preStage7);
+    // animation.events.on("animationended", preStage7);
     // animation.events.on("animationended", plane.hide(0));
 
     // stage7();
+    preStage7()
   }
 
   function preStage7()
   {
+    console.log('entre 0');
+
     var polygon = polygonSeries.getPolygonById("GT")
 
     if (!polygon) {
+      console.log('entre 1');
       polygonSeries.geodataSource.events.on("ended", function() {
         setTimeout(function() {
           stage7()
@@ -435,6 +447,7 @@ body {
       })
     }
     else {
+      console.log('entre 2');
       stage7()
     }
   }
