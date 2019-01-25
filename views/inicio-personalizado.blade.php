@@ -149,7 +149,7 @@ body {
     footerLabel.y = am4core.percent(90);
     // footerLabel.fontSize = 60;
     // footerLabel.fill = am4core.color("#ffffff");
-    footerLabel.fill = am4core.color("#000000");
+    footerLabel.fill = am4core.color("#0a75da");
     footerLabel.verticalCenter = "middle";
     footerLabel.horizontalCenter = "middle";
     footerLabel.fillOpacity = 0.5;
@@ -432,10 +432,10 @@ body {
     // plane.hide(0);
     plane.animate([{ property: "rotation", to: 360 }, { property: "scale", from: currentScale, to: 0.22 }], 1000 * tm, am4core.ease.quadOut);
     var animation = sfCircle.animate([{ property: "radius", to: 1000 }, { property: "opacity", to: 0 }], 1000 * tm);
-    // animation.events.on("animationended", preStage7);
+    animation.events.on("animationended", stage7);
     // animation.events.on("animationended", plane.hide(0));
 
-    stage7();
+    // stage7();
     // preStage7()
   }
 
