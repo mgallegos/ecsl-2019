@@ -50,7 +50,6 @@
                 <a href="#cuota-de-participacion" class="list-group-item list-group-item-action py-2">Cuota de participación</a>
                 <a href="#paquete-en-swag" class="list-group-item list-group-item-action py-2">Paquete promocional</a>
                 <a href="#forma-de-pago" class="list-group-item list-group-item-action py-2">Forma de pago</a>
-                <a href="#formas-de-participacion" class="list-group-item list-group-item-action py-2">Formas de participación</a>
               </div>
             </div>
           </div>
@@ -151,7 +150,7 @@
             <div class="btn w-100" id="headingInfoESA" data-toggle="collapse" data-target="#collapseInfoESA" aria-expanded="false">
               <div class="row ">
                 <div class="col-8 text-left">
-                  <p class="font-weight-bold text-primary my-0">Acerca de El Salvador</p>
+                  <p class="font-weight-bold text-primary my-0">Acerca de Guatemala</p>
                 </div>
                 <div class="col-4 text-right">
                   <i class="fa fa-chevron-down text-secondary"></i>
@@ -165,8 +164,6 @@
             <div class="card-body p-0">
               <div class="list-group list-group-flush m-0">
                 <a href="#moneda-local" class="list-group-item list-group-item-action py-1">Moneda Local</a>
-                <a href="#electricidad" class="list-group-item list-group-item-action py-1">Electricidad</a>
-                <a href="#hospitales" class="list-group-item list-group-item-action py-1">Hospitales</a>
                 <a href="#telefonia" class="list-group-item list-group-item-action py-1">Telefonía</a>
                 <a href="#gastronomia" class="list-group-item list-group-item-action py-1">Gastronomía</a>
                 <a href="#condiciones-del-clima" class="list-group-item list-group-item-action py-1">Condiciones del Clima</a>
@@ -182,7 +179,7 @@
           <div class="card-header bg-white p-0 m-0 border-top ">
             <a href="#free-time" class="btn w-100 rounded-0">
               <div class="font-weight-bold text-primary text-left"  aria-expanded="false">
-                Opciones de Tiempo Libre</div>
+                Atracciones cerca del hotel</div>
             </a>
           </div>
 
@@ -222,36 +219,43 @@
         <div id="participacion" class="right-block">
           <h3 class="font-weight-bold">Participación</h3>
           <h4 class="display-6 font-italic font-weight-bold">Reseña</h4>
-          <p class="text-justify">El Encuentro Centroamericano de Software Libre (ECSL) es un evento anual organizado por la Comunidad Software Libre Centroamérica (SLCA). Reúne a representantes de comunidades de los siete países de la región, donde se intercambian experiencias,
-            se comparte conocimiento, se promueven proyectos gestionados por las comunidades locales, se establecen objetivos comunes y se plantean estrategias para promover la filosofía, la cultura, el desarrollo y el uso del Software Libre y de Código
-            Abierto. que se realiza desde el año 2009.
-            <br><br> A la fecha, se ha realizado en Nicaragua (2009), Costa Rica (2010), El Salvador (2011), Guatemala (2012), Belize (2013), Panamá (2014), Honduras (2015), Nicaragua (2016) y Costa Rica (2017). En su decima edición, se realizará en
-            la ciudad de San Salvador, El Salvador los días 12 y 13 de julio del 2019.
-            <br><br> Es un evento abierto para todo el público interesado en el aprender y compartir sobre diversas temáticas acerca de tecnologías libres pero principalmente sobre Software Libre, está es una celebración donde te encontraras con entusiastas,
-            estudiantes y profesionales; un espacio para relacionarte y hacer nuevas amistades y contactos que compartirán contigo la pasión por liberar el conocimiento para el beneficio de las personas.</p>
-
+          <p class="text-justify">
+            El Encuentro Centroamericano de Software Libre (ECSL) es un evento anual organizado por la Comunidad Software Libre Centroamérica (SLCA).
+            Reúne a representantes de comunidades de los siete países de la región, donde se intercambian experiencias, se comparte conocimiento, se
+            promueven proyectos gestionados por las comunidades locales, se establecen objetivos comunes y se plantean estrategias para promover la
+            filosofía, la cultura, el desarrollo y el uso del Software Libre y de Código Abierto. que se realiza desde el año 2009.
+            <br><br>
+            A la fecha, se ha realizado en Nicaragua (2009), Costa Rica (2010), El Salvador (2011), Guatemala (2012), Belize (2013), Panamá (2014),
+            Honduras (2015), Nicaragua (2016), Costa Rica (2017) y El Salvador (2018). En su undecima edición, se realizará en la ciudad de
+            Quetzaltenango, Guatemala los días 4, 6 y 6 de julio del 2019.
+            <br><br>
+            Es un evento abierto para todo el público interesado en el aprender y compartir sobre diversas temáticas acerca de tecnologías libres
+            pero principalmente sobre Software Libre, está es una celebración donde te encontraras con entusiastas, estudiantes y profesionales;
+            un espacio para relacionarte y hacer nuevas amistades y contactos que compartirán contigo la pasión por liberar el conocimiento para
+            el beneficio de las personas.
+          </p>
         </div>
 
         <div id="dinamica-del-evento" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Dinámica del Evento</h4>
-          <p class="text-justify">La agenda de actividades se extiende hasta los horarios nocturnos, por lo que es indispensable que quienes se inscriban sean mayores de edad o estén acompañados de sus tutores legales.</p>
 
           <p class="font-weight-bold">Para participar es requerido completar el proceso de registro.</p>
 
-          <p class="text-justify">El ECSL es un evento sin fines de lucro y es por medio de las cuotas de participación que se financian los equipos, herramientas, materiales, alimentación entre otras necesidades que requiere el poder realizarlo, también se cuenta con el aporte
-            que realizan diversas entidades patrocinadoras.</p>
-
+          <p class="text-justify">
+            El ECSL es un evento sin fines de lucro, pero se financian los equipos, herramientas, materiales, alimentación entre otras necesidades que
+            requiere el evento por medio de las cuotas de participación. Asi mismo se cuenta con el apoyo que realizan diversos patrocinadores.
+          </p>
         </div>
-
-
 
         <div id="cuota-de-participacion" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Cuota de Participación</h4>
           <!-- Content Row -->
           @include('ecsl-2019::paquetes-participacion')
           <br>
-          <p class="text-justify">La organización brindará información sobre hoteles cercanos a la sede para quienes la requieran, como una cortesía. Sin embargo, no se hará responsable de traslados ni depósitos de garantía que deban realizar quienes elijan la cuota parcial.</p>
-          <!-- /.row -->
+          <p class="text-justify">
+            La organización brindará información sobre hoteles cercanos a la sede para quienes la requieran, como una cortesía.
+            Sin embargo, no se hará responsable de traslados ni depósitos de garantía que deban realizar quienes elijan la cuota parcial.
+          </p>
         </div>
 
         <div id="paquete-en-swag" class="right-block">
@@ -264,22 +268,22 @@
               <div class="col-4 border border-bottom-0  text-center text-dark bg-gray font-weight-bold h4 py-3 mb-0 border-left-0">Completo</div>
             </div>
             <div class="row border border-bottom-0">
-              <div class="col-4 border-right  d-flex align-items-center justify-content-start  py-2">Camiseta</div>
+              <div class="col-4 border-right  d-flex align-items-center justify-content-start  py-2">Playera</div>
               <div class="col-4 border-right  d-flex align-items-center justify-content-center py-2"><i class="fa fa-check icon-check"></i></div>
               <div class="col-4 border-left   d-flex align-items-center justify-content-center py-2"><i class="fa fa-check icon-check"></i></div>
             </div>
             <div class="row border border-bottom-0   bg-light">
-              <div class="col-4 border-right  d-flex align-items-center justify-content-start py-2">Gafete con NFC</div>
+              <div class="col-4 border-right  d-flex align-items-center justify-content-start py-2">Gafete</div>
               <div class="col-4 border-right  d-flex align-items-center justify-content-center py-2"><i class="fa fa-check icon-check"></i></div>
               <div class="col-4 border-left  d-flex align-items-center justify-content-center py-2"><i class="fa fa-check icon-check"></i></div>
             </div>
             <div class="row border border-bottom-0">
-              <div class="col-4 border-right  d-flex align-items-center justify-content-start py-2">Sticker en vinil del evento</div>
+              <div class="col-4 border-right  d-flex align-items-center justify-content-start py-2">Sticker</div>
               <div class="col-4 border-right  d-flex align-items-center justify-content-center py-2"><i class="fa fa-times icon-null"></i></div>
               <div class="col-4 border-left  d-flex align-items-center justify-content-center py-2"><i class="fa fa-check icon-check"></i></div>
             </div>
             <div class="row border   bg-light">
-              <div class="col-4 border-right  d-flex align-items-center justify-content-start py-2">Recuerdo del evento (artesanía nacional)</div>
+              <div class="col-4 border-right  d-flex align-items-center justify-content-start py-2">Artesanía nacional</div>
               <div class="col-4 border-right  d-flex align-items-center justify-content-center py-2"><i class="fa fa-times icon-null"></i></div>
               <div class="col-4 border-left  d-flex align-items-center justify-content-center py-2 "><i class="fa fa-check icon-check"></i></div>
             </div>
@@ -289,8 +293,8 @@
                 <div class="card card1">
                   <h3 class="card-header text-center">Básico</h3>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Camiseta</li>
-                    <li class="list-group-item">Gafete con NFC</li>
+                    <li class="list-group-item">Playera</li>
+                    <li class="list-group-item">Gafete</li>
                   </ul>
                 </div>
               </div>
@@ -299,10 +303,10 @@
                 <div class="card">
                   <h3 class="card-header text-center">Completo</h3>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item ">Camiseta</li>
-                    <li class="list-group-item ">Gafete con NFC</li>
-                    <li class="list-group-item ">Sticker en vinil del evento</li>
-                    <li class="list-group-item ">Recuerdo del evento (artesanía nacional)</li>
+                    <li class="list-group-item ">Playera</li>
+                    <li class="list-group-item ">Gafete</li>
+                    <li class="list-group-item ">Sticker</li>
+                    <li class="list-group-item ">Artesanía nacional</li>
                   </ul>
                 </div>
               </div>
@@ -316,37 +320,35 @@
           <p>Proximamente se estará informando sobre los medios oficiales de pago de la cuota de inscripción al evento.</p>
         </div>
 
-        <div id="formas-de-participacion" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">Formas de Participación</h4>
-          <p>Proximamente se estará informando sobre los medios oficiales de participación en el ECSL con mayor detalle..</p>
-        </div>
-
         <hr>
 
         <div id="hospedaje-oficial" class="right-block">
           <h3 class="font-weight-bold">Hospedaje</h3>
-          <h4 class="display-6 font-italic font-weight-bold">Hospedaje Oficial (Centro Loyola)</h4>
-          <p class="text-justify">El Centro Loyola es el lugar donde se hospedaran los participantes que adquirieron su paquete completo de participación al ECSL está ubicado en Calle Teotl No.35, Colonia Altos de Guadalupe, Antiguo Cuscatlán, La Libertad, El Salvador a 20
-            minutos caminando de la Universidad Centroamericana “José Simeon Cañas” (UCA) sede del ECSL 2019.
-            <br><br> Estas son algunas de las características del alojamiento:
-            <ul>
-              <li>Acceso a internet por medio de red wifi.</li>
-              <li>Ocupación doble o triple, con baño propio.</li>
-              <li>Espacios comunes para socializar.</li>
-              <li>Ubicación en una zona tranquila y segura.</li>
-            </ul>
+          <h4 class="display-6 font-italic font-weight-bold">Hospedaje Oficial (Hotel Villa Real Plaza)</h4>
+          <p class="text-justify">
+            El Hotel Villa Real Plaza es el lugar donde se hospedaran los participantes que adquirieron su paquete completo de participación
+            al ECSL está ubicado en 4a Calle 12-22 Zona 1, Quetzaltenango 09001, Guatemala. Esta a 3 km (30 minutos caminando) de la Universidad
+            Mesoamericana sede del ECSL 2019.
 
+            <br><br> Estas son algunas de las características del alojamiento:
+
+            <ul>
+              <li>Restaurante.</li>
+              <li>Servicio de limpieza diario.</li>
+              <li>Caja fuerte en la recepción.</li>
+              <li>Lavandería.</li>
+              <li>Autoservicio.</li>
+              <li>Resguardo de equipaje.</li>
+              <li>Asistencia turística.</li>
+              <li>Wifi gratis.</li>
+              <li>Estacionamiento gratis.</li>
+            </ul>
           </p>
 
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.2521595938847!2d-89.23823788762095!3d13.671825544234894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6331cfc77882f9%3A0xdbc6907706f0e897!2sCentro+de+Retiro+San+Ignacio+de+Loyola!5e1!3m2!1sen!2sus!4v1516681227179"
-              width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1593.8033011907823!2d-91.5197648!3d14.8350115!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x846814725fb72a20!2sHotel+Villa+Real+Plaza!5e1!3m2!1ses-419!2ssv!4v1554412390584!5m2!1ses-419!2ssv" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
-          <br>
-          <p>
-            Si desea más detalles, puede utilizar esta información de contacto:<br><br> Teléfono: (+503) 2273-3803 <br> Correo electrónico: <a href="mailto:cloyolasj@gmail.com">cloyolasj@gmail.com</a>
-            <!-- Si desea más detalles, puede utilizar esta información de contacto:<br><br> Teléfono: (+503) 2273-3803 <br> Correo electrónico: <a href="mailto:cloyolasj@gmail.com">cloyolasj@gmail.com</a><br> Sitio web: <a target="_blank" href="http://centroloyolasj.blogspot.com/">Centro Loyola El Salvador</a>              <br> Fans Page: <a target="_blank" href="https://www.facebook.com/Centro-Loyola-El-Salvador-499360376842971/">Centro Loyola El Salvador</a> <br> -->
-          </p>
+{{--
           @if (!Agent::isMobile())
             <div class="row">
               <div class="col-md-12">
@@ -386,10 +388,9 @@
               </div>
             </div>
           </div>
-
-          @endif
+          @endif --}}
         </div>
-
+        <br>
         <div id="hospedaje-alternativo" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Hospedajes Alternativos</h4>
           <!-- <p class="text-justify">Si desea reservar un lugar de alojamiento por su cuenta, se le recomienda las siguientes alternativas:</p> -->
@@ -543,136 +544,49 @@
         </div>
         <hr>
 
-        <h3 class="font-weight-bold">Acerca de El Salvador</h3>
+        <h3 class="font-weight-bold">Acerca de Guatemala</h3>
 
         <div id="moneda-local" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Moneda local</h4>
           <p class="text-justify">
-            En El Salvador circulan los dólares estadounidenses de las siguientes denominaciones:
+            En Guatemala circula como moneda local el quetzal, y se manejan las siguientes denominaciones:
             <br><br>
-            Monedas: $0.01, $0.05, $0.10, $0.25 y $1.00.
+            Monedas: Q0.01, Q0.05, Q0.10, Q0.25, Q0.50 y Q1.00.
             <br>
-            Billetes: $1, $5, $10, $20, $50, $100.
+            Billetes: Q1, Q5, Q10, Q20, Q50, Q100, Q200.
             <br><br>
-            Nota: En algunos comercios pequeños del país no aceptan billetes de $50 y $100.
-            Sin embargo puede cambiarlos en cualquier banco o institución financiera.
+            Nota: En algunos comercios pequeños del país no aceptan billetes de Q100 y Q200. Sin embargo puede cambiarlos en cualquier
+            banco o institución financiera.
             <br><br>
-            La mayoría de los cajeros automáticos o ATMs aceptan Visa, MasterCard y Maestro.
-            Al cruzar la calle en una de las salidas de la sede del evento se encuentra un kiosco con cajeros automáticos
-            disponibles las 24 horas.
+            La mayoría de los cajeros automáticos o ATMs aceptan Visa y MasterCard.
+            Al cruzar el parque central de Quetzaltenango un kiosco con cajero automático disponible las 24 horas.
             <br><br>
-            Los impuestos de venta (13%) no siempre están incluidos en los precios que están a la vista
-            (revise el I.V.A. en el comprobante). En muchos bares y restaurantes se acostumbra a incluir el 10%
-            de propina, que según ley es voluntaria.
+            Los impuestos de venta (12%) no siempre están incluidos en los precios que están a la vista.
+            En muchos bares y restaurantes se acostumbra a incluir el 10% de propina, que según ley es voluntaria.
           </p>
 
-        </div>
-
-        <div id="electricidad" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">Electricidad</h4>
-          <p class="text-justify">
-            La electricidad en El Salvador es de 110 V, 60 Hz, para corriente de hasta 15 A.
-            Lo enchufes de energía usualmente son NEMA 5-15 (conectados a tierra) o más comúnmente NEMA 1-15
-            (sin conexión a tierra). Es similar a los EE.UU. pero recuerde que aún es común encontrar enchufes
-            sin conexión a tierra.
-          </p>
-
-        </div>
-
-        <div id="hospitales" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">Hospitales</h4>
-          <p class="text-justify">
-          Hospitales Nacionales:
-            <ul>
-              <li>
-                <p class="font-weight-bold mb-0">Hospital Nacional San Rafael</p>
-                <p class="">
-                  Teléfono: (+503) 2523-9500.<br>
-                  Dirección: Final 4° Calle Oriente 9-2 Santa Tecla, El Salvador, C.A.
-                  <a target="_blank" href="https://www.google.com.sv/maps/place/Hospital+Nacional+San+Rafael/@13.6709622,-89.2804583,17z/data=!3m1!4b1!4m5!3m4!1s0x8f632e5091bf2ec5:0x68b4bed2ba9cda53!8m2!3d13.670957!4d-89.2782696?hl=es&authuser=0">Ver mapa.</a>
-                  <br>Atención Emergencias 24 horas.
-                </p>
-              </li>
-
-              <li>
-                <p class="font-weight-bold mb-0">Hospital Nacional Rosales</p>
-                <p class="">
-                  Teléfono: (+503) 2231-9200.<br>
-                  Dirección: 25 Avenida Norte, entre 1a. Calle Poniente y Alameda Roosevelt, San Salvador.
-                  <a target="_blank" href="https://www.google.com.sv/maps/place/Hospital+Nacional+Rosales/@13.700507,-89.2081898,17z/data=!3m1!4b1!4m5!3m4!1s0x8f6330f44f2e7fa9:0x1ec72f9c5f736841!8m2!3d13.7005018!4d-89.2060011?hl=es&authuser=0">Ver mapa.</a>
-                  <br>Atención Emergencias 24 horas.
-                </p>
-              </li>
-            </ul>
-          Hospitales Privados: <br><br>
-            <ul>
-              <li>
-                <p class="font-weight-bold mb-0">Hospital Diagnostico</p>
-                  <p class="font-italic mb-0">Colonia Médica:</p>
-                  <p class="">
-                  Teléfono: (+503) 2505-5700 <br>
-                  Dirección: Diagonal Luis E. Vázquez N, 429, San Salvador.
-                  <a target="_blank" href="https://www.google.com.sv/maps/place/Hospital+de+Diagn%C3%B3stico/@13.7140042,-89.215297,15.5z/data=!4m5!3m4!1s0x8f63308c21dbbaf5:0x51b1d55e0cb30705!8m2!3d13.7101855!4d-89.2025052?hl=es&authuser=0">Ver mapa.</a>
-                  <br>Atención Emergencias 24 horas. <br>
-                  </p>
-                  <p class="font-italic mb-0">Colonia Escalón:</p>
-                  <p class="">
-                  Teléfono: (+503) 2506-2000 <br>
-                  Dirección: Paseo General Escalón, 99 avenida norte, Plaza Villavicencio, San Salvador.
-                  <a target="_blank" href="https://www.google.com.sv/maps/@13.7038167,-89.2467053,18z">Ver mapa.</a>
-                  <br>Atención Emergencias 24 horas.
-                </p>
-              </li>
-              <li>
-                <p class="font-weight-bold mb-0">Hospital de La Mujer</p>
-                <p class="">
-                  Teléfono: (+503) 2555 – 1215.<br>
-                  Dirección: 81 Avenida Sur y Calle Juan José Cañas, Colonia Escalón, San Salvador, El Salvador
-                  <a target="_blank" href="https://www.google.com.sv/maps/place/Hospital+de+la+Mujer/@13.701907,-89.237921,15z/data=!4m5!3m4!1s0x0:0x88ecec26420e18e7!8m2!3d13.701907!4d-89.237921">Ver mapa.</a>
-                  <br>Atención Emergencias 24 horas.
-                </p>
-              </li>
-            </ul>
-          Cabe mencionar que dentro de las instalaciones de la Universidad Centroamericana
-          “José Simeón Cañas”, sede del evento, se encuentra una clínica asistencial y servicio
-          de ambulancia en caso de emergencias.
-          </p>
         </div>
 
         <div id="telefonia" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Telefonía</h4>
           <p class="text-justify">
-            El codigo postal que le corresponde a El Salvador es +503.
+            El codigo postal que le corresponde a Guatemala es +502.
             <br>
-            Las compañías de telefonía e internet móvil que operan en El Salvador son:
+            Las compañías de telefonía e internet móvil que operan en Guatemala son:
           </p>
 
           <ul>
             <li class="text-justify">
-              <p class="font-weight-bold mb-0">Claro El Salvador:</p>
+              <p class="font-weight-bold mb-0">Claro Guatemala:</p>
               <p class="">
-                Más información en el <a target="_blank" href="http://www.claro.com.sv/personas/">sitio web de Claro.</a>
+                Más información en el <a target="_blank" href="https://www.claro.com.gt/personas/">sitio web de Claro.</a>
               </p>
             </li>
 
             <li class="text-justify">
-              <p class="font-weight-bold mb-0">Tigo El Salvador</p>
+              <p class="font-weight-bold mb-0">Tigo Guatemala</p>
               <p class="">
-                Más información en el <a target="_blank" href="https://www.tigo.com.sv/">sitio web de Tigo.</a>
-              </p>
-            </li>
-
-            <li class="text-justify">
-              <p class="font-weight-bold mb-0">Digicel El Salvador</p>
-              <p class="">
-                Más información en el <a target="_blank" href="https://www.digicelgroup.com/sv/es/mobile.html">sitio web de Digicel.</a>
-              </p>
-            </li>
-
-            <li class="text-justify">
-              <p class="font-weight-bold mb-0">Movistar El Salvador</p>
-              <p class="">
-                Más información en el <a target="_blank" href="https://www.movistar.com.sv/">sitio web de Movistar.</a>
+                Más información en el <a target="_blank" href="https://www.tigo.com.gt/">sitio web de Tigo.</a>
               </p>
             </li>
           </ul>
@@ -681,42 +595,31 @@
         <div id="gastronomia" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Gastronomía</h4>
           <p class="text-justify">
-            La gastronomía de El Salvador se basa en productos como el arroz, frijoles, maíz, carnes,
+            La gastronomía de Guatemala se basa en productos como el arroz, frijoles, maíz, carnes,
             ricas frutas y verduras, productos lacteos, además de pescados y mariscos.
-            </p>
+          </p>
           <p class="text-justify">
-           Entre sus platos típicos hay que destacar la pupusa, que es una tortilla de maíz rellena de queso,
-           frijoles o chicharrones, etre otros ingredientes. Frijoles con arroz, sopa de frijoles, tamales de
-           queso, pollo o gallina, las riguas, la yuca frita y en las bebidas los atoles que forman ya una
-           tradición en el paladar de los salvadoreños.
+            Entre sus platos típicos hay que destacar el kakik, pepian, jocon, chuchitos, tamales, fiambre, shucos
+            y en las bebidas los atoles de elote, arroz en leche, platano y de masa.
           </p>
         </div>
 
         <div id="condiciones-del-clima" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Condiciones del Clima</h4>
           <p class="text-justify">
-            A lo largo del año las temperaturas se mantienen entre los 18° y 35°. Tiene dos estaciones:
-            la seca (noviembre-abril) y la lluviosa (mayo-octubre).bPuedes consultar las condiciones del
-            clima de El Salvador en los siguientes enlaces:
-            <ul>
-              <li>
-                <a target="_blank" href="http://www.snet.gob.sv/ver/meteorologia/pronostico/48+horas/">SNET El Salvador</a>
-              </li>
-              <li>
-                <a target="_blank" href="https://weather.com/es-SV/tiempo/hoy/l/13.73,-89.16">Weather.com</a>
-              </li>
-            </ul>
+            A lo largo del año las temperaturas se mantienen entre los 18° y 35°.
           </p>
         </div>
 
         <div id="fumado" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Fumado y Tabaco</h4>
           <p class="text-justify">
-            La Universidad Centroamericana “José Simeón Cañas es una zona libre de tabaco, por ende los
-            salones de conferencia de la sede son áreas de no fumado. Usted puede fumar fuera de la sede.
+            La Universidad Mesoamericana es una zona libre de tabaco, por ende los salones de
+            conferencia de la sede son áreas de no fumado. Usted puede fumar fuera de la sede.
           </p>
           <p class="text-justify">
-            Según la legislación vigente no se permite fumar en las áreas interiores de  restaurantes y bares. Por cualquier duda, es mejor preguntar antes de encender un cigarrillo, aunque debería haber siempre letreros que lo indiquen.
+            Según la legislación vigente no se permite fumar en las áreas interiores de  restaurantes y bares. Por cualquier duda,
+            es mejor preguntar antes de encender un cigarrillo, aunque debería haber siempre letreros que lo indiquen.
           </p>
         </div>
 
@@ -725,130 +628,44 @@
           <p class="text-justify">
             La edad mínima que la ley establece para la compra de alcohol es 18 años. Es probable que se pida
             identificación al momento de realizar la compra en restaurantes, bares, supermercados u otros
-            establecimientos. El límite legal de concentración de alcohol en la sangre para conducir un vehículo
-            es de 0.03 %.
-          </p>
-          <p class="text-justify">
-            El precio promedio de una lata de cerveza es de $1.00 dólar  en supermercados y de $1.25 -2.25
-            dólares en restaurantes y bares. El vino es por lo general, más caro.
+            establecimientos.
           </p>
         </div>
 
         <div id="free-time" class="right-block">
-          <h3 class="font-weight-bold">Opciones de Tiempo Libre</h3>
+          <h3 class="font-weight-bold">Atracciones cerca del hotel</h3>
           <p class="text-justify">
-            Se recomienda visitar los siguientes lugares:
             <ul>
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">Multiplaza.</p>
-                  <p class="">
-                    Es uno de los más recientes centros comerciales. Se localiza en una zona muy céntrica y
-                    cuenta con una estructura arquitectónica atractiva. Está dividida en tres niveles en los
-                    que encontrarás tiendas de todo tipo como joyerías, zapaterías, tiendas de ropa,
-                    foodcourt, cine, bancos y muchas opciones de entretenimiento. Además, puedes disfrutar de
-                    promociones y eventos especiales. Cuenta con un amplio parqueo y seguridad. Se localiza
-                    sobre carretera Panamericana.
-                    Más información en el <a target="_blank" href="http://www.multiplaza.com/m/multiplaza-san-salvador">sitio web de Multiplaza.</a>
-                  </p>
-              </li>
-
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">La Gran Via</p>
-                <p class="">
-                  Es otra opción para visitar. Es de fácil acceso, con un buen ambiente, mucho estilo y opciones
-                  de entretenimiento. Bajo su concepto de Life Style Center, busca ofrecer a sus visitantes un
-                  espacio seguro, elegante y muy moderno. Cuenta con un espacio abierto para que puedas disfrutar
-                  de tomar un café al aire libre o caminar. Encontrarás un área solo de tiendas exclusivas, bancos,
-                  foodcourt y cine. Su parqueo es muy amplio. Dispone de cámara de vigilancia y servicio de seguridad.
-                  Más información en el <a target="_blank" href="http://www.lagranvia.com.sv/">sitio web de La Gran Via.</a>
-                </p>
-              </li>
-
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">Centro Comercial Metrocentro</p>
-                <p class="">
-                  Se localiza justo en el centro de San Salvador. Cuenta con una variedad de tiendas y
-                  establecimientos de servicios. Está dividida en 12 etapas y tiene alrededor de 500 locales.
-                  Encontrarás almacenes, foodcourt con establecimientos de comida rápida, cafés, zapaterías,
-                  tiendas de ropa, bancos, cajeros automáticos y otros. Tiene una capacidad de parqueo para un
-                  promedio de 2 mil 285 vehículos. En su infraestructura disponen de salas de cine y otros
-                  atractivos. Visítalos en Boulevard De Los Héroes, San Salvador.
-                  Más información en el <a target="_blank" href="http://metrocentro.com/m/metrocentro-san-salvador">sitio web de Metrocentro.</a>
-                </p>
-              </li>
-
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">Centro Comercial Galerias</p>
-                <p class="">
-                  Fue inaugurado en 1996 y desde la fecha se ha caracterizado por ser uno de los lugares más
-                  visitados. Cuenta con una gran variedad de establecimientos. Su construcción cuenta con
-                  características coloniales que hacen del lugar un espacio único. Tiene un centro financiero
-                  y una plaza de comida gourmet. Otro de sus atractivos es La Casona, que fue una casa construida
-                  en 1950 y fue restaurada para que fuera parte de la construcción del centro comercial.
-
-                  Más información en el <a target="_blank" href="http://www.galerias.com.sv/">sitio web de Galerias.</a>
-                </p>
-              </li>
-
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">Plaza Futura</p>
-                <p class="">
-                  Situada en el en el corazón del complejo financiero World Trade Center, corresponde a una atractiva
-                  explanada aterrazada de 3.000mt2 con locales comerciales y exclusivos restaurantes de gastronomía
-                  internacional.
-                </p>
-              </li>
-
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">Zona Rosa</p>
-                <p class="">
-                   Es uno de los lugares más populares por su vida nocturna. Si necesitas un lugar con opciones,
-                   la Zona Rosa es ideal. Se localiza en colonia San Benito. Tiene una oferta turística muy
-                   amplia, ya que la zona cuenta con hoteles, museos, bares, discotecas y restaurantes al escoger.
-                   Todo se encuentra a pocos minutos, así que puedes disfrutar de una deliciosa comida y luego moverte
-                   a una discoteca sin perder tiempo. Visita la Zona Rosa y disfruta de una noche inolvidable en San Salvador.
-                </p>
-              </li>
-
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">Jardin Botánico</p>
-                <p class="">
-                  Es un hermoso lugar que se encarga de preservar y dar a conocer la gran diversidad natural
-                  con la que cuenta la flora y fauna salvadoreña. Puedes hacer un recorrido por el lugar con un
-                  clima agradable y una hermosa vista. Además, aprovecha a visitar el Herbario LAGU que tiene
-                  una colección de 35 mil ejemplares herborizados. En el lugar disfrutarás de más de 3 mil 500
-                  especies exóticas, juegos infantiles, vivero y amplio parqueo. Visita sus instalaciones en Urb.
-                  Industrial Plan de La Laguna, AP 1197 CG, Antiguo. Cuscatlán La Libertad.
-                </p>
-              </li>
-
-              <li class="text-justify">
-                <p class="font-weight-bold mb-0">Planes de Renderos</p>
-                <p class="">
-                  Se localiza en el municipio de Panchimalco, departamento de San Salvador. Se encuentra a 9.5
-                  kilómetros al sureste de la capital. Se caracteriza por su clima templado y por contar con una
-                  diversidad de lugares para disfrutar del platillo más popular de El Salvador, las pupusas.
-                </p>
+              <li>
+                <p class="font-weight-bold mb-0">Parque central de Quetzaltenango: 1 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Centro Monseñor Romero (Dentro de la Universidad)</p>
+                <p class="font-weight-bold mb-0">Museo de Historia Natural: 2 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Parque Bicentenario</p>
+                <p class="font-weight-bold mb-0">Catedral de Quetzaltenango: 2 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Plaza de la Reconciliación</p>
+                <p class="font-weight-bold mb-0">Fábrica de productos textiles Trama Textiles: 3 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Plaza de la Transparencia</p>
+                <p class="font-weight-bold mb-0">Teatro Municipal: 5 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Museo del café (Centro ex Banco Hipotecario)</p>
+                <p class="font-weight-bold mb-0">Museo del ferrocarril de Los Altos: 24 minutos a pie.</p>
+              </li>
+
+              <li>
+                <p class="font-weight-bold mb-0">Parque Nacional Cerro El Baúl: 36 minutos a pie.</p>
+              </li>
+
+              <li>
+                <p class="font-weight-bold mb-0">Volcán Santa María: 7 km.</p>
               </li>
             </ul>
           </p>
@@ -867,8 +684,7 @@
               <li>Guarde una copia de su pasaporte y de demás documentos de importancia, en un lugar aparte, o en digital.</li>
               <li>En caso de emergencia llame a:
                   <ul>
-                    <li>911: Sistema de emergencias de El Salvador (no requiere línea telefónica activa).</li>
-                    <li>Por completar...</li>
+                    <li>122 y 123: Sistema de emergencias de Guatemala (no requiere línea telefónica activa)..</li>
                   </ul>
               </li>
             </ul>

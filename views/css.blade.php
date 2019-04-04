@@ -8,7 +8,8 @@
   }
 
   body {
-    padding-top: 55px;
+    padding-top: 68px;
+    overflow-x: hidden;
   }
 
   .card-logo{
@@ -621,6 +622,7 @@
   		margin-left: -1300px;
   		transform: scale(1.0);
   		transform-origin: bottom;
+      overflow-x: hidden;
   		z-index: 1;
   	}
   }

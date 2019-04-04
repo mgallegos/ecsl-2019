@@ -904,75 +904,39 @@ function getCountryById(id) {
     <div class="container">
       <div class="oadh-banner-description">
         <h2 class="website-description">XI Encuentro Centroamérica de Sofware Libre.</h2>
-        <p class="website-date">?, ? y ? de julio del 2019.</p>
-        <button class="btn-lg btn-welcome">Explorar</button>
+        <p class="website-date">4, 5 y 6 de julio del 2019.</p>
+        <button class="btn-lg btn-welcome" href="{{ URL::to('/registro')}}">Registrarme</button>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- <div class="ecsl-banner">
-  <div class="banner-wrapper">
-    <div id="chartdiv"></div>
-    <div class="container">
-      <div class="ecsl-banner-description">
-        <h2 class="font-weight-bold">XI Encuentro Centroamericano de <br> Sofware Libre.</h2>
-        <p class="font-weight-bold">?, ? y ? de julio del 2019</p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- CARRUSEL-->
-<!-- <header>
-  <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselIndicators" data-slide-to="1"></li>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-      <div class="carousel-item active" style="background-image: url('https://storage.googleapis.com/decimaerp/organizations/15/carousel2.jpg')"></div>
-
-      <div class="carousel-item" style="background-image: url('https://storage.googleapis.com/decimaerp/organizations/15/carousel3.jpg')"></div>
-
-    </div>
-
-
-
-    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-  </div>
-</header> -->
-
 <!--Acerca de-->
 <section class="">
-  <div class="jumbotron jumbotron-fluid bg-darkblue">
+  <div class="ecsl-about bg-darkblue py-5">
     <div class="container">
       <h2 class="text-center text-white"><strong>XI Encuentro Centroamericano de Software Libre</strong></h2>
-      <h4 class="text-center text-white font-weight-bold">?, ? y ? de julio del 2019</h4>
-      <p class="lead text-center text-white">El Encuentro Centroamericano de Software Libre (ECSL) es un evento anual organizado desde el año 2009 por y para la comunidad  de Software Libre Centroamérica (SLCA). El ECSL es una reunión de activistas e integrantes de comunidades y grupos de
-        usuarios/as que sirve como punto de encuentro y espacio de articulación, educación, coordinación e intercambio de ideas para fortalecer acuerdos y formas de trabajo conjuntas que faciliten la promoción del uso y desarrollo del Software Libre en
-        la región.</p>
-      <!-- <div id="btn-registration" class="text-center" style="margin:0 auto;">
-        <a class="btn btn-lg btn-outline-primary" href="{{ URL::to('/registro') }}">Registrarse</a>
-      </div> -->
+      <h4 class="text-center text-white font-weight-bold">4, 5 y 6 de julio del 2019</h4>
+      <p class="lead text-center text-white">
+        El Encuentro Centroamericano de Software Libre (ECSL) es un evento anual
+        organizado desde el año 2009 por y para la comunidad  de Software Libre Centroamérica (SLCA). El ECSL es una
+        reunión de activistas e integrantes de comunidades y grupos de usuarios/as que sirve como punto de encuentro
+        y espacio de articulación, educación, coordinación e intercambio de ideas para fortalecer acuerdos y formas
+        de trabajo conjuntas que faciliten la promoción del uso y desarrollo del Software Libre en la región.
+      </p>
     </div>
   </div>
 </section>
+
+<div class="ecsl-canvas-wrap">
+  <canvas id="ecsl-canvas"></canvas>
+</div>
 
 <!-- Page Content -->
 <div class="container">
 
   <!-- Marketing Icons Section -->
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-lg-4 mb-4">
       <div class="card">
         <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" data-toggle="lightbox" data-gallery="youtubevideos">
@@ -1018,36 +982,22 @@ function getCountryById(id) {
         </div>
       </div>
     </div>
-    <!-- <div class="col-lg-4 mb-4">
-      <div class="card h-100">
-        <h4 class="card-header">Card Title</h4>
-        <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary">Learn More</a>
-        </div>
-      </div>
-    </div> -->
-
   </div>
   <!-- /.row -->
   <div class="row mb-4">
     <div class="col-md-8">
-      <p class="text-center">¡Conoce los países y lugares en los que el Encuentro Centroamericano de Software Libre se ha venido realizando desde al año 2009 y no pierdas la oportunidad de participar en la décima edición del evento El Salvador 2019!</p>
+      <p class="text-center">¡Conoce los países y lugares en los que el Encuentro Centroamericano de Software Libre se ha venido realizando
+        desde al año 2009 y no pierdas la oportunidad de participar en la décima primera edición del evento en Guatemala!</p>
     </div>
     <div class="col-md-4">
       <a class="btn btn-lg btn-outline-primary btn-block" href="{{URL::to('cms/eventos-anteriores')}}">Ver todos los eventos anteriores</a>
     </div>
   </div>
-
-  <!-- <hr> -->
 </div>
-<!-- /.container -->
 
 <!--Informacion General-->
 <section class="about-us section-padding">
-  <div class="jumbotron jumbotron-fluid bg-darkblue">
+  <div class="bg-darkblue py-5">
     <div class="container">
       <h2 class="display-5 text-center text-white">Información General</h2><br>
       <div class="row">
@@ -1082,7 +1032,7 @@ function getCountryById(id) {
 </section>
 
 <!-- Page Content -->
-<div class="container">
+<div class="container py-5">
 
 
   <!-- Portfolio Section -->

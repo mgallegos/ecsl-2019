@@ -17,6 +17,7 @@
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 	<script src="https://www.amcharts.com/lib/3/themes/light.js"></script> -->
+
 	<!-- AmChart -->
 	<script src="https://www.amcharts.com/lib/4/core.js"></script>
 	<script src="https://www.amcharts.com/lib/4/maps.js"></script>
@@ -32,7 +33,9 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
 
 	@include('ecsl-2019::css')
+	@include('ecsl-2019::css-remaster')
 	@include('ecsl-2019::js')
+	@include('ecsl-2019::js-remaster')
 
 	<script>
 	  window.dataLayer = window.dataLayer || [];
