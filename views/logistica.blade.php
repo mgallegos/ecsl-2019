@@ -93,7 +93,7 @@
         </div>
 
         <!-- Movilizacion -->
-        <div class="card border-0">
+        {{-- <div class="card border-0">
           <div class="card-header bg-white p-0 m-0 border-top">
             <div class="btn w-100" id="headingMovilizacion" data-toggle="collapse" data-target="#collapseMovilizacion" aria-expanded="false">
               <div class="row ">
@@ -116,9 +116,29 @@
               </div>
             </div>
           </div>
+        </div> --}}
+
+        <div class="card border-0">
+          <div class="card-header bg-white p-0 m-0 border-top">
+            <a href="#movilizacion" class="btn w-100 rounded-0">
+              <div class="font-weight-bold text-primary text-left" aria-expanded="false">
+                Movilización</div>
+            </a>
+          </div>
+
         </div>
 
-          <!-- Opcion de Viaje -->
+        <div class="card border-0">
+          <div class="card-header bg-white p-0 m-0 border-top">
+            <a href="#aereo" class="btn w-100 rounded-0">
+              <div class="font-weight-bold text-primary text-left" aria-expanded="false">
+                Información de viaje</div>
+            </a>
+          </div>
+
+        </div>
+
+          {{-- <!-- Opcion de Viaje -->
           <div class="card border-0">
             <div class="card-header bg-white p-0 m-0">
               <div class="btn w-100" id="headingTravelInfo" data-toggle="collapse" data-target="#collapseTravelInfo" aria-expanded="false">
@@ -142,7 +162,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
 
         <!-- Informacion de El Salvador-->
         <div class="card border-0">
@@ -227,7 +247,7 @@
             <br><br>
             A la fecha, se ha realizado en Nicaragua (2009), Costa Rica (2010), El Salvador (2011), Guatemala (2012), Belize (2013), Panamá (2014),
             Honduras (2015), Nicaragua (2016), Costa Rica (2017) y El Salvador (2018). En su undecima edición, se realizará en la ciudad de
-            Quetzaltenango, Guatemala los días 4, 6 y 6 de julio del 2019.
+            Quetzaltenango, Guatemala los días 4, 5 y 6 de julio del 2019.
             <br><br>
             Es un evento abierto para todo el público interesado en el aprender y compartir sobre diversas temáticas acerca de tecnologías libres
             pero principalmente sobre Software Libre, está es una celebración donde te encontraras con entusiastas, estudiantes y profesionales;
@@ -400,14 +420,12 @@
         <hr>
 
         <div id="sede-oficial" class="right-block">
-          <h3 class="font-weight-bold">Sede Oficial (UCA)</h3>
-          <p class="text-justify">El evento se llevará a cabo en el Edificio ICAS de la Universidad Centroamericana “José Simeon Cañas” (UCA) los días 12 y 13 de Julio del 2019, su ubicación es en El Bulevar Los Próceres, Antiguo Cuscatlán, La Libertad, El Salvador, Centroamérica.
-            <br><br> La Universidad Centroamericana “José Simeon Cañas” (UCA) cuenta con un campus de 148,351.20 metros cuadrados, aproximadamente 21 manzanas.</p>
-
+          <h3 class="font-weight-bold">Sede Oficial <small>(Universidad Mesoamericana Sede Quetzaltenango)</small></h3>
+          <p class="text-justify">El evento se llevará a cabo en la Universidad Mesoamericana Sede Quetzaltenango los días 4, 5 y 6 de Julio del 2019, su ubicación es en 3ª. calle 14-36 y 14-03 zona 3, Quezaltenango, Quetzaltenango, Guatemala.</p>
           <p>
-            Si desea más detalles, puede utilizar esta información de contacto:<br><br> Teléfono: (+503) 2210-6600 <br> Correo electrónico: <a href="direccion.comunicaciones@uca.edu.sv">direccion.comunicaciones@uca.edu.sv</a>.<br> Sitio web: <a target="_blank" href="http://www.uca.edu.sv/">Universidad Centroamericana “José Simeon Cañas”</a>              <br> Fans Page: <a target="_blank" href="https://www.facebook.com/UCA.ElSalvador">UCA El Salvador</a> <br>
+            Si desea más detalles, puede utilizar esta información de contacto:<br>Teléfono: (+502) 7932-9000 <br> Sitio web: <a target="_blank" href="https://www.umes.edu.gt/sedes/sede-quetzaltenango/">Universidad Mesoamericana Sede Quetzaltenango”</a> <br>
           </p>
-
+{{--
           @if (!Agent::isMobile())
             <div class="row">
               <div class="col-md-12">
@@ -446,8 +464,7 @@
                 </div>
               </div>
             </div>
-          @endif
-
+          @endif --}}
         </div>
 
         <hr>
@@ -455,13 +472,12 @@
         <div id="movilizacion" class="right-block">
           <h3 class="font-weight-bold">Movilización</h3>
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d9220.383720812502!2d-89.24185015400008!3d13.67637323291067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8f6331cfc77882f9%3A0xdbc6907706f0e897!2sCentro+de+Retiro+San+Ignacio+de+Loyola%2C+Santa+Tecla!3m2!1d13.671825799999999!2d-89.2360495!4m5!1s0x8f6331cd305c735b%3A0x3d2a75b3761d4ded!2sUniversidad+Centroamericana+Jos%C3%A9+Sime%C3%B3n+Ca%C3%B1as%2C+Bulevar+Los+Proceres%2C+San+Salvador!3m2!1d13.6810526!2d-89.2357263!5e0!3m2!1ses!2ssv!4v1519789042093"
-              width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d7713.510774269914!2d-91.52319297551706!3d14.838980508604031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x858e980352666293%3A0x846814725fb72a20!2sHotel+Villa+Real+Plaza%2C+4a+Calle%2C+Quezaltenango!3m2!1d14.8350624!2d-91.51839149999999!4m5!1s0x858ea2ab00334b2f%3A0xb70aba74577dd282!2sUniversidad+Mesoamericana%2C+3a+Calle%2C+Quezaltenango!3m2!1d14.842735099999999!2d-91.5181092!5e0!3m2!1ses-419!2ssv!4v1554522153833!5m2!1ses-419!2ssv" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
           <p class="text-justify">Para movilizarse del lugar de hospedaje hacia la sede del ECSL-2019 existen varias opciones que se describen a continuación:</p>
         </div>
 
-        <div id="a-pie" class="right-block">
+        {{-- <div id="a-pie" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">A pie</h4>
           <p class="text-justify">
             Desde el hospedaje oficial a la sede del evento no hay más de 15 minutos caminando.
@@ -498,25 +514,22 @@
           <p>
             Para consultar estimación de tarifas, puede dirigirse a <a target="_blank" href="https://www.uber.com/es-ES/fare-estimate/">este enlace.</a>
           </p>
-        </div>
+        </div> --}}
 
         <hr>
 
         <div id="aereo" class="right-block">
           <h3 class="font-weight-bold">Información de viaje</h3>
-          <h4 class="display-6 font-italic font-weight-bold">Aérea</h4>
-          <p class="text-justify">La forma más rápida para llegar a El Salvador es por avión. El Salvador cuenta con el aeropuerto Internacional Monseñor Romero que se encuentra a 45 minutos de la sede del evento en cualquier automovil.
-            <br><br> Del aeropuerto puede tomar un taxi hacia el Centro Loyola. Los taxis en El Salvador no cuentan con taxímetro y la tarifa se negocia con el taxista antes de abordar el vehículo. También puede optar por el servicio de UBER para dirigirse
-            hacia el lugar de hospedaje.</p>
+          {{-- <h4 class="display-6 font-italic font-weight-bold">Aérea</h4> --}}
+          <p class="text-justify">Existen diversas empresas de buses, los cuales cuentan con traslado desde la Ciudad de Guatemala y la ciudad de Quetzaltenango. El costo aproximado es de Q70.00 ($10).</p>
 
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d248225.3098415193!2d-89.14756444999999!3d13.564982550000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8f7cb68084f5c48f%3A0xaff9539ed52e360d!2sAeropuerto+Internacional+de+El+Salvador!3m2!1d13.445137899999999!2d-89.0570357!4m5!1s0x8f6331cd305c735b%3A0x3d2a75b3761d4ded!2sUniversidad+Centroamericana+Jos%C3%A9+Sime%C3%B3n+Ca%C3%B1as%2C+Bulevar+Los+Proceres%2C+San+Salvador!3m2!1d13.6810526!2d-89.2357263!5e0!3m2!1ses!2ssv!4v1516678435332"
-              width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d987423.9913337226!2d-91.58127000713635!3d14.818242926549749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8589a15f18a23e65%3A0xa8d9f9b1ae2d4eca!2sAeropuerto+Internacional+La+Aurora%2C+Guatemala!3m2!1d14.5840977!2d-90.5276868!4m5!1s0x858e97fe3fc89d3f%3A0x3ba7ff011f0f000f!2sQuezaltenango!3m2!1d14.8446068!2d-91.5231866!5e0!3m2!1ses-419!2ssv!4v1554522255980!5m2!1ses-419!2ssv" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
         </div>
 
         <br>
-        <div id="terrestre" class="right-block">
+        {{-- <div id="terrestre" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Terrestre</h4>
           <p class="text-justify">Llegar a San Salvador por tierra es la opción más viable para las personas que vienen de los países centroamericanos, aconsejamos verificar precios y asegúrese de consultar las promociones y descuentos especiales directamente con cada empresa
             de transporte.</p>
@@ -541,7 +554,7 @@
             </li>
           </ul>
 
-        </div>
+        </div> --}}
         <hr>
 
         <h3 class="font-weight-bold">Acerca de Guatemala</h3>
