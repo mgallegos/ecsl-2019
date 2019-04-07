@@ -26,7 +26,7 @@
           <img src="https://storage.googleapis.com/decimaerp/organizations/15/ECSL_2018_036.jpg" class="card-img-top img-fluid">
         </a>
         <div class="card-body">
-          <h5 id="ecsl-2017-card-title" class="card-title text-center">X ECSL 2017 <br> San Salvador, El Salvador</h5>
+          <h5 id="ecsl-2018-card-title" class="card-title text-center">X ECSL 2018 <br> San Salvador, El Salvador</h5>
           <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
           <a href="http://ecsl2018.softwarelibre.ca/" target="_blank" class="btn btn-outline-primary">Ver sitio web</a>
           <!-- <a href="https://www.youtube.com/watch?v=gY9b9RMMqCU" class="btn btn-outline-primary" data-toggle="lightbox">Ver video</a> -->

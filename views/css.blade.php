@@ -582,7 +582,7 @@
   	.oadh-banner .banner-wrapper .oadh-banner-description {
   		width: 30%;
   		z-index: 100;
-  		margin-top: 20%;
+      margin-top: 100px;
   		position: absolute;
   	}
 
@@ -640,7 +640,7 @@
   	.oadh-banner .banner-wrapper .oadh-banner-description {
   		width: 30%;
   		z-index: 100;
-  		margin-top: 15%;
+      margin-top: 100px;
   		position: absolute;
   	}
 

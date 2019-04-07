@@ -47,7 +47,7 @@
 
       <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="Two">
         <div class="card-body">
-          El Encuentro Centroamericano de Software Libre 2019 se realizará en la ciudad de San Salvador, El Salvador los días 12, 13 y 14 de julio del 2019.
+          El Encuentro Centroamericano de Software Libre 2019 se llevará a cabo en la Universidad Mesoamericana Sede Quetzaltenango los días 4, 5 y 6 de Julio del 2019, su ubicación es en 3ª. calle 14-36 y 14-03 zona 3, Quezaltenango, Quetzaltenango, Guatemala.
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
 
       <div id="collapseThee" class="collapse show" role="tabpanel" aria-labelledby="Thee">
         <div class="card-body">
-          Puede consultar los temas a tratar en el apartado de  <a href="{{URL::to('cms/ejes-tematicos')}}">Ejes Tematicos.</a>
+          Puede consultar los temas a tratar en el apartado de  <a href="{{URL::to('cms/ejes-tematicos')}}">Ejes Temáticos.</a>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
     <div class="card">
       <div class="card-header" role="tab" id="Five">
         <h5 class="mb-0">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">¿Tiene un costo la participación al X ECSL?</a>
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">¿Tiene un costo la participación al XI ECSL?</a>
         </h5>
       </div>
 

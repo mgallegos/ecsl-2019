@@ -33,9 +33,7 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
 
 	@include('ecsl-2019::css')
-	@include('ecsl-2019::css-remaster')
 	@include('ecsl-2019::js')
-	@include('ecsl-2019::js-remaster')
 
 	<script>
 	  window.dataLayer = window.dataLayer || [];

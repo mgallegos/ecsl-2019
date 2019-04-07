@@ -650,35 +650,35 @@
           <p class="text-justify">
             <ul>
               <li>
-                <p class="font-weight-bold mb-0">Parque central de Quetzaltenango: 1 minutos a pie.</p>
+                <p class="mb-0">Parque central de Quetzaltenango: 1 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Museo de Historia Natural: 2 minutos a pie.</p>
+                <p class="mb-0">Museo de Historia Natural: 2 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Catedral de Quetzaltenango: 2 minutos a pie.</p>
+                <p class="mb-0">Catedral de Quetzaltenango: 2 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Fábrica de productos textiles Trama Textiles: 3 minutos a pie.</p>
+                <p class="mb-0">Fábrica de productos textiles Trama Textiles: 3 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Teatro Municipal: 5 minutos a pie.</p>
+                <p class="mb-0">Teatro Municipal: 5 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Museo del ferrocarril de Los Altos: 24 minutos a pie.</p>
+                <p class="mb-0">Museo del ferrocarril de Los Altos: 24 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Parque Nacional Cerro El Baúl: 36 minutos a pie.</p>
+                <p class="mb-0">Parque Nacional Cerro El Baúl: 36 minutos a pie.</p>
               </li>
 
               <li>
-                <p class="font-weight-bold mb-0">Volcán Santa María: 7 km.</p>
+                <p class="mb-0">Volcán Santa María: 7 km.</p>
               </li>
             </ul>
           </p>

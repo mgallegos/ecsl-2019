@@ -104,6 +104,8 @@ body {
     // header label
     headerLabel = mainContainer.createChild(am4core.TextLink)
     headerLabel.fill = am4core.color("#ffffff");
+    headerLabel.background.fill = am4core.color("#2b3e50");//nuevo
+    headerLabel.background.fillOpacity = 1;
 
     headerLabel.fontSize = 20;
     //headerLabel.isMeasured = false;
@@ -121,7 +123,7 @@ body {
     var triangle2 = new am4core.Triangle();
     triangle2.width = 8;
     triangle2.height = 10;
-    triangle2.fill = am4core.color("#ffffff");
+    triangle2.fill = am4core.color("#fff62e");
     triangle2.direction = "right";
     triangle2.valign = "middle";
     triangle2.align = "center";
@@ -149,10 +151,11 @@ body {
     footerLabel.y = am4core.percent(90);
     // footerLabel.fontSize = 60;
     // footerLabel.fill = am4core.color("#ffffff");
-    footerLabel.fill = am4core.color("#0a75da");
+    // footerLabel.fill = am4core.color("#0a75da");
+    footerLabel.fill = am4core.color("#ffffff");
     footerLabel.verticalCenter = "middle";
     footerLabel.horizontalCenter = "middle";
-    footerLabel.fillOpacity = 0.5;
+    // footerLabel.fillOpacity = 0.5;
     footerLabel.fontSize = 30;
     footerLabel.hide(0);
 
@@ -241,21 +244,22 @@ body {
       pieChart.defaultState.transitionEasing = am4core.ease.elasticOut
 
       pieChart.data = [{
-        "answer": "Linux Mint",
-        "value": 400,
-        "fontColor": am4core.color("#222a3f")
-      }, {
         "answer": "Ubuntu",
-        "value": 200,
-        "radius": 10
+        "value": 106
+        // "fontColor": am4core.color("#222a3f")
       }, {
         "answer": "Debian",
-        "value": 40,
-        "disabled": true
+        "value": 97,
+        "radius": 10
+      }, {
+        "answer": "Linux Mint",
+        "value": 42
+      }, {
+        "answer": "CentOS",
+        "value": 36
       }, {
         "answer": "Fedora",
-        "value": 30,
-        "disabled": true
+        "value": 20
       }]
 
       pieSeries = pieChart.series.push(new am4charts.PieSeries())
@@ -282,11 +286,18 @@ body {
       //this makes initial animation from bottom
       pieSeries.hiddenState.properties.dy = 400
       pieSeries.defaultState.transitionEasing = am4core.ease.elasticOut
-      pieSeries.defaultState.transitionDuration = 3500 * tm
+      pieSeries.defaultState.transitionDuration = 7500 * tm
     }
 
     pieChart.hide(0)
     pieChart.show()
+
+    footerLabel.text = "Las 5 distribuciones Linux más utilizadas por la comunidad";
+    footerLabel.background.fill = am4core.color("#2b3e50");//nuevo
+    footerLabel.background.fillOpacity = 1;
+    footerLabel.zIndex = 10000;
+    footerLabel.fontSize = 20;
+    footerLabel.show();
 
     pieSeries.hide(0)
     var animation = pieSeries.show()
@@ -299,6 +310,7 @@ body {
   }
 
   function stage1 () {
+    footerLabel.hide();
     var series = pieChart.series.getIndex(0)
     var firstDataItem = series.dataItems.getIndex(0)
 
@@ -390,8 +402,11 @@ body {
     connectingLine.show();
     connectingLine.arrow.show();
 
-    footerLabel.text = "Este año el ECSL será en Guatemala!";
+    footerLabel.text = "¡Este año el ECSL será en Guatemala!";
+    footerLabel.background.fill = am4core.color("#2b3e50");//nuevo
+    footerLabel.background.fillOpacity = 1;
     footerLabel.zIndex = 10000;
+    footerLabel.fontSize = 30;
     footerLabel.show();
 
     var showed = false;
@@ -590,6 +605,9 @@ body {
     cityLabel.dx = 15
     cityLabel.dy = -1
     cityLabel.fontSize = 16
+    cityLabel.fill = am4core.color("#ffffff");
+    cityLabel.background.fill = am4core.color("#2b3e50");//nuevo
+    cityLabel.background.fillOpacity = 1;
     cityLabel.hiddenState.properties.dy = 100
     cityLabel.hide(0)
 
@@ -615,6 +633,9 @@ body {
     destinationCityLabel.dx = 15
     destinationCityLabel.dy = -1
     destinationCityLabel.fontSize = 16
+    destinationCityLabel.fill = am4core.color("#ffffff");
+    destinationCityLabel.background.fill = am4core.color("#2b3e50");//nuevo
+    destinationCityLabel.background.fillOpacity = 1;
     destinationCityLabel.hiddenState.properties.dy = 100
     destinationCityLabel.hide(0)
 
@@ -644,6 +665,9 @@ body {
     sfLabel.hiddenState.properties.dy = 100;
     sfLabel.hide(0);
     sfLabel.fontSize = 18;
+    sfLabel.fill = am4core.color("#ffffff");
+    sfLabel.background.fill = am4core.color("#2b3e50");//nuevo
+    sfLabel.background.fillOpacity = 1;
 
     sfCircle = sfCity.createChild(am4core.Circle);
     sfCircle.fill = colorSet.getIndex(2);
@@ -791,7 +815,7 @@ var countries =
     { id: "CU", city: "Havana", latitude: 23.1167, longitude: -82.35 },
     { id: "HR", city: "Zagreb", latitude: 45.8, longitude: 16 },
     { id: "CI", city: "Yamoussoukro", latitude: 6.8167, longitude: -5.2667 },
-    { id: "CR", city: "San Jose", latitude: 9.9333, longitude: -84.0833 },
+    { id: "CR", city: "San José", latitude: 9.9333, longitude: -84.0833 },
     { id: "CG", city: "Brazzaville", latitude: -4.25, longitude: 15.2833 },
     { id: "CD", city: "Kinshasa", latitude: -4.3167, longitude: 15.3 },
     { id: "CO", city: "Bogota", latitude: 4.6, longitude: -74.0833 },
@@ -903,8 +927,11 @@ function getCountryById(id) {
     <div id="map-preview"></div>
     <div class="container">
       <div class="oadh-banner-description">
-        <h2 class="website-description">XI Encuentro Centroamérica de Sofware Libre.</h2>
-        <p class="website-date">4, 5 y 6 de julio del 2019.</p>
+        <!-- <h2 class="website-description">XI Encuentro Centroamérica de Sofware Libre.</h2> -->
+        <h2 class="website-description">
+          <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/logo_ecsl_2019_medium.png" class="img-fluid">
+        </h2>
+        <p class="website-date" style="color: #ff690d;">4, 5 y 6 de julio del 2019.</p>
         <button class="btn-lg btn-welcome" href="{{ URL::to('/registro')}}">Registrarme</button>
       </div>
     </div>
@@ -928,9 +955,9 @@ function getCountryById(id) {
   </div>
 </section>
 
-<div class="ecsl-canvas-wrap">
+<!-- <div class="ecsl-canvas-wrap">
   <canvas id="ecsl-canvas"></canvas>
-</div>
+</div> -->
 
 <!-- Page Content -->
 <div class="container">
@@ -1043,7 +1070,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/255x122'>
+            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
           </a>
         </div>
         <div class="card-body">
@@ -1059,7 +1086,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/255x122'>
+            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
           </a>
         </div>
         <div class="card-body">
@@ -1075,7 +1102,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/255x122'>
+            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
           </a>
         </div>
         <div class="card-body">
@@ -1091,7 +1118,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/255x122'>
+            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
           </a>
         </div>
         <div class="card-body">

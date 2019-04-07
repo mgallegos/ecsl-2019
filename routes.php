@@ -114,30 +114,39 @@ $ecslsv =  function ()
 
 		Route::get('/cms/agenda', function()
 		{
-			$app = $this->app;
-			$presentationId = Session::get('presentationId', '');
-			$PresentationManagerService = $app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\PresentationManagement\PresentationManagementInterface');
-			$OpenCmsManagerService = $app->make('Ecsl2019OpenCmsManagementInterface');
-			$presentationTitle = $presentationDescription = '';
-
-			if(!empty($presentationId))
-			{
-				$Presentation = $PresentationManagerService->getPresentation($presentationId, 'ecsl2019');
-				$presentationTitle = $Presentation->name;
-				$presentationDescription = $Presentation->description;
-			}
 			// var_dump($PresentationManagerService->getPresentationsWithSpeaker(1, 15, true, 'ecsl2019', false));
 			// var_dump($PresentationManagerService->getPresentationsWithSpeakerAndSchedule(1, 15, true, 'ecsl2019', false));
 
 			return View::make('ecsl-2019::agenda')
-				->with('presentationId', $presentationId)
-				->with('ogTitle', $presentationTitle)
-				->with('ogDescription', $presentationDescription)
-				->with('presentationId', $presentationId)
-				->with('usersData', $OpenCmsManagerService->getUsersRegistrationData())
-				// ->with('presentations', $PresentationManagerService->getPresentationsWithSpeaker(1, 15, true, 'ecsl2019', false))
-				->with('presentationsBySchedule', $PresentationManagerService->getPresentationsWithSpeakerAndSchedule(1, 15, true, 'ecsl2019', false));
+				->with('presentationId', '');
 		});
+		//
+		// Route::get('/cms/agenda', function()
+		// {
+		// 	$app = $this->app;
+		// 	$presentationId = Session::get('presentationId', '');
+		// 	$PresentationManagerService = $app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\PresentationManagement\PresentationManagementInterface');
+		// 	$OpenCmsManagerService = $app->make('Ecsl2019OpenCmsManagementInterface');
+		// 	$presentationTitle = $presentationDescription = '';
+		//
+		// 	if(!empty($presentationId))
+		// 	{
+		// 		$Presentation = $PresentationManagerService->getPresentation($presentationId, 'ecsl2019');
+		// 		$presentationTitle = $Presentation->name;
+		// 		$presentationDescription = $Presentation->description;
+		// 	}
+		// 	// var_dump($PresentationManagerService->getPresentationsWithSpeaker(1, 15, true, 'ecsl2019', false));
+		// 	// var_dump($PresentationManagerService->getPresentationsWithSpeakerAndSchedule(1, 15, true, 'ecsl2019', false));
+		//
+		// 	return View::make('ecsl-2019::agenda')
+		// 		->with('presentationId', $presentationId)
+		// 		->with('ogTitle', $presentationTitle)
+		// 		->with('ogDescription', $presentationDescription)
+		// 		->with('presentationId', $presentationId)
+		// 		->with('usersData', $OpenCmsManagerService->getUsersRegistrationData())
+		// 		// ->with('presentations', $PresentationManagerService->getPresentationsWithSpeaker(1, 15, true, 'ecsl2019', false))
+		// 		->with('presentationsBySchedule', $PresentationManagerService->getPresentationsWithSpeakerAndSchedule(1, 15, true, 'ecsl2019', false));
+		// });
 
 		Route::post('/cms/presentaciones', function()
 		{
