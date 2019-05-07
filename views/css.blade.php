@@ -46,6 +46,14 @@
     padding: 0 3rem;
   }
 
+  img.grayscale {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
   .card-payment-deck .card-deck .card{
     cursor: pointer;
   }
@@ -487,7 +495,7 @@
     }
 
     .main-icons {
-      font-size: 8em !important;
+      font-size: 7em !important;
       color: #fff;
     }
 
@@ -533,7 +541,7 @@
     }
 
     .main-icons {
-      font-size: 12em !important;
+      font-size: 10em !important;
       color: #fff;
     }
     .icon-check{

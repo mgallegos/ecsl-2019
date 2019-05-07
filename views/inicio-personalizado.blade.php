@@ -1070,7 +1070,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
+            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
@@ -1086,7 +1086,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
+            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
@@ -1102,7 +1102,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
+            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
@@ -1118,7 +1118,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
+            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
