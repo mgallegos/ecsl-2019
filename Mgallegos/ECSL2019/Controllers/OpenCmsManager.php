@@ -145,8 +145,8 @@ class OpenCmsManager extends Controller {
 
 	public function getIndex()
 	{
-		$redirectToLogin = $this->Session->get('ECSL2019login', false);
-		$redirectToRegistro = $this->Session->get('ECSL2019registro', false);
+		$redirectToLogin = $this->Session->get('ecslLogin', false);
+		$redirectToRegistro = $this->Session->get('ecslRegistro', false);
 		$rememberToken = $this->Input->get('rptoken', false);
 		$redirectToPago = false;
 		$payment = $arrivingTransportationRequest = $leavingTransportationRequest = array();

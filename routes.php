@@ -23,7 +23,7 @@
 
 // var_dump(Request::getHost());
 
-$ecslsv =  function ()
+$ecsl =  function ()
 {
 		Route::get('/ecsltest', function()
 		{
@@ -189,6 +189,6 @@ $ecslsv =  function ()
 
 };
 
-Route::group(['domain' => 'localhost'], $ecslsv);
-Route::group(['domain' => 'app.decimaerp.com'], $ecslsv);
-Route::group(['domain' => 'ecsl2019.softwarelibre.ca'], $ecslsv);
+Route::group(['domain' => 'localhost'], $ecsl);
+Route::group(['domain' => 'app.decimaerp.com'], $ecsl);
+Route::group(['domain' => 'ecsl2019.softwarelibre.ca'], $ecsl);
