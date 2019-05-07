@@ -150,227 +150,6 @@
 
   }
 
-
-
-  @media (min-width: 576px) and (max-width: 767.98px) {
-    .card-header-logo {
-      height: 192px;
-    }
-  }
-
-  @media (max-width: 767.98px) {
-    body {
-      margin-bottom: 112px;
-    }
-
-    .footer {
-      height: 112px;
-    }
-
-    .collage {
-      -moz-column-count:    3;
-      -webkit-column-count: 3;
-      column-count:         3;
-    }
-    header.masthead .intro-lead-in {
-      font-size: 15px;
-      text-shadow: 3px 3px 2px #696;
-      font-style: italic;
-      line-height: 15px;
-      margin-bottom: 10px;
-    }
-
-    header.masthead .intro-heading {
-      font-size: 20px;
-      text-shadow: 3px 3px 2px #696;
-      line-height: 20px;
-      margin-bottom: 15px;
-    }
-
-  }
-
-  @media (min-width: 768px) {
-
-    body {
-      margin-bottom: 56px;
-    }
-
-    .footer {
-      height: 56px;
-    }
-
-    .card-header-logo {
-      height: 152px;
-    }
-
-    .collage{
-      -moz-column-count:    3;
-      -webkit-column-count: 3;
-      column-count:         3;
-    }
-  }
-
-  @media (max-width: 991px) {
-    #btn-registration {
-      width: 100%;
-    }
-
-    #btn-registration > a{
-      white-space: normal;
-    }
-
-    .main-icons {
-      font-size: 8em !important;
-      color: #fff;
-    }
-
-    .back-to-top{
-      display:block;
-      font-size: 4em;
-      color: #000000;
-      position: fixed;
-      bottom: 5px;
-      right: 10px;
-      cursor:pointer;
-    }
-
-    .icon-check{
-      font-size: 1.5rem !important;
-      color: #088c11;
-      float:right;
-    }
-
-    .icon-null{
-      font-size: 1.5rem !important;
-      color: #fe0000;
-      float:right;
-    }
-
-    .share-buttons{
-  		text-align: left;
-  	}
-
-    .fb-share-button{
-  		float: left;
-  	}
-  	.twitter-share-button{
-  		float: left;
-  		margin-left: 5px;
-  	}
-
-
-  }
-
-  @media (min-width: 992px) {
-
-    #ecsl-2017-card-title {
-      height: 48px;
-    }
-
-    .main-icons {
-      font-size: 12em !important;
-      color: #fff;
-    }
-    .icon-check{
-      font-size: 1rem !important;
-      color: #088c11;
-      float:right;
-    }
-
-    .icon-null{
-      font-size: 1rem !important;
-      color: #fe0000;
-      float:right;
-    }
-
-    .side-bar{
-      position: fixed;
-      width: auto;
-    }
-
-    .side-bar-sticky{
-      position: sticky;
-      width: auto;
-      top: 0px;
-    }
-
-    .card1{
-      margin-left: 10px
-    }
-
-    #rowContainer .col-lg-3{
-      padding-left: 0px;
-    }
-
-    #rowContainer .p-0{
-      padding: 0rem !important;
-    }
-
-    #rowContainer .m-2{
-      margin: .0rem !important;
-    }
-
-    .share-buttons{
-  		text-align: right;
-  	}
-
-    .fb-share-button{
-  		float: right;
-  	}
-
-  	.twitter-share-button{
-  		float: right;
-  		margin-right: 5px;
-  	}
-
-  }
-
-  @media (min-width: 992px) and (max-width: 1199px){
-    #btn-registration {
-      width: 45%;
-    }
-
-    .collage{
-      -moz-column-count:    4;
-      -webkit-column-count: 4;
-      column-count:         4;
-    }
-  }
-
-  @media (min-width: 1200px) {
-
-    #btn-registration {
-      width: 40%;
-    }
-
-    .card-header-logo {
-      height: 213px;
-    }
-
-    .collage{
-      -moz-column-count:    4;
-      -webkit-column-count: 4;
-      column-count:         4;
-    }
-  }
-
-  @media (max-width: 575px) {
-    .card-header-logo {
-      height: 192px;
-    }
-
-    .footer {
-      line-height: 30px !important;
-    }
-
-    .collage {
-      -moz-column-count:    2;
-      -webkit-column-count: 2;
-      column-count:         2;
-    }
-
-  }
-
   .carousel-item {
     height: 65vh;
     min-height: 300px;
@@ -421,10 +200,6 @@
     text-shadow: 3px 3px 2px #696;
   }
 
-
-
-
-
   /* Banner styles */
 
   .oadh-banner {
@@ -441,7 +216,6 @@
 
   .oadh-banner .banner-wrapper .oadh-website-map {
   	margin-top: 5%;
-
   }
 
   .oadh-banner .banner-wrapper .oadh-banner-description {
@@ -470,9 +244,26 @@
 
 
   /* RESPONSIVE */
+
+  @media (max-width: 575px) {
+    .card-header-logo {
+      height: 192px;
+    }
+
+    .footer {
+      line-height: 30px !important;
+    }
+
+    .collage {
+      -moz-column-count:    2;
+      -webkit-column-count: 2;
+      column-count:         2;
+    }
+
+  }
+
   @media (max-width: 575.98px) {
   	.oadh-banner {
-  		width: 100%;
   		height: auto;
   		margin-top: 12%
   	}
@@ -514,6 +305,11 @@
   }
 
   @media (min-width: 576px) and (max-width: 767.98px) {
+
+    .card-header-logo {
+      height: 192px;
+    }
+
   	.oadh-banner {
   		width: 100%;
   		height: auto;
@@ -567,6 +363,60 @@
   		transform-origin: top;
   		z-index: 1;
   	}
+  }
+
+  @media (min-width: 768px) {
+
+    body {
+      margin-bottom: 56px;
+    }
+
+    .footer {
+      height: 56px;
+    }
+
+    .card-header-logo {
+      height: 152px;
+    }
+
+    .collage{
+      -moz-column-count:    3;
+      -webkit-column-count: 3;
+      column-count:         3;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+
+    body {
+      margin-bottom: 112px;
+    }
+
+    .footer {
+      height: 112px;
+    }
+
+    .collage {
+      -moz-column-count:    3;
+      -webkit-column-count: 3;
+      column-count:         3;
+    }
+
+    header.masthead .intro-lead-in {
+      font-size: 15px;
+      text-shadow: 3px 3px 2px #696;
+      font-style: italic;
+      line-height: 15px;
+      margin-bottom: 10px;
+    }
+
+    header.masthead .intro-heading {
+      font-size: 20px;
+      text-shadow: 3px 3px 2px #696;
+      line-height: 20px;
+      margin-bottom: 15px;
+    }
+
   }
 
   @media (min-width: 725.98px) and (max-width: 991.98px) {
@@ -627,8 +477,139 @@
   	}
   }
 
+  @media (max-width: 991px) {
+    #btn-registration {
+      width: 100%;
+    }
+
+    #btn-registration > a{
+      white-space: normal;
+    }
+
+    .main-icons {
+      font-size: 8em !important;
+      color: #fff;
+    }
+
+    .back-to-top{
+      display:block;
+      font-size: 4em;
+      color: #000000;
+      position: fixed;
+      bottom: 5px;
+      right: 10px;
+      cursor:pointer;
+    }
+
+    .icon-check{
+      font-size: 1.5rem !important;
+      color: #088c11;
+      float:right;
+    }
+
+    .icon-null{
+      font-size: 1.5rem !important;
+      color: #fe0000;
+      float:right;
+    }
+
+    .share-buttons{
+      text-align: left;
+    }
+
+    .fb-share-button{
+      float: left;
+    }
+    .twitter-share-button{
+      float: left;
+      margin-left: 5px;
+    }
+  }
+
   @media (min-width: 992px) {
-  	.oadh-banner {
+
+    #ecsl-2017-card-title {
+      height: 48px;
+    }
+
+    .main-icons {
+      font-size: 12em !important;
+      color: #fff;
+    }
+    .icon-check{
+      font-size: 1rem !important;
+      color: #088c11;
+      float:right;
+    }
+
+    .icon-null{
+      font-size: 1rem !important;
+      color: #fe0000;
+      float:right;
+    }
+
+    .side-bar{
+      position: fixed;
+      width: auto;
+    }
+
+    .side-bar-sticky{
+      position: sticky;
+      width: auto;
+      top: 0px;
+    }
+
+    .card1{
+      margin-left: 10px
+    }
+
+    #rowContainer .col-lg-3{
+      padding-left: 0px;
+    }
+
+    #rowContainer .p-0{
+      padding: 0rem !important;
+    }
+
+    #rowContainer .m-2{
+      margin: .0rem !important;
+    }
+
+    .share-buttons{
+      text-align: right;
+    }
+
+    .fb-share-button{
+      float: right;
+    }
+
+    .twitter-share-button{
+      float: right;
+      margin-right: 5px;
+    }
+
+  	#map-preview {
+  		width: 2600px;
+  		height: 600px;
+  		position: absolute;
+  		top: 0%;
+  		left: 45%;
+  		margin-left: -1300px;
+  	}
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    #btn-registration {
+      width: 45%;
+    }
+
+    .collage{
+      -moz-column-count:    4;
+      -webkit-column-count: 4;
+      column-count:         4;
+    }
+
+    .oadh-banner {
   		width: 100%;
   		height: 600px;
   	}
@@ -670,14 +651,65 @@
   	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome:hover {
   		background-color: #222222;
   	}
+  }
 
-  	#map-preview {
-  		width: 2600px;
+  @media (min-width: 1200px) {
+
+    #btn-registration {
+      width: 40%;
+    }
+
+    .card-header-logo {
+      height: 213px;
+    }
+
+    .collage{
+      -moz-column-count:    4;
+      -webkit-column-count: 4;
+      column-count:         4;
+    }
+
+    .oadh-banner {
+  		width: 100%;
   		height: 600px;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-website-map {
+  		margin-top: 5%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description {
+  		width: 20%;
+  		z-index: 100;
+      margin-top: 100px;
   		position: absolute;
-  		top: 0%;
-  		left: 45%;
-  		margin-left: -1300px;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description p {
+  		color: #2c3e50;
+  		font-weight: 600;
+  		margin-top: 15px;
+  		text-align: justify;
+  		font-size: 12pt;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-description {
+  		width: 100%;
+  		font-size: 2.1em;
+  		text-align: left;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .website-date{
+  		width: 100%;
+  		text-align: center;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome {
+  		width: 100%;
+  	}
+
+  	.oadh-banner .banner-wrapper .oadh-banner-description .btn-welcome:hover {
+  		background-color: #222222;
   	}
   }
 

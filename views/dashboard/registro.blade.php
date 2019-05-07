@@ -465,7 +465,7 @@
             </div>
           </div>
 
-          <div class="form-group mg-hm alert alert-success">
+          <!-- <div class="form-group mg-hm alert alert-success">
             <label><strong>Día social</strong></label>
             <hr style="margin-top:0;margin-bottom: .5rem;"/>
             <div class="row">
@@ -477,7 +477,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="form-group mg-hm alert alert-warning">
             <label><strong>Privacidad</strong></label>
