@@ -1030,21 +1030,21 @@ function getCountryById(id) {
       <div class="row">
         <div class="col-12 col-sm-6 text-center col-md-3">
           <a href="{{URL::to('cms/logistica')}}" class="text-white">
-                  <i class="fa fa-user-circle-o main-icons" aria-hidden="true"></i> <h3>Participación</h3>
+                  <i class="fa fa-info main-icons" aria-hidden="true"></i> <h3>Logística</h3>
                 </a>
         </div>
 
 
         <div class="col-12 col-sm-6 text-center col-md-3">
-          <a href="{{URL::to('cms/logistica')}}" class="text-white">
-                <i class="fa fa-bed main-icons" aria-hidden="true"></i><h3>Hospedaje</h3>
+          <a href="{{URL::to('cms/ejes-tematicos')}}" class="text-white">
+                <i class="fa fa-list-ul main-icons" aria-hidden="true"></i><h3>Ejes temáticos</h3>
               </a>
         </div>
 
 
         <div class="col-12 col-sm-6 text-center col-md-3">
-          <a href="{{URL::to('cms/logistica')}}" class="text-white">
-                <i class="fa fa-university main-icons" aria-hidden="true"></i><h3>Sede</h3>
+          <a href="{{URL::to('cms/eventos-anteriores')}}" class="text-white">
+                <i class="fa fa-calendar main-icons" aria-hidden="true"></i><h3>Eventos anteriores</h3>
                 </a>
         </div>
 
@@ -1070,7 +1070,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
+            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
@@ -1086,7 +1086,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
+            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
@@ -1102,7 +1102,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
+            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
@@ -1118,7 +1118,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid" src='http://placehold.it/384x250'>
+            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
           </a>
         </div>
         <div class="card-body">
