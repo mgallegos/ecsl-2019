@@ -9,6 +9,16 @@
       <div class="row">
         <div class="col-md-12">
 
+          <div id="alert-ecsl2018" class="form-group mg-hm alert alert-success">
+            <label><strong>¿Participaste en el ECSL 2018?</strong></label>
+            <hr style="margin-top:0;margin-bottom: .5rem;"/>
+            <div class="row">
+              <div class="col-12">
+                <p>Haz clic <a href="#" onclick="alert('hola')">aquí</a> para importar tus datos</p>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <!--Firstname -->
             <div class="col-lg-6 col-md-12">
@@ -55,13 +65,13 @@
 
             <!-- Password Confirmation -->
             <div class="col-lg-6 col-md-12">
-              <div id="reg-confirm-password-col" class="form-group mg-hm">
+              <div id="reg-password-confirmation-col" class="form-group mg-hm">
                 <label for="reg-password-confirmation">Confirmar contraseña</label>
                 <div class="input-group">
                   <span class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-key"></i></div>
                   </span>
-                  {!! Form::password('reg-confirm-password', array('id'=>'reg-confirm-password', 'class'=>'form-control', 'data-mg-required'=>'')) !!}
+                  {!! Form::password('reg-password-confirmation', array('id'=>'reg-password-confirmation', 'class'=>'form-control', 'data-mg-required'=>'')) !!}
                 </div>
               </div>
             </div>
@@ -129,34 +139,35 @@
               <div class="form-group mg-hm">
                 <label for="reg-country">País</label>
                 @if (!Agent::isMobile())
-                  {!! Form::autocomplete('reg-country', array('Argentina','Belize','Bolivia','Brazil','Chile','Cuba','Costa Rica','Colombia','Ecuador','Estados Unidos de América','El Salvador','French Guiana','Guyana','Guatemala','Honduras','Mexico','Nicaragua','Panama','Paraguay','Peru','Suriname','Uruguay','Venezuela'), array('class' => 'form-control', 'data-mg-required'=>''), null, null, null, null, null, null, 'btn-outline-secondary', '4') !!}
+                  {!! Form::autocomplete('reg-country-label', $countries, array('class' => 'form-control', 'data-mg-required' => '', 'data-default-id'=> ''), 'reg-country-label', 'reg-country-id', null, null, null, 10, 'btn-outline-secondary', '4') !!}
+                  {!! Form::hidden('reg-country-id', null, array('id'  => 'reg-country-id')) !!}
             		@else
-                  {!! Form::select('reg-country', array(
-                    'Argentina' => 'Argentina',
-                    'Belize'  => 'Belize',
-                    'Bolivia' => 'Bolivia',
-                    'Brazil' => 'Brazil',
-                    'Chile' => 'Chile',
-                    'Cuba' => 'Cuba',
-                    'Costa Rica' => 'Costa Rica',
-                    'Colombia' => 'Colombia',
-                    'Ecuador' => 'Ecuador',
-                    'Estados Unidos de América' => 'Estados Unidos de América',
-                    'El Salvador' => 'El Salvador',
-                    'French Guiana' => 'French Guiana',
-                    'Guyana' => 'Guyana',
-                    'Guatemala' => 'Guatemala',
-                    'Honduras' => 'Honduras',
-                    'Mexico' => 'Mexico',
-                    'Nicaragua' => 'Nicaragua',
-                    'Panama' => 'Panama',
-                    'Paraguay' => 'Paraguay',
-                    'Peru' => 'Peru',
-                    'Suriname' => 'Suriname',
-                    'Uruguay' => 'Uruguay',
-                    'Venezuela' => 'Venezuela')
+                  {!! Form::select('reg-country-id', array(
+                    'Argentina' => '11',
+                    'Belize'  => '35',
+                    'Bolivia' => '28',
+                    'Brazil' => '29',
+                    'Chile' => '44',
+                    'Cuba' => '49',
+                    'Costa Rica' => '48',
+                    'Colombia' => '47',
+                    'Ecuador' => '60',
+                    'Estados Unidos de América' => '224',
+                    'El Salvador' => '202',
+                    'French Guiana' => '77',
+                    'Guyana' => '90',
+                    'Guatemala' => '87',
+                    'Honduras' => '93',
+                    'Mexico' => '150',
+                    'Nicaragua' => '158',
+                    'Panama' => '166',
+                    'Paraguay' => '179',
+                    'Peru' => '167',
+                    'Suriname' => '200',
+                    'Uruguay' => '225',
+                    'Venezuela' => '229')
                     , null,
-                    array('id'=>'reg-country', 'class'=>'form-control', 'data-mg-required'=>''))
+                    array('id'=>'reg-country-id', 'class'=>'form-control', 'data-mg-required'=>''))
                   !!}
             		@endif
               </div>
@@ -345,6 +356,11 @@
                     <input id='reg-participated-in-ecsl2017' class="form-check-input" type="checkbox" value=""> Costa Rica 2017
                   </label>
                 </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input id='reg-participated-in-ecsl2018' class="form-check-input" type="checkbox" value=""> El Salvador 2018
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -451,7 +467,7 @@
             </div>
           </div>
 
-          <div class="form-group mg-hm alert alert-success">
+          <!-- <div class="form-group mg-hm alert alert-success">
             <label><strong>Competencia de seguidores en línea</strong></label>
             <hr style="margin-top:0;margin-bottom: .5rem;"/>
             <div class="row">
@@ -463,7 +479,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- <div class="form-group mg-hm alert alert-success">
             <label><strong>Día social</strong></label>

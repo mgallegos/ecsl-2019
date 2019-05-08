@@ -39,7 +39,7 @@
             <span class="input-group-prepend">
               <div class="input-group-text"><i class="fa fa-key"></i></div>
             </span>
-            {!! Form::password('pass-confirm-password', array('id'=>'pass-confirm-password', 'class'=>'form-control', 'data-mg-required'=>'', 'placeholder' => 'Digite su contraseña nuevamente para confirmarla. ')) !!}
+            {!! Form::password('pass-password-confirmation', array('id'=>'pass-password-confirmation', 'class'=>'form-control', 'data-mg-required'=>'', 'placeholder' => 'Digite su contraseña nuevamente para confirmarla. ')) !!}
             </div>
         </div>
         {!! Form::button('Enviar', array('id'=>'pass-btn', 'class'=>'btn btn-dark', 'style' => 'display:block;')) !!}

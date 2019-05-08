@@ -121,7 +121,14 @@ class ECSL2019ServiceProvider extends ServiceProvider {
 					$app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface'),
 					$app->make('App\Kwaai\Security\Services\JournalManagement\JournalManagementInterface'),
 					new \App\Kwaai\Helpers\Gravatar(),
+					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\UserManagement\UserManagementInterface'),
 					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\SettingManagement\SettingManagementInterface'),
+					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\PaymentManagement\PaymentManagementInterface'),
+					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\TransportationRequestManagement\TransportationRequestManagementInterface'),
+					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\PresentationManagement\PresentationManagementInterface'),
+					$app->make('Mgallegos\DecimaSale\Sale\Services\ClientManagement\ClientManagementInterface'),
+					$app->make('Mgallegos\DecimaSale\Sale\Services\OrderManagement\SaleOrderManagementInterface'),
+					$app->make('Mgallegos\DecimaFile\File\Services\FileManagement\FileManagementInterface'),
 					$app->make('App\Kwaai\Security\Repositories\Journal\JournalInterface'),
 					$app->make('App\Kwaai\Organization\Repositories\Organization\OrganizationInterface'),
 					$app->make('App\Kwaai\System\Repositories\Currency\CurrencyInterface'),
@@ -144,13 +151,7 @@ class ECSL2019ServiceProvider extends ServiceProvider {
 					$app['db'],
 					$app['mailer'],
 					new Carbon(),
-					$app->make('dompdf.wrapper'),
-					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\PaymentManagement\PaymentManagementInterface'),
-					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\TransportationRequestManagement\TransportationRequestManagementInterface'),
-					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\PresentationManagement\PresentationManagementInterface'),
-					$app->make('Mgallegos\DecimaSale\Sale\Services\ClientManagement\ClientManagementInterface'),
-					$app->make('Mgallegos\DecimaSale\Sale\Services\OrderManagement\SaleOrderManagementInterface'),
-					$app->make('Mgallegos\DecimaFile\File\Services\FileManagement\FileManagementInterface')
+					$app->make('dompdf.wrapper')
 			);
 		});
 	}

@@ -144,8 +144,8 @@ class EloquentRegistrationForm implements RegistrationFormInterface {
             'u.firstname',
             'u.lastname',
             'u.email',
-            'rf.country',
-            'rf.institution'
+            'u.country_id AS country',
+            'u.institution'
           )
         )
     );
@@ -179,8 +179,8 @@ class EloquentRegistrationForm implements RegistrationFormInterface {
             'u.firstname',
             'u.lastname',
             'u.email',
-            'rf.country',
-            'rf.institution'
+            'u.country_id AS country',
+            'u.institution'
           )
         )
     );
