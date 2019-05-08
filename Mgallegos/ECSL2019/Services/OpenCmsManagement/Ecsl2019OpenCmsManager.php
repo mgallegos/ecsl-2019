@@ -762,7 +762,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 		$this->Mailer->queue('ecsl-2019::emails.registro', array('addressee' => $context['firstname']), function($message) use ($context, $subject, $replyToEmail, $replyToName)
 		{
 			$message->to($context['email'])->subject($subject)->replyTo($replyToEmail, $replyToName)
-				// ->cc('ecsl2019@softwarelibre.ca')
+				->cc('ecsl2019@softwarelibre.ca')
 				->bcc('mgallegos@decimaerp.com');
 		});
 
