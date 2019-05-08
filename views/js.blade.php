@@ -223,7 +223,7 @@
 
 		wow.init();
 
-		$('#ob-fa-form, #login-form, #pass-form, #reg-form, #pay-form, #pon-form, #trans-from-form, #trans-to-form').jqMgVal('addFormFieldsValidations');
+		$('#ob-fa-form, #login-form, #pass-form, #reg-form, #pay-form, #pon-form, #trans-from-form, #trans-to-form, #reg-imp-form').jqMgVal('addFormFieldsValidations');
 
 		$(window).bind('resize', function()
 		{
@@ -831,6 +831,53 @@
 	          $('#reg-form').showServerErrorsByField(json.fieldValidationMessages, 'reg-');
 	        }
 
+					$('#app-loader').addClass('hidden-xs-up');
+					enableAll();
+				}
+			});
+		});
+
+		$('#reg-imp-btn-import').click(function()
+		{
+			$('#reg-imp-form-alert').remove();
+
+			if(!$('#reg-imp-form').jqMgVal('isFormValid'))
+			{
+				return;
+			}
+
+			$.ajax(
+			{
+				type: 'POST',
+				data: JSON.stringify($('#reg-imp-form').formToObject('reg-imp-')),
+				dataType : 'json',
+				url: $('#reg-imp-form').attr('action'),
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					handleServerExceptions(jqXHR, 'reg-imp-form');
+				},
+				beforeSend:function()
+				{
+					$('#app-loader').removeClass('hidden-xs-up');
+					disabledAll();
+				},
+				success:function(json)
+				{
+					if(json.message != 'success')
+					{
+						$('#reg-imp-form').showAlertAsFirstChild('alert-info',json.message, 7000);
+						$('#app-loader').addClass('hidden-xs-up');
+						enableAll();
+					}
+					else
+					{
+						populateFormFields(json.user, 'reg-');
+						$('#reg-registration-form-id').val('');
+						$('#reg-user-id').val('');
+						$('#reg-birth-date').val('');
+					}
+
+					$('#reg-imp-modal').modal('hide')
 					$('#app-loader').addClass('hidden-xs-up');
 					enableAll();
 				}

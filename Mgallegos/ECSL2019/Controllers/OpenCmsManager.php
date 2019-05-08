@@ -256,6 +256,16 @@ class OpenCmsManager extends Controller {
 	}
 
 	/**
+	 * Handle a POST request for import user
+	 *
+	 * @return Response
+	 */
+	public function postImport()
+	{
+		return $this->OpenCmsManagerService->importLastYearData( $this->Input->json()->all() );
+	}
+
+	/**
 	 * Handle a POST request for user registration.
 	 *
 	 * @return Response
@@ -264,6 +274,7 @@ class OpenCmsManager extends Controller {
 	{
 		return $this->OpenCmsManagerService->create( $this->Input->json()->all() );
 	}
+
 	/**
 	 * Handle a POST request for user registration.
 	 *

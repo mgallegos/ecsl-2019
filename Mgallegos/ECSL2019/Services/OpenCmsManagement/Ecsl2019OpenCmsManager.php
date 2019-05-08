@@ -585,6 +585,65 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
     }
   }
 
+  /**
+	 * Import last year data
+	 *
+	 * @param array $input
+	 * 	An array as array('email' => $email, 'password' => $password)
+	 *
+	 * @return JSON encoded string
+	 *  A string as follows:
+	 *  In case of success: {"message":"success","url":"$url"}
+	 *  In case of failure: {"message":"$failAuthAttemptMessage"}
+	 */
+	public function importLastYearData(array $input)
+	{
+		if (!isset($input['kwaai_name'])) {
+				$this->Log->warning('[SECURITY EVENT] CMS kwaai_name not set', array('url' => ''));
+			}
+
+		$this->rules = array(
+			'kwaai_name' => 'honeypot',
+			'kwaai_time' => 'required|honeytime:2'
+		);
+
+		$data = array(
+			'kwaai_name' => $input['kwaai_name'],
+			'kwaai_time' => $input['kwaai_time'],
+		);
+
+		if ($this->with($data)->fails()) {
+				$this->Log->warning('[SECURITY EVENT] CMS kwaai_time validation failed!', array('url' => ''));
+			}
+
+		$User = $this->User->byEmail($input['email'], 'ecsl2018')->first();
+
+		if (!empty($User) && $this->Hash->check($input['password'], $User->password))
+		{
+			if(!empty($this->eventId) && $this->UserEvent->byUserIdByEventIdByOrganizationId($User->id, 1, 15, 'ecsl2018')->isEmpty())
+			{
+				$this->Log->info('[SECURITY EVENT] CMS Failed Login Attempt', array('email' => $input['email']));
+
+				return json_encode(array('message' => $this->Lang->get('security/login.failAuthAttempt')));
+			}
+
+			$RegistrationForm = $this->RegistrationForm->byUserId($User->id, 'ecsl2018')->first();
+			$registrationForm = $RegistrationForm->toArray();
+			$registrationForm['registration_form_id'] = $registrationForm['id'];
+			$user = $User->toArray();
+
+			unset($user['password']);
+
+			$this->Log->info('[SECURITY EVENT] CMS User imported', array('email' => $input['email']));
+
+			return json_encode(array('message' => 'success', 'user' => array_merge($user, $registrationForm)));
+		}
+
+		$this->Log->info('[SECURITY EVENT] CMS Failed Login Attempt', array('email' => $input['email']));
+
+		return json_encode(array('message' => $this->Lang->get('security/login.failAuthAttempt')));
+	}
+
 	/**
 	 * Create a new CMS User.
 	 *
@@ -703,7 +762,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 		$this->Mailer->queue('ecsl-2019::emails.registro', array('addressee' => $context['firstname']), function($message) use ($context, $subject, $replyToEmail, $replyToName)
 		{
 			$message->to($context['email'])->subject($subject)->replyTo($replyToEmail, $replyToName)
-				->cc('ecsl2019@softwarelibre.ca')
+				// ->cc('ecsl2019@softwarelibre.ca')
 				->bcc('mgallegos@decimaerp.com');
 		});
 

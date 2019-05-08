@@ -5,16 +5,16 @@
       {!! Honeypot::generate('fc-kwaai-name', 'fc-kwaai-time') !!}
       <!-- <div class="alert alert-dark" role="alert">
         <h6 class="card-title mb-0">Complete el formulario para poder realizar el pago y proponer una o más ponencias.</h6>
-      </div> -->
+      </div> ff7a28-->
       <div class="row">
         <div class="col-md-12">
 
           <div id="alert-ecsl2018" class="form-group mg-hm alert alert-success">
-            <label><strong>¿Participaste en el ECSL 2018?</strong></label>
+            <label><strong>¿Participó en el ECSL 2018?</strong></label>
             <hr style="margin-top:0;margin-bottom: .5rem;"/>
             <div class="row">
               <div class="col-12">
-                <p>Haz clic <a href="#" onclick="alert('hola')">aquí</a> para importar tus datos</p>
+                <p>Haz clic <a href="#" data-toggle="modal" data-target="#reg-imp-modal">aquí</a> para importar tus datos</p>
               </div>
             </div>
           </div>
@@ -519,5 +519,45 @@
         </div>
       </div>
     {!! Form::close() !!}
+  </div>
+</div>
+<div class="modal fade" id="reg-imp-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Importar datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {!! Form::open(array('id'=>'reg-imp-form', 'role' => 'form', 'onsubmit'=>'return false;', 'url'=>URL::to('cms/dashboard/import'))) !!}
+          {!! Honeypot::generate('reg-imp-kwaai-name', 'reg-imp-kwaai-time') !!}
+          <div class="alert alert-dark" role="alert">
+            Utilice sus credenciales del sitio web del ECSL 2018
+          </div>
+          <div class="form-group mg-hm">
+            <div class="input-group">
+              <span class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-envelope-o"></i></div>
+              </span>
+              {!! Form::text('reg-imp-email', null, array('id'=>'reg-imp-email', 'class'=>'form-control', 'data-mg-required'=>'', 'placeholder' => Lang::get('security/user-management.email'))) !!}
+              </div>
+          </div>
+          <div class="form-group mg-hm">
+            <div class="input-group">
+              <span class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-key"></i></div>
+              </span>
+              {!! Form::password('reg-imp-password', array('id'=>'reg-imp-password', 'class'=>'form-control', 'data-mg-required'=>'', 'placeholder' => Lang::get('security/user-management.password'))) !!}
+              </div>
+          </div>
+        {!! Form::close() !!}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+        <button id = "reg-imp-btn-import" type="button" class="btn btn-dark">Importar</button>
+      </div>
+    </div>
   </div>
 </div>
