@@ -866,8 +866,6 @@
 					if(json.message != 'success')
 					{
 						$('#reg-imp-form').showAlertAsFirstChild('alert-info',json.message, 7000);
-						$('#app-loader').addClass('hidden-xs-up');
-						enableAll();
 					}
 					else
 					{
@@ -875,9 +873,9 @@
 						$('#reg-registration-form-id').val('');
 						$('#reg-user-id').val('');
 						$('#reg-birth-date').val('');
+						$('#reg-imp-modal').modal('hide');
 					}
 
-					$('#reg-imp-modal').modal('hide')
 					$('#app-loader').addClass('hidden-xs-up');
 					enableAll();
 				}
