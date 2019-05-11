@@ -27,8 +27,8 @@
         <a id="dash-ponencias" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Administrar mis ponencias</a>
         <!-- <a id="dash-contactos" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Ver mis contactos</a> -->
         <a id="dash-contactos" href="#" class="list-group-item disabled" disabled="disabled" data-guest-user="disabled">Ver mis contactos</a>
-        <!-- <a id="dash-carta" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Generar carta de invitación</a> -->
-        <a id="dash-carta" href="#" class="list-group-item disabled" disabled="disabled" data-guest-user="disabled">Generar carta de invitación</a>
+        <a id="dash-carta" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Generar carta de invitación</a>
+        <!-- <a id="dash-carta" href="#" class="list-group-item disabled" disabled="disabled" data-guest-user="disabled">Generar carta de invitación</a> -->
       </ul>
     </div>
     <div class="col-xl-9 col-lg-8 col-12 dashboard-elements">

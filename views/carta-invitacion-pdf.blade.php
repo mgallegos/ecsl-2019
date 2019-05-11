@@ -96,14 +96,14 @@
 
         <table width="100%" style="text-align: center; margin-top: 60px;">
           <tr>
-            <td>
+            <td width="50%">
               <div class="col text-center">
                 <img height="75px"src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/Firma_ARS_v2.png">
                 <p style="line-height: 2pt;margin-bottom: 0;">Axel Ruiz Serrano</p>
                 <p style="font-size: 0.8rem;line-height: 10pt;">Representante General del<br>Comité Organizador del ECSL</p>
               </div>
             </td>
-            <td>
+            <td width="50%">
               <div class="col text-center">
                 <img height="100px" src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/firma_MCCM.png">
                 <p style="line-height: 2pt;margin-bottom: 0;">Maria del Carmen Castillo Martini</p>
