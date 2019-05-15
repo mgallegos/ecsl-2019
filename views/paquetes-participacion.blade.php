@@ -23,7 +23,7 @@
   </div>
 
   <!-- Paquete Parcial -->
-  <div class="card" data-type="B" data-payment-type-id="191" data-payment-commission-amount="0" data-amount="40" data-amount-cr="23000" data-description="Paquete parcial ECSL 2019">
+  <div class="card" data-type="B" data-payment-type-id="191" data-payment-commission-amount="0" data-amount="50" data-amount-cr="23000" data-description="Paquete parcial ECSL 2019">
     <h5 class="card-header text-center">Parcial</h5>
     <div class="card-body m-0 px-0 pb-0">
       <h3 class="text-center font-weight-bold">US$ 50.00</h3>
