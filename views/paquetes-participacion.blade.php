@@ -3,7 +3,7 @@
     font-size: 0.80em;
   }
 </style>
-<div class="card-deck">
+<div class="card-deck custom-card-deck">
 
   <!-- Paquete Básico -->
   <div class="card" data-type="A" data-payment-type-id="190" data-payment-commission-amount="0" data-amount="10" data-amount-cr="6000" data-description="Paquete básico ECSL 2019">

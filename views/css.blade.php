@@ -250,6 +250,13 @@
   	background-color: #222222;
   }
 
+  /*CARD DECK*/
+
+  .custom-card-deck .card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
 
   /* RESPONSIVE */
 
