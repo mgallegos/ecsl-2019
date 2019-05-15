@@ -34,8 +34,25 @@
     </div>
   </div>
 
+  <!-- Paquete Semi Completo -->
+  <div class="card" data-type="C" data-payment-type-id="192" data-payment-commission-amount="0" data-amount="125" data-amount-cr="86000" data-description="Paquete semi completo ECSL 2019">
+    <h3 class="card-header text-center">Semi completo</h3>
+    <div class="card-body m-0 px-0 pb-0">
+      <h2 class="text-center font-weight-bold">US$ 125.00</h2>
+      <div class="font-italic text-center mb-4">Incluye:</div>
+      <ul class="list-group list-group-flush" >
+        <li class="list-group-item">* Ingreso al evento <i class="fa fa-check-circle-o icon-check"></i></li>
+        <li class="list-group-item">Promocional completo <i class="fa fa-check-circle-o icon-check"></i></li>
+        <li class="list-group-item">Diploma de participación <i class="fa fa-check-circle-o icon-check"></i></li>
+        <li class="list-group-item disabled">*** Transporte <i class="fa fa-times-circle-o icon-null"></i></li>
+        <li class="list-group-item">**** Alimentación completa<i class="fa fa-check-circle-o icon-check"></i></li>
+        <li class="list-group-item">***** Hospedaje<i class="fa fa-check-circle-o icon-check"></i></li>
+      </ul>
+    </div>
+  </div>
+
   <!-- Paquete Completo -->
-  <div class="card" data-type="C" data-payment-type-id="192" data-payment-commission-amount="0" data-amount="150" data-amount-cr="86000" data-description="Paquete completo ECSL 2019">
+  <div class="card" data-type="D" data-payment-type-id="193" data-payment-commission-amount="0" data-amount="150" data-amount-cr="86000" data-description="Paquete completo ECSL 2019">
     <h3 class="card-header text-center">Completo</h3>
     <div class="card-body m-0 px-0 pb-0">
       <h2 class="text-center font-weight-bold">US$ 150.00</h2>
