@@ -57,7 +57,7 @@
   </div>
 
   <!-- Paquete Completo -->
-  <div class="card" data-type="D" data-payment-type-id="193" data-payment-commission-amount="0" data-amount="150" data-amount-cr="86000" data-description="Paquete completo ECSL 2019">
+  <div class="card" data-type="D" data-payment-type-id="194" data-payment-commission-amount="0" data-amount="150" data-amount-cr="86000" data-description="Paquete completo ECSL 2019">
     <h5 class="card-header text-center">Completo</h5>
     <div class="card-body m-0 px-0 pb-0">
       <h3 class="text-center font-weight-bold">US$ 150.00</h3>
