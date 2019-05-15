@@ -847,6 +847,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
       $response = json_decode(
         $this->UserManager->update(
           $input,
+          false,
           $User,
           false,
           $this->cmsDatabaseConnectionName,
