@@ -8,7 +8,7 @@
     <style>
 
       body {
-        background-image: url('https://storage.googleapis.com/decimaerp/organizations/15/fondo_small_40.png');
+        background-image: url('https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/fondo_ecsl2019.png');
         background-position: center;
         background-repeat: no-repeat;
       }
@@ -60,7 +60,7 @@
   <body class="pt-3">
 
     <div class="" width="100%" >
-      <img src="https://storage.googleapis.com/decimaerp/organizations/15/encabezado.png" class ="" width="100%" >
+      <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/header_ecsl2019.png" class ="" width="100%" >
     </div>
 
     <div class="root pt" width="100%">
@@ -76,12 +76,11 @@
 
       <div style="margin-top:30px;">
         <p class="mb">
-          Por este medio, el comité organizador del décimo <strong>Encuentro Centroamericano de Software Libre (ECSL)</strong>
+          Por este medio, el comité organizador del décimo primer <strong>Encuentro Centroamericano de Software Libre (ECSL)</strong>
           remite una atenta invitación a <strong>{{ $name }}</strong> con el propósito de contar con su
-          presencia como participante y conferencista en el marco de la celebración de dicha actividad,
-          la cual tendrá lugar en la Universidad Centroamericana “José Simeón Cañas” (UCA), el municipio
-          de Antiguo Cuscatlán, San Salvador, República de El Salvador; iniciando las actividades el día
-          miércoles 11 de julio de 2019 y concluyendo el día domingo 15 del mismo mes y año.
+          presencia como participante y ponente en el marco de la celebración de dicha actividad,
+          la cual tendrá lugar en la Universidad Mesoamericana, el municipio de Quetzaltenango (Xela), Guatemala C.A.
+           Dicho evento dará inicio el día miércoles 3 de julio de 2019 y concluyendo el día domingo 7 del mismo mes y año.
         </p>
         <p class="mb">
           El <strong>ECSL</strong> es un evento que se realiza anualmente con el fin de reunir a personas expertas, comunidades y grupos de
@@ -97,17 +96,17 @@
 
         <table width="100%" style="text-align: center; margin-top: 60px;">
           <tr>
-            <td>
+            <td width="50%">
               <div class="col text-center">
-                <img height="75px"src="https://storage.googleapis.com/decimaerp/organizations/15/Firma_CJMP.png">
-                <p style="line-height: 2pt;margin-bottom: 0;">Carlos Juan Martín Pérez</p>
+                <img height="75px"src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/Firma_ARS_v2.png">
+                <p style="line-height: 2pt;margin-bottom: 0;">Axel Ruiz Serrano</p>
                 <p style="font-size: 0.8rem;line-height: 10pt;">Representante General del<br>Comité Organizador del ECSL</p>
               </div>
             </td>
-            <td>
+            <td width="50%">
               <div class="col text-center">
-                <img height="75px" src="https://storage.googleapis.com/decimaerp/organizations/15/Firma_KH.jpeg">
-                <p style="line-height: 2pt;margin-bottom: 0;">Karla Hernández</p>
+                <img height="100px" src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/firma_MCCM.png">
+                <p style="line-height: 2pt;margin-bottom: 0;">Maria del Carmen Castillo Martini</p>
                 <p style="font-size: 0.8rem;line-height: 10pt;">Administración y Marketing del<br>Comité Organizador del ECSL</p>
               </div>
             </td>
@@ -117,7 +116,7 @@
         <!-- <strong><p class="mb" style="text-align: center;">Sello digital</p></strong> -->
 
 
-        <p class="mb" style="text-align: center;">Antiguo Cuscatlán, La Libertad, El Salvador, Centroamérica.</p>
+        <p class="mb" style="text-align: center;">Quetzaltenango, Guatemala, Centroamérica.</p>
 
       </div>
     </div>
@@ -126,7 +125,7 @@
       <img  src="https://storage.googleapis.com/decimaerp/organizations/15/PieDePagina.png" class ="" width="100%" >
     </div> -->
     <footer>
-      <img  src="https://storage.googleapis.com/decimaerp/organizations/15/PieDePagina.png" width="100%" >
+      <img  src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/footer_ecsl2019.png" width="100%" >
     </footer>
 
   </body>

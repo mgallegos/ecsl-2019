@@ -42,18 +42,18 @@
           <div class="form-group mg-hm mt-4">
             <label for="pay-form-type">Forma de pago</label>
             <div>
-              <div class="form-check">
+              <!-- <div class="form-check">
                 <input class="form-check-input" type="radio" name="payment-form" id="pay-online-payment-form" style="margin-top:2.4rem;" data-type="G" checked>
                 <label class="form-check-label" for="pay-online-payment-form">Pago en línea <img src="https://storage.googleapis.com/decimaerp/organizations/15/pagadito.png" class="img-fluid"></label>
-              </div>
+              </div> -->
               <div id="pay-bank-transfer-slsv-payment-form-row" class="form-check">
                 <input class="form-check-input" type="radio" name="payment-form" id="pay-bank-transfer-slsv-payment-form" data-type="H">
                 <label class="form-check-label" for="pay-bank-transfer-slsv-payment-form">Transferencia/Depósito bancario</label>
               </div>
-              <div id="pay-bank-transfer-cr-payment-form-row" class="form-check">
+              <!-- <div id="pay-bank-transfer-cr-payment-form-row" class="form-check">
                 <input class="form-check-input" type="radio" name="payment-form" id="pay-bank-transfer-cr-payment-form" data-type="I">
                 <label class="form-check-label" for="pay-bank-transfer-cr-payment-form">Transferencia/Depósito bancario en BNCR</label>
-              </div>
+              </div> -->
             </div>
           </div>
           <div id="pay-payment-amount-row" class="row" style="display:none;">
@@ -107,6 +107,12 @@
           <div id="pay-bank-sv-information" style="display:none;">
             <label>A continuación se detalla la información bancaria para que pueda realizar el depósito/transferencia, una vez realizada, adjunte el comprobante que le entregó el banco, se le notificará por correo electrónico una vez se haya verificado la operación:</label>
             <ul>
+              <li><strong>Nombre del banco:</strong> BAC Credomatic</li>
+              <li><strong>Tipo:</strong> Monetaria Dólares</li>
+              <li><strong>Cuenta a nombre de:</strong> Transacciones Digitales, S A</li>
+              <li><strong>Número de cuenta:</strong> 902981786</li>
+            </ul>
+            <!-- <ul>
               <li><strong>Nombre del banco:</strong> Banco de América Central</li>
               <li><strong>Dirección del banco:</strong> 55 Av. Entre Calle Roosevelt y Avenida Olimpica, San Salvador, El Salvador</li>
               <li><strong>Cuenta a nombre de:</strong> Moisés Oswaldo Larín y Carlos Juan Martín Pérez</li>
@@ -120,16 +126,16 @@
               <li><strong>ABA del banco intermediario:</strong> 021000089</li>
               <li><strong>SWIFT del banco intermediario:</strong> CITIUS33</li>
               <li><strong>Número de cuenta entre bancos:</strong> 36148605</li>
-            </ul>
+            </ul> -->
           </div>
-          <div id="pay-bank-cr-information" style="display:none;">
-            <label>A continuación se detalla la información bancaria para que pueda realizar el depósito/transferencia, una vez realizada, adjunte el comprobante que le entregó el banco, se le notificará por correo electrónico una vez se haya verificado la operación:</label>
+          <!-- <div id="pay-bank-cr-information" style="display:none;">
+            <label>A continuación se detalla la información bancaria para que pueda realizar el depósito/transferencia, una vez realizada, adjunte el comprobante que le entregó el banco poder verificar la operación:</label>
             <ul>
               <li><strong>Nombre del banco:</strong> Banco Nacional de Costa Rica</li>
               <li><strong>Cuenta a nombre de:</strong> Carlos Juan Martín Pérez</li>
               <li><strong>Número de cuenta:</strong> 200-01-114-020530-0</li>
             </ul>
-          </div>
+          </div> -->
           <div id="pay-bank-files" class="mb-3" style="display:none;">
             @include('decima-file::file-cms-viewer')
           </div>

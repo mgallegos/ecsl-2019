@@ -20,14 +20,15 @@
         <a id="dash-pass" href="#" class="list-group-item {{ !empty($rememberToken)?'active':'' }} {{ $loggedUserDisabledCssClass }}" {{ $loggedUserDisabledInputAttribute }} data-guest-user="{{ $loggedUserDisabledCssClass }}">Recuperar contraseña</a>
         <a id="dash-registro" href="#" class="list-group-item {{ !empty($registro)?'active':'' }}">{{ $registroLabel }}</a>
         <a id="dash-pago" href="#" class="list-group-item {{ !empty($pago)?'active':'' }} {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Realizar pago</a>
-        <a id="dash-transporte-from" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Solicitar transporte a su llegada <i class="fa fa-plane"></i> / <i class="fa fa-bus"></i></a>
-        <a id="dash-transporte-to" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Solicitar transporte a su salida <i class="fa fa-plane"></i> / <i class="fa fa-bus"></i></a>
+        <!-- <a id="dash-transporte-from" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Solicitar transporte a su llegada <i class="fa fa-plane"></i> / <i class="fa fa-bus"></i></a>
+        <a id="dash-transporte-to" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Solicitar transporte a su salida <i class="fa fa-plane"></i> / <i class="fa fa-bus"></i></a> -->
+        <a id="dash-transporte-from" href="#" class="list-group-item disabled" disabled="disabled" data-guest-user="disabled">Solicitar transporte a su llegada <i class="fa fa-plane"></i> / <i class="fa fa-bus"></i></a>
+        <a id="dash-transporte-to" href="#" class="list-group-item disabled" disabled="disabled" data-guest-user="disabled">Solicitar transporte a su salida <i class="fa fa-plane"></i> / <i class="fa fa-bus"></i></a>
         <a id="dash-ponencias" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Administrar mis ponencias</a>
-        <a id="dash-contactos" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Ver mis contactos</a>
+        <!-- <a id="dash-contactos" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Ver mis contactos</a> -->
+        <a id="dash-contactos" href="#" class="list-group-item disabled" disabled="disabled" data-guest-user="disabled">Ver mis contactos</a>
         <a id="dash-carta" href="#" class="list-group-item {{ $guestUserDisabledCssClass }}" {{ $guestUserDisabledInputAttribute }} data-guest-user="{{ $guestUserDisabledCssClass }}">Generar carta de invitación</a>
-        <!-- <a id="dash-comprobante" href="#" class="list-group-item disabled" disabled="disabled">Descargar comprob. de pago</a> -->
-        <!-- <li class="list-group-item">Mis contactos</li> -->
-        <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+        <!-- <a id="dash-carta" href="#" class="list-group-item disabled" disabled="disabled" data-guest-user="disabled">Generar carta de invitación</a> -->
       </ul>
     </div>
     <div class="col-xl-9 col-lg-8 col-12 dashboard-elements">
@@ -41,7 +42,7 @@
         @include('ecsl-2019::dashboard/registro')
       </div>
       <div id="dash-pago-container" style="{{ empty($pago)?'display:none;':'' }}">
-        @include('ecsl-2019::dashboard/pago')
+        @include('ecsl-2019::dashboard/pago-solo-transferencia')
       </div>
       <div id="dash-transporte-from-container" style="display:none;">
         @include('ecsl-2019::dashboard/transporte-from')

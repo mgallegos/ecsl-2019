@@ -45,6 +45,8 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 use App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface;
 
+use Mgallegos\DecimaOpenCms\OpenCms\Services\UserManagement\UserManagementInterface;
+
 use Mgallegos\DecimaOpenCms\OpenCms\Services\SettingManagement\SettingManagementInterface;
 
 use Mgallegos\DecimaOpenCms\OpenCms\Services\OpenCmsManagement\OpenCmsManager;
@@ -180,7 +182,14 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
     AuthenticationManagementInterface $AuthenticationManager,
 		JournalManagementInterface $JournalManager,
 		Gravatar $Gravatar,
+		UserManagementInterface $UserManager,
 		SettingManagementInterface $SettingManager,
+    PaymentManagementInterface $PaymentManager,
+		TransportationRequestManagementInterface $TransportationRequestManager,
+		PresentationManagementInterface $PresentationManager,
+    ClientManagementInterface $ClientManager,
+    SaleOrderManagementInterface $SaleManager,
+		FileManagementInterface $FileManager,
 		JournalInterface $Journal,
 		OrganizationInterface $Organization,
 		CurrencyInterface $Currency,
@@ -204,13 +213,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
     DatabaseManager $DB,
 		Mailer $Mailer,
     Carbon $Carbon,
-		PDF $Dompdf,
-		PaymentManagementInterface $PaymentManager,
-		TransportationRequestManagementInterface $TransportationRequestManager,
-		PresentationManagementInterface $PresentationManager,
-    ClientManagementInterface $ClientManager,
-    SaleOrderManagementInterface $SaleManager,
-		FileManagementInterface $FileManager
+		PDF $Dompdf
 	)
 	{
     $this->AuthenticationManager = $AuthenticationManager;
@@ -218,6 +221,8 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 		$this->JournalManager = $JournalManager;
 
 		$this->Gravatar = $Gravatar;
+
+    $this->UserManager = $UserManager;
 
     $this->SettingManager = $SettingManager;
 
@@ -269,7 +274,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 		$this->Dompdf = $Dompdf;
 
-    $this->organizationId = 15;
+    $this->organizationId = 29;
 
 		$this->organizationName = 'ECSL 2019';
 
@@ -289,7 +294,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 		$this->adminEmail = 'mgallegos@decimaerp.com';
 
-		$this->timezone = 'America/El_Salvador';
+		$this->timezone = 'America/Guatemala';
 
 		$this->PaymentManager = $PaymentManager;
 
@@ -307,7 +312,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			'kwaai_name' => 'honeypot',
 			'kwaai_time' => 'required|honeytime:2',
 			'email' => 'required|email',
-			'password' => 'min:6|required|same:confirm_password'
+			'password' => 'min:6|required|same:password_confirmation'
 		);
 
 		$this->messages = array(
@@ -315,6 +320,35 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			'password.min' => $this->Lang->get('security/user-management.passwordsMinLengthInfoMessage'),
 			'password.same' => $this->Lang->get('security/user-management.passwordsDoNotMatchInfoMessage')
 		);
+
+    $this->registrationFields = array(
+      'participated_in_ecsl2009',
+      'participated_in_ecsl2010',
+      'participated_in_ecsl2011',
+      'participated_in_ecsl2012',
+      'participated_in_ecsl2013',
+      'participated_in_ecsl2014',
+      'participated_in_ecsl2015',
+      'participated_in_ecsl2016',
+      'participated_in_ecsl2017',
+      'participated_in_ecsl2018',
+      'is_debian_linux_user',
+      'is_mint_linux_user',
+      'is_arch_linux_user',
+      'is_slackware_linux_user',
+      'is_opensuse_linux_user',
+      'is_knoppix_linux_user',
+      'is_centos_linux_user',
+      'is_elementary_linux_user',
+      'is_damn_linux_user',
+      'is_dream_linux_user',
+      'is_fedora_linux_user',
+      'is_gentoo_linux_user',
+      'is_antergos_linux_user',
+      'is_ubuntu_linux_user',
+      'custom_distribution',
+      'registration_form_id',
+    );
 	}
 
 	/**
@@ -531,6 +565,86 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 
 	/**
+	 * Unset registration fields
+	 *
+	 * @param array &$input
+	 *
+	 * @return void
+	 */
+	public function unsetRegistrationFields(&$input)
+  {
+    unset(
+      $input['_token'],
+      $input['fc_kwaai_name'],
+      $input['fc_kwaai_time']
+    );
+
+    foreach ($this->registrationFields as $key => $field)
+    {
+      unset($input[$field]);
+    }
+  }
+
+  /**
+	 * Import last year data
+	 *
+	 * @param array $input
+	 * 	An array as array('email' => $email, 'password' => $password)
+	 *
+	 * @return JSON encoded string
+	 *  A string as follows:
+	 *  In case of success: {"message":"success","url":"$url"}
+	 *  In case of failure: {"message":"$failAuthAttemptMessage"}
+	 */
+	public function importLastYearData(array $input)
+	{
+		if (!isset($input['kwaai_name'])) {
+				$this->Log->warning('[SECURITY EVENT] CMS kwaai_name not set', array('url' => ''));
+			}
+
+		$this->rules = array(
+			'kwaai_name' => 'honeypot',
+			'kwaai_time' => 'required|honeytime:2'
+		);
+
+		$data = array(
+			'kwaai_name' => $input['kwaai_name'],
+			'kwaai_time' => $input['kwaai_time'],
+		);
+
+		if ($this->with($data)->fails()) {
+				$this->Log->warning('[SECURITY EVENT] CMS kwaai_time validation failed!', array('url' => ''));
+			}
+
+		$User = $this->User->byEmail($input['email'], 'ecsl2018')->first();
+
+		if (!empty($User) && $this->Hash->check($input['password'], $User->password))
+		{
+			if(!empty($this->eventId) && $this->UserEvent->byUserIdByEventIdByOrganizationId($User->id, 1, 15, 'ecsl2018')->isEmpty())
+			{
+				$this->Log->info('[SECURITY EVENT] CMS Failed Login Attempt', array('email' => $input['email']));
+
+				return json_encode(array('message' => $this->Lang->get('security/login.failAuthAttempt')));
+			}
+
+			$RegistrationForm = $this->RegistrationForm->byUserId($User->id, 'ecsl2018')->first();
+			$registrationForm = $RegistrationForm->toArray();
+			$registrationForm['registration_form_id'] = $registrationForm['id'];
+			$user = $User->toArray();
+
+			unset($user['password']);
+
+			$this->Log->info('[SECURITY EVENT] CMS User imported', array('email' => $input['email']));
+
+			return json_encode(array('message' => 'success', 'user' => array_merge($user, $registrationForm)));
+		}
+
+		$this->Log->info('[SECURITY EVENT] CMS Failed Login Attempt', array('email' => $input['email']));
+
+		return json_encode(array('message' => $this->Lang->get('security/login.failAuthAttempt')));
+	}
+
+	/**
 	 * Create a new CMS User.
 	 *
 	 * @param array $input
@@ -547,7 +661,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			'fc_kwaai_name' => 'honeypot',
 			'fc_kwaai_time' => 'required|honeytime:2',
 			'email' => 'required|email',
-			'password' => 'min:6|required|same:confirm_password'
+			'password' => 'min:6|required|same:password_confirmation'
 		);
 
 		if(!isset($input['fc_kwaai_name']))
@@ -560,7 +674,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			'fc_kwaai_time' => $input['fc_kwaai_time'],
 			'email' => $input['email'],
 			'password' => $input['password'],
-			'confirm_password' => $input['confirm_password']
+			'password_confirmation' => $input['password_confirmation']
 		);
 
 		if( $this->with( $data )->fails() )
@@ -569,7 +683,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 		}
 
 		$input = eloquent_array_filter_for_insert($input);
-		$User = null;
+		$input['event_id'] = $this->eventId;
 
 		//La validación debe ser por evento
 		if(!$this->User->byEmailAndByOrganization($input['email'], $this->organizationId, $this->cmsDatabaseConnectionName)->isEmpty())
@@ -577,152 +691,53 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			return json_encode(array('validationFailed' => true , 'fieldValidationMessages' => array('email' => $this->Lang->get('security/user-management.UserExistsException'))));
 		}
 
+    $registrationForm = array_only(
+      $input,
+      $this->registrationFields
+    );
+
+    $this->unsetRegistrationFields($input);
+
+    unset($registrationForm['registration_form_id']);
+
 		$this->beginTransaction($openTransaction, $this->cmsDatabaseConnectionName);
 
 		try
 		{
-      $input['organization_id'] = $this->organizationId;
-
-			if(empty($User))
-			{
-				$User = $this->User->create(
-	        array(
-	          'firstname' => $input['firstname'],
-	          'lastname' => $input['lastname'],
-	          'email' => $input['email'],
-	          'password' => bcrypt($input['password']),
-	          'organization_id' => $input['organization_id'],
-	          'is_active' => 1,
-	        ),
-	        $this->cmsDatabaseConnectionName
-	      );
-			}
-			else
-			{
-				$this->User->update(
-	        array(
-	          'firstname' => $input['firstname'],
-	          'lastname' => $input['lastname'],
-	          'password' => bcrypt($input['password'])
-	        ),
-					$User,
-	        $this->cmsDatabaseConnectionName
-	      );
-			}
-
-      $input['user_id'] = $User->id;
-
-      $this->UserEvent->create(
-        array(
-          'user_id' => $input['user_id'],
-          'event_id' => $this->eventId,
-          'organization_id' => $input['organization_id'],
+      $response = json_decode(
+        $this->UserManager->create(
+          $input,
+          false,
+          false,
+          $this->cmsDatabaseConnectionName,
+          $this->organizationId,
+          $this->virtualAssistantId
         ),
+				true
+			);
+
+      if(!empty($response['validationFailed']))
+  		{
+        $this->rollBack($openTransaction);
+
+  			return json_encode(array('validationFailed' => true , 'fieldValidationMessages' => $response['fieldValidationMessages']));
+  		}
+
+      if(!empty($response['info']))
+  		{
+        $this->rollBack($openTransaction);
+
+  			return json_encode(array('info' => $response['info']));
+  		}
+
+      $registrationForm['user_id'] = $response['id'];
+
+      $RegistrationForm = $this->RegistrationForm->create(
+        $registrationForm,
         $this->cmsDatabaseConnectionName
       );
 
       $context = array_only($input, ['firstname', 'lastname', 'email']);
-
-      unset(
-        $input['_token'],
-        $input['firstname'],
-        $input['lastname'],
-        $input['email'],
-        $input['password'],
-        $input['fc_kwaai_name'],
-        $input['fc_kwaai_time'],
-        $input['confirm_password'],
-        $input['registration_form_id']
-      );
-
-      if(isset($input['birth_date']) && !empty($input['birth_date']))
-      {
-        $input['birth_date'] = $this->Carbon->createFromFormat($this->Lang->get('form.phpShortDateFormat'), $input['birth_date'])->format('Y-m-d');
-      }
-
-      $RegistrationForm = $this->RegistrationForm->create($input, $this->cmsDatabaseConnectionName);
-
-			$response = json_decode(
-				$this->ClientManager->create(
-					array(
-						'name' => $context['firstname'] . ' ' . $context['lastname'],
-						'city_name' => $input['district'],
-						'state_name' => $input['state'],
-						'phone_number' => $input['contact_phone'],
-						'email' => $context['email'],
-						'date_birth' => $input['birth_date'],
-						'country_id' => 202,//SLV
-					),
-					$this->cmsDatabaseConnectionName,
-					$this->virtualAssistantId, // $loggedUserId = null,
-					$this->organizationId,// $organizationId = null,
-					false,// $openTransaction = true,
-					false// $changeDateFormat = true
-				),
-				true
-			);
-
-			$userInput['client_id'] = $response['id'];
-
-			$response = json_decode(
-				$this->PaymentManager->create(
-					array(
-						'user_id' => $input['user_id'],
-						'event_id' => $this->eventId
-					),
-					false,// $openTransaction = true,
-					false,// $changeDateFormat = true,
-					$this->cmsDatabaseConnectionName,
-					$this->organizationId,// $organizationId = null,
-					$this->virtualAssistantId // $loggedUserId = null,
-				),
-				true
-			);
-
-			$userInput['payment_id'] = $response['id'];
-
-			$response = json_decode(
-				$this->TransportationRequestManager->create(
-					array(
-						'request_user_id' => $input['user_id'],
-						'event_id' => $this->eventId
-					),
-					false,// $openTransaction = true,
-					false,// $changeDateFormat = true
-					$this->cmsDatabaseConnectionName,
-					$this->organizationId,// $organizationId = null,
-					$this->virtualAssistantId // $loggedUserId = null,
-				),
-				true
-			);
-
-			$userInput['arriving_transportation_request_id'] = $response['id'];
-
-			$response = json_decode(
-				$this->TransportationRequestManager->create(
-					array(
-						'request_user_id' => $input['user_id'],
-						'event_id' => $this->eventId
-					),
-					false,// $openTransaction = true,
-					false,// $changeDateFormat = true
-					$this->cmsDatabaseConnectionName,
-					$this->organizationId,// $organizationId = null,
-					$this->virtualAssistantId // $loggedUserId = null,
-				),
-				true
-			);
-
-			$userInput['leaving_transportation_request_id'] = $response['id'];
-
-			$this->User->update(
-				$userInput,
-				$User,
-				$this->cmsDatabaseConnectionName
-			);
-
-		  // $Journal = $this->Journal->create(array('journalized_id' => $User->id, 'journalized_type' => $this->User->getTable(), 'user_id' => $input['created_by']));
-		  // $this->Journal->attachDetail($Journal->id, array('n=> $this->AuthenticationManager->getCurrentUserOrganization('name')))), $Journal);
 
       $this->Log->info('[SECURITY EVENT] A new user has registered at ECSL 2019', $context);
 
@@ -740,7 +755,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				throw $e;
 		}
 
-		$subject = '[ECSL 2019] Confirmación de registro ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+		$subject = '[ECSL 2019] Confirmación de registro ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 		$replyToEmail = 'ecsl2019@softwarelibre.ca';
 		$replyToName = 'Comité Organizador del ECSL 2019';
 
@@ -751,17 +766,17 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				->bcc('mgallegos@decimaerp.com');
 		});
 
-		$subject = '[ECSL 2019] Interesado en competencia de seguidores en línea ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+		// $subject = '[ECSL 2019] Interesado en competencia de seguidores en línea ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 
-		if(!empty($input['is_interested_in_competition']))
-		{
-			$this->Mailer->queue('ecsl-2019::emails.competencia', array('name' => $context['firstname'] . ' ' . $context['lastname'], 'email' => $context['email'], 'country' => $input['country']), function($message) use ($context, $subject, $replyToEmail, $replyToName)
-			{
-				$message->to('karla.hdz4@gmail.com')->subject($subject)->replyTo($replyToEmail, $replyToName)
-					->cc('mario.gomez@teubi.co')
-					->bcc('mgallegos@decimaerp.com');
-			});
-		}
+		// if(!empty($input['is_interested_in_competition']))
+		// {
+		// 	$this->Mailer->queue('ecsl-2019::emails.competencia', array('name' => $context['firstname'] . ' ' . $context['lastname'], 'email' => $context['email'], 'country' => $input['country']), function($message) use ($context, $subject, $replyToEmail, $replyToName)
+		// 	{
+		// 		$message->to('karla.hdz4@gmail.com')->subject($subject)->replyTo($replyToEmail, $replyToName)
+		// 			->cc('mario.gomez@teubi.co')
+		// 			->bcc('mgallegos@decimaerp.com');
+		// 	});
+		// }
 
 		return json_encode(array('success' => $this->Lang->get('form.defaultSuccessSaveMessage')));
 	}
@@ -783,7 +798,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			'fc_kwaai_name' => 'honeypot',
 			'fc_kwaai_time' => 'required|honeytime:2',
 			'email' => 'required|email',
-			'password' => 'min:6|same:confirm_password'
+			'password' => 'min:6|same:password_confirmation'
 		);
 
 		if(!isset($input['fc_kwaai_name']))
@@ -796,7 +811,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			'fc_kwaai_time' => $input['fc_kwaai_time'],
 			'email' => $input['email'],
 			'password' => $input['password'],
-			'confirm_password' => $input['confirm_password']
+			'password_confirmation' => $input['password_confirmation']
 		);
 
 		if( $this->with( $data )->fails() )
@@ -814,55 +829,95 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 		$cmsLoggedUser = $this->getSessionLoggedUser();
 
+    $registrationForm = array_only(
+      $input,
+      $this->registrationFields
+    );
+
+    $this->unsetRegistrationFields($input);
+
+    unset($input['user_id']);
+    $registrationForm['id'] = $registrationForm['registration_form_id'];
+    unset($registrationForm['registration_form_id']);
+
     $this->beginTransaction($openTransaction, $this->cmsDatabaseConnectionName);
 
 		try
 		{
-			$userInput  = array(
-				'firstname' => $input['firstname'],
-				'lastname' => $input['lastname'],
-				'email' => $input['email']
+      $response = json_decode(
+        $this->UserManager->update(
+          $input,
+          $User,
+          false,
+          $this->cmsDatabaseConnectionName,
+          $this->organizationId,
+          $this->virtualAssistantId
+        ),
+				true
 			);
 
-			if(isset($input['password']))
-			{
-				$userInput['password'] = bcrypt($input['password']);
-			}
+      if(!empty($response['validationFailed']))
+  		{
+        $this->rollBack($openTransaction);
 
-      $this->User->update(
-				$userInput,
-				$User,
-				$this->cmsDatabaseConnectionName
-			);
+  			return json_encode(array('validationFailed' => true , 'fieldValidationMessages' => $response['fieldValidationMessages']));
+  		}
 
-			$input['id'] = $input['registration_form_id'];
-			$context = array_only($input, ['firstname', 'lastname', 'email']);
+      if(!empty($response['info']))
+  		{
+        $this->rollBack($openTransaction);
 
-			unset(
-        $input['_token'],
-        $input['user_id'],
-        $input['firstname'],
-        $input['lastname'],
-        $input['email'],
-        $input['password'],
-        $input['fc_kwaai_name'],
-        $input['fc_kwaai_time'],
-        $input['confirm_password'],
-        $input['registration_form_id']
-      );
+  			return json_encode(array('info' => $response['info']));
+  		}
 
-			if(isset($input['birth_date']) && !empty($input['birth_date']))
-      {
-        $input['birth_date'] = $this->Carbon->createFromFormat($this->Lang->get('form.phpShortDateFormat'), $input['birth_date'])->format('Y-m-d');
-      }
+			// // $userInput  = array(
+			// // 	'firstname' => $input['firstname'],
+			// // 	'lastname' => $input['lastname'],
+			// // 	'email' => $input['email']
+			// // );
+      // //
+			// // if(isset($input['password']))
+			// // {
+			// // 	$userInput['password'] = bcrypt($input['password']);
+			// // }
+      // //
+      // // $this->User->update(
+			// // 	$userInput,
+			// // 	$User,
+			// // 	$this->cmsDatabaseConnectionName
+			// // );
+      // //
+			// // $input['id'] = $input['registration_form_id'];
+      //
+      //
+			// unset(
+      //   $input['_token'],
+      //   $input['user_id'],
+      //   $input['firstname'],
+      //   $input['lastname'],
+      //   $input['email'],
+      //   $input['password'],
+      //   $input['fc_kwaai_name'],
+      //   $input['fc_kwaai_time'],
+      //   $input['password_confirmation'],
+      //   $input['registration_form_id']
+      // );
+      //
+			// if(isset($input['birth_date']) && !empty($input['birth_date']))
+      // {
+      //   $input['birth_date'] = $this->Carbon->createFromFormat($this->Lang->get('form.phpShortDateFormat'), $input['birth_date'])->format('Y-m-d');
+      // }
 
 			$RegistrationForm = $this->RegistrationForm->update(
-				$input,
+				$registrationForm,
 				null,
 				$this->cmsDatabaseConnectionName
 			);
 
-			$User = $this->User->byId($RegistrationForm->user_id, $this->cmsDatabaseConnectionName);
+			$User = $this->User->byId(
+        $RegistrationForm->user_id,
+        $this->cmsDatabaseConnectionName
+      );
 			$user = $User->toArray();
       $registrationForm = $RegistrationForm->toArray();
       $registrationForm['registration_form_id'] = $registrationForm['id'];
@@ -875,33 +930,38 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 		  // $Journal = $this->Journal->create(array('journalized_id' => $User->id, 'journalized_type' => $this->User->getTable(), 'user_id' => $input['created_by']));
 		  // $this->Journal->attachDetail($Journal->id, array('note' => $this->Lang->get('security/user-management.adminUserAddedJournal', array('email' => $input['email'], 'organization' => $this->AuthenticationManager->getCurrentUserOrganization('name')))), $Journal);
 
+      $context = array_only($input, ['firstname', 'lastname', 'email']);
+
 			$this->Log->info('[SECURITY EVENT] An existing user updated his information at ECSL 2019', $context);
 
 			$this->commit($openTransaction);
 		}
-		catch (\Exception $e) {
-				$this->rollBack($openTransaction);
+		catch (\Exception $e)
+    {
+			$this->rollBack($openTransaction);
 
-				throw $e;
-		} catch (\Throwable $e) {
-				$this->rollBack($openTransaction);
+			throw $e;
+		}
+    catch (\Throwable $e)
+    {
+			$this->rollBack($openTransaction);
 
-				throw $e;
+			throw $e;
 		}
 
-		$subject = '[ECSL 2019] Interesado en competencia de seguidores en línea ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
-		$replyToEmail = 'ecsl2019@softwarelibre.ca';
-		$replyToName = 'Comité Organizador del ECSL 2019';
-
-		if(empty($cmsLoggedUser['is_interested_in_competition']) && !empty($input['is_interested_in_competition']))
-		{
-			$this->Mailer->queue('ecsl-2019::emails.competencia', array('name' => $context['firstname'] . ' ' . $context['lastname'], 'email' => $context['email'], 'country' => $input['country']), function($message) use ($context, $subject, $replyToEmail, $replyToName)
-			{
-				$message->to('karla.hdz4@gmail.com')->subject($subject)->replyTo($replyToEmail, $replyToName)
-					->cc('mario.gomez@teubi.co')
-					->bcc('mgallegos@decimaerp.com');
-			});
-		}
+		// $subject = '[ECSL 2019] Interesado en competencia de seguidores en línea ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
+		// $replyToEmail = 'ecsl2019@softwarelibre.ca';
+		// $replyToName = 'Comité Organizador del ECSL 2019';
+    //
+		// if(empty($cmsLoggedUser['is_interested_in_competition']) && !empty($input['is_interested_in_competition']))
+		// {
+		// 	$this->Mailer->queue('ecsl-2019::emails.competencia', array('name' => $context['firstname'] . ' ' . $context['lastname'], 'email' => $context['email'], 'country' => $input['country']), function($message) use ($context, $subject, $replyToEmail, $replyToName)
+		// 	{
+		// 		$message->to('karla.hdz4@gmail.com')->subject($subject)->replyTo($replyToEmail, $replyToName)
+		// 			->cc('mario.gomez@teubi.co')
+		// 			->bcc('mgallegos@decimaerp.com');
+		// 	});
+		// }
 
 		return json_encode(array('success' => $this->Lang->get('form.defaultSuccessSaveMessage')));
 	}
@@ -972,7 +1032,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 		if(empty($dateTime))
 		{
-			$subject = '[ECSL 2019] Confirmación de solicitud de transporte ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+			$subject = '[ECSL 2019] Confirmación de solicitud de transporte ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
 			$User = $this->User->byId($TransportationRequest->request_user_id, $this->cmsDatabaseConnectionName);
@@ -1061,7 +1121,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 		if(empty($dateTime))
 		{
-			$subject = '[ECSL 2019] Confirmación de solicitud de ponencia ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+			$subject = '[ECSL 2019] Confirmación de solicitud de ponencia ' . $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
 			$input['email'] = $cmsLoggedUser['email'];
@@ -1197,7 +1257,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				$this->cmsDatabaseConnectionName
 			);
 
-			$date = $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')->setTimezone('America/El_Salvador')->format('Y-m-d');
+			$date = $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')->setTimezone($this->timezone)->format('Y-m-d');
 
 			if(empty($Payment->order_id))
 			{
@@ -1413,7 +1473,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			$this->SaleManager->update(
 				array(
 					'id' => $Payment->order_id,
-					'emission_date' => $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')->setTimezone('America/El_Salvador')->format('Y-m-d'),
+					'emission_date' => $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')->setTimezone($this->timezone)->format('Y-m-d'),
 					'document_type_id' => '7',
 					'document_type_label' => 'Factura Comercial',
 					'document_number' => $this->SaleManager->getDocumentNumberByDocumentTypeId(
@@ -1453,7 +1513,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 		$input['email'] = $cmsLoggedUser['email'];
 		$input['name'] = $cmsLoggedUser['firstname'] . ' ' . $cmsLoggedUser['lastname'];
-		$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+		$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 		$input['amount'] = $Payment->amount;
 		$input['type'] = $Payment->remark;
 		$input['reference'] = $reference;
@@ -1807,7 +1867,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				$this->cmsDatabaseConnectionName
 			)->first();
       $date = $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')
-        ->setTimezone('America/El_Salvador')
+        ->setTimezone($this->timezone)
         ->format('Y-m-d');
 
 			if($input['payment_form_type'] != 'J')
@@ -1967,7 +2027,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 		{
 			$input['email'] = $User->email;
 			$input['name'] = $User->firstname . ' ' . $User->lastname;
-			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 			$input['amount'] = $input['amount'];
 			$input['type'] = $input['type_label'];
 			$input['reference'] = $input['approval_number'];
@@ -2015,7 +2075,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			$input['title'] = $input['name'];
 			$input['email'] = $User->email;
 			$input['name'] = $User->firstname;
-			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 			$subject = '[ECSL 2019] Confirmación de aceptación de ponencia ' . $input['datetime'];
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
@@ -2059,7 +2119,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 			$input['email'] = $User->email;
 			$input['name'] = $User->firstname;
-			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 			$subject = '[ECSL 2019] Confirmación de asignación de transporte ' . $input['datetime'];
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
@@ -2372,7 +2432,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
   {
 		$cmsLoggedUser = $this->getSessionLoggedUser();
 
-		$Date = $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')->setTimezone('America/El_Salvador');
+		$Date = $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')->setTimezone($this->timezone);
 		$formattedDay = $this->Lang->get('week-days.' . strtolower($Date->format('l'))) . ' ' . $Date->format('d') . ' de ' . strtolower($this->Lang->get('decima-accounting::period-management.' . (int)$Date->format('m'))) . ' de ' . $Date->format('Y');
 
 		return $this->Dompdf
@@ -2438,7 +2498,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			$data['url'] = $decodedResponse['dataFiles'][0]['url'];
 			$data['email'] = $cmsLoggedUser['email'];
 			$data['name'] = $cmsLoggedUser['firstname'] . ' ' . $cmsLoggedUser['lastname'];
-			$data['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone('America/El_Salvador')->format($this->Lang->get('form.phpDateFormat'));
+			$data['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 			$subject = '[ECSL 2019] Confirmación de subida de archivo ' . $data['datetime'];
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
@@ -2585,7 +2645,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
         array(
           'user_id' => $value['data'][0]['user_id'],
           'user_contact_id' => $value['data'][1]['user_id'],
-          'event_id' => 1,
+          'event_id' => $this->eventId,
           'organization_id' => $this->organizationId,
         ),
         $this->cmsDatabaseConnectionName
@@ -2595,7 +2655,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
         array(
           'user_id' => $value['data'][1]['user_id'],
           'user_contact_id' => $value['data'][0]['user_id'],
-					'event_id' => 1,
+					'event_id' => $this->eventId,
           'organization_id' => $this->organizationId,
         ),
         $this->cmsDatabaseConnectionName

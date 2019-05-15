@@ -5,9 +5,19 @@
       {!! Honeypot::generate('fc-kwaai-name', 'fc-kwaai-time') !!}
       <!-- <div class="alert alert-dark" role="alert">
         <h6 class="card-title mb-0">Complete el formulario para poder realizar el pago y proponer una o más ponencias.</h6>
-      </div> -->
+      </div> ff7a28-->
       <div class="row">
         <div class="col-md-12">
+
+          <div id="alert-ecsl2018" class="form-group mg-hm alert alert-success">
+            <label><strong>¿Participó en el ECSL 2018?</strong></label>
+            <hr style="margin-top:0;margin-bottom: .5rem;"/>
+            <div class="row">
+              <div class="col-12">
+                <p>Haz clic <a href="#" data-toggle="modal" data-target="#reg-imp-modal">aquí</a> para importar tus datos</p>
+              </div>
+            </div>
+          </div>
 
           <div class="row">
             <!--Firstname -->
@@ -55,13 +65,13 @@
 
             <!-- Password Confirmation -->
             <div class="col-lg-6 col-md-12">
-              <div id="reg-confirm-password-col" class="form-group mg-hm">
+              <div id="reg-password-confirmation-col" class="form-group mg-hm">
                 <label for="reg-password-confirmation">Confirmar contraseña</label>
                 <div class="input-group">
                   <span class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-key"></i></div>
                   </span>
-                  {!! Form::password('reg-confirm-password', array('id'=>'reg-confirm-password', 'class'=>'form-control', 'data-mg-required'=>'')) !!}
+                  {!! Form::password('reg-password-confirmation', array('id'=>'reg-password-confirmation', 'class'=>'form-control', 'data-mg-required'=>'')) !!}
                 </div>
               </div>
             </div>
@@ -129,34 +139,35 @@
               <div class="form-group mg-hm">
                 <label for="reg-country">País</label>
                 @if (!Agent::isMobile())
-                  {!! Form::autocomplete('reg-country', array('Argentina','Belize','Bolivia','Brazil','Chile','Cuba','Costa Rica','Colombia','Ecuador','Estados Unidos de América','El Salvador','French Guiana','Guyana','Guatemala','Honduras','Mexico','Nicaragua','Panama','Paraguay','Peru','Suriname','Uruguay','Venezuela'), array('class' => 'form-control', 'data-mg-required'=>''), null, null, null, null, null, null, 'btn-outline-secondary', '4') !!}
+                  {!! Form::autocomplete('reg-country-label', $countries, array('class' => 'form-control', 'data-mg-required' => '', 'data-default-id'=> ''), 'reg-country-label', 'reg-country-id', null, null, null, 10, 'btn-outline-secondary', '4') !!}
+                  {!! Form::hidden('reg-country-id', null, array('id'  => 'reg-country-id')) !!}
             		@else
-                  {!! Form::select('reg-country', array(
-                    'Argentina' => 'Argentina',
-                    'Belize'  => 'Belize',
-                    'Bolivia' => 'Bolivia',
-                    'Brazil' => 'Brazil',
-                    'Chile' => 'Chile',
-                    'Cuba' => 'Cuba',
-                    'Costa Rica' => 'Costa Rica',
-                    'Colombia' => 'Colombia',
-                    'Ecuador' => 'Ecuador',
-                    'Estados Unidos de América' => 'Estados Unidos de América',
-                    'El Salvador' => 'El Salvador',
-                    'French Guiana' => 'French Guiana',
-                    'Guyana' => 'Guyana',
-                    'Guatemala' => 'Guatemala',
-                    'Honduras' => 'Honduras',
-                    'Mexico' => 'Mexico',
-                    'Nicaragua' => 'Nicaragua',
-                    'Panama' => 'Panama',
-                    'Paraguay' => 'Paraguay',
-                    'Peru' => 'Peru',
-                    'Suriname' => 'Suriname',
-                    'Uruguay' => 'Uruguay',
-                    'Venezuela' => 'Venezuela')
+                  {!! Form::select('reg-country-id', array(
+                    '11' => 'Argentina',
+                    '35'  => 'Belize',
+                    '28' => 'Bolivia',
+                    '29' => 'Brazil',
+                    '44' => 'Chile',
+                    '49' => 'Cuba',
+                    '48' => 'Costa Rica',
+                    '47' => 'Colombia',
+                    '60' => 'Ecuador',
+                    '224' => 'Estados Unidos de América',
+                    '202' => 'El Salvador',
+                    '77' => 'French Guiana',
+                    '90' => 'Guyana',
+                    '87' => 'Guatemala',
+                    '93' => 'Honduras',
+                    '150' => 'Mexico',
+                    '158' => 'Nicaragua',
+                    '166' => 'Panamá',
+                    '179' => 'Paraguay',
+                    '167' => 'Perú',
+                    '200' => 'Suriname',
+                    '225' => 'Uruguay',
+                    '229' => 'Venezuela')
                     , null,
-                    array('id'=>'reg-country', 'class'=>'form-control', 'data-mg-required'=>''))
+                    array('id'=>'reg-country-id', 'class'=>'form-control', 'data-mg-required'=>''))
                   !!}
             		@endif
               </div>
@@ -345,6 +356,11 @@
                     <input id='reg-participated-in-ecsl2017' class="form-check-input" type="checkbox" value=""> Costa Rica 2017
                   </label>
                 </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input id='reg-participated-in-ecsl2018' class="form-check-input" type="checkbox" value=""> El Salvador 2018
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -451,7 +467,7 @@
             </div>
           </div>
 
-          <div class="form-group mg-hm alert alert-success">
+          <!-- <div class="form-group mg-hm alert alert-success">
             <label><strong>Competencia de seguidores en línea</strong></label>
             <hr style="margin-top:0;margin-bottom: .5rem;"/>
             <div class="row">
@@ -463,7 +479,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- <div class="form-group mg-hm alert alert-success">
             <label><strong>Día social</strong></label>
@@ -503,5 +519,45 @@
         </div>
       </div>
     {!! Form::close() !!}
+  </div>
+</div>
+<div class="modal fade" id="reg-imp-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Importar datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {!! Form::open(array('id'=>'reg-imp-form', 'role' => 'form', 'onsubmit'=>'return false;', 'url'=>URL::to('cms/dashboard/import'))) !!}
+          {!! Honeypot::generate('reg-imp-kwaai-name', 'reg-imp-kwaai-time') !!}
+          <div class="alert alert-dark" role="alert">
+            Utilice sus credenciales del sitio web del ECSL 2018
+          </div>
+          <div class="form-group mg-hm">
+            <div class="input-group">
+              <span class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-envelope-o"></i></div>
+              </span>
+              {!! Form::text('reg-imp-email', null, array('id'=>'reg-imp-email', 'class'=>'form-control', 'data-mg-required'=>'', 'placeholder' => Lang::get('security/user-management.email'))) !!}
+              </div>
+          </div>
+          <div class="form-group mg-hm">
+            <div class="input-group">
+              <span class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-key"></i></div>
+              </span>
+              {!! Form::password('reg-imp-password', array('id'=>'reg-imp-password', 'class'=>'form-control', 'data-mg-required'=>'', 'placeholder' => Lang::get('security/user-management.password'))) !!}
+              </div>
+          </div>
+        {!! Form::close() !!}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
+        <button id = "reg-imp-btn-import" type="button" class="btn btn-dark">Importar</button>
+      </div>
+    </div>
   </div>
 </div>

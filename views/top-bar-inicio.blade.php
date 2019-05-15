@@ -2,7 +2,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-darkblue">
   <div class="container">
     <a class="navbar-brand" href="{{URL::to('cms/inicio')}}" style="padding:0;"><img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/logo_ecsl_2019.png" style="width:65px;" alt=""></a>
-    <a class="navbar-brand font-weight-bold" href="{{URL::to('cms/inicio')}}" style="padding:0;">ECSL 2019</a>
+    <a class="navbar-brand font-weight-bold" href="{{URL::to('cms/inicio')}}" style="padding:0;color:#1a84c1;">ECSL 2019</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

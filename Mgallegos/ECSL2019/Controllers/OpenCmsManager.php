@@ -16,6 +16,8 @@ use Mgallegos\DecimaOpenCms\OpenCms\Services\PresentationManagement\Presentation
 
 use Mgallegos\DecimaFile\File\Services\FileManagement\FileManagementInterface;
 
+use App\Kwaai\Organization\Services\OrganizationManagement\OrganizationManagementInterface;
+
 use Illuminate\Foundation\Application;
 
 use Illuminate\Session\SessionManager;
@@ -31,7 +33,7 @@ use App\Http\Controllers\Controller;
 class OpenCmsManager extends Controller {
 
 	/**
-	 * Account Manager Service
+	 * Transportation Request Manager Service
 	 *
 	 * @var Mgallegos\DecimaOpenCms\OpenCms\Services\TransportationRequestManagement\TransportationRequestManagementInterface
 	 *
@@ -69,6 +71,14 @@ class OpenCmsManager extends Controller {
 	 *
 	 */
 	protected $OpenCmsManagerService;
+
+	/**
+	 * Organization Manager Service
+	 *
+	 * @var App\Kwaai\Organization\Services\OrganizationManagement\OrganizationManagementInterface
+	 *
+	 */
+	protected $OrganizationManagerService;
 
 	/**
 	 * View
@@ -115,6 +125,7 @@ class OpenCmsManager extends Controller {
 		PaymentManagementInterface $PaymentManagerService,
 		PresentationManagementInterface $PresentationManagerService,
 		FileManagementInterface $FileManagerService,
+		OrganizationManagementInterface $OrganizationManagerService,
 		Application $App,
 		Factory $View,
 		Request $Input,
@@ -129,6 +140,8 @@ class OpenCmsManager extends Controller {
 		$this->PresentationManagerService = $PresentationManagerService;
 
 		$this->FileManagerService = $FileManagerService;
+
+		$this->OrganizationManagerService = $OrganizationManagerService;
 
 		$this->App = $App;
 
@@ -238,7 +251,18 @@ class OpenCmsManager extends Controller {
 			)
 			->with('status', $this->OpenCmsManagerService->getDefaultStatus())
 			->with('places', $this->OpenCmsManagerService->getPlaces())
+			->with('countries', $this->OrganizationManagerService->getSystemCountries())
 			->with('contacts', $contacts);
+	}
+
+	/**
+	 * Handle a POST request for import user
+	 *
+	 * @return Response
+	 */
+	public function postImport()
+	{
+		return $this->OpenCmsManagerService->importLastYearData( $this->Input->json()->all() );
 	}
 
 	/**
@@ -250,6 +274,7 @@ class OpenCmsManager extends Controller {
 	{
 		return $this->OpenCmsManagerService->create( $this->Input->json()->all() );
 	}
+
 	/**
 	 * Handle a POST request for user registration.
 	 *

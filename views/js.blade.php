@@ -73,9 +73,10 @@
 
 	function changeIdLabel(country)
 	{
-		if(country.toLowerCase() == 'EL Salvador'.toLowerCase())
+		console.log(country);
+		if(country == 87)
 		{
-			$('#reg-passport-number-label').html('DUI');
+			$('#reg-passport-number-label').html('DPI');
 		}
 		else
 		{
@@ -222,7 +223,7 @@
 
 		wow.init();
 
-		$('#ob-fa-form, #login-form, #pass-form, #reg-form, #pay-form, #pon-form, #trans-from-form, #trans-to-form').jqMgVal('addFormFieldsValidations');
+		$('#ob-fa-form, #login-form, #pass-form, #reg-form, #pay-form, #pon-form, #trans-from-form, #trans-to-form, #reg-imp-form').jqMgVal('addFormFieldsValidations');
 
 		$(window).bind('resize', function()
 		{
@@ -259,14 +260,14 @@
 
 		@if (!Agent::isMobile())
 
-		$('#reg-country').on('autocompleteselect', function( event, ui )
+		$('#reg-country-label').on('autocompleteselect', function( event, ui )
 		{
-			changeIdLabel(ui.item.label);
+			changeIdLabel(ui.item.value);
 		});
 
 		@else
 
-		$('#reg-country').change(function()
+		$('#reg-country-label').change(function()
 		{
 			changeIdLabel($(this).val());
 		});
@@ -366,16 +367,16 @@
 
 			$(this).addClass('active');
 
-			if($('#reg-country').val().toLowerCase() == 'Costa Rica'.toLowerCase())
-			{
-				$('#pay-bank-transfer-cr-payment-form-row').show();
-				$('#pay-bank-transfer-slsv-payment-form-row').hide();
-			}
-			else
-			{
-				$('#pay-bank-transfer-slsv-payment-form-row').show();
-				$('#pay-bank-transfer-cr-payment-form-row').hide();
-			}
+			// if($('#reg-country-label').val().toLowerCase() == 'Costa Rica'.toLowerCase())
+			// {
+			// 	$('#pay-bank-transfer-cr-payment-form-row').show();
+			// 	$('#pay-bank-transfer-slsv-payment-form-row').hide();
+			// }
+			// else
+			// {
+			// 	$('#pay-bank-transfer-slsv-payment-form-row').show();
+			// 	$('#pay-bank-transfer-cr-payment-form-row').hide();
+			// }
 
 			$('#dash-pago-container').show('fade');
 		});
@@ -836,6 +837,51 @@
 			});
 		});
 
+		$('#reg-imp-btn-import').click(function()
+		{
+			$('#reg-imp-form-alert').remove();
+
+			if(!$('#reg-imp-form').jqMgVal('isFormValid'))
+			{
+				return;
+			}
+
+			$.ajax(
+			{
+				type: 'POST',
+				data: JSON.stringify($('#reg-imp-form').formToObject('reg-imp-')),
+				dataType : 'json',
+				url: $('#reg-imp-form').attr('action'),
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					handleServerExceptions(jqXHR, 'reg-imp-form');
+				},
+				beforeSend:function()
+				{
+					$('#app-loader').removeClass('hidden-xs-up');
+					disabledAll();
+				},
+				success:function(json)
+				{
+					if(json.message != 'success')
+					{
+						$('#reg-imp-form').showAlertAsFirstChild('alert-info',json.message, 7000);
+					}
+					else
+					{
+						populateFormFields(json.user, 'reg-');
+						$('#reg-registration-form-id').val('');
+						$('#reg-user-id').val('');
+						$('#reg-birth-date').val('');
+						$('#reg-imp-modal').modal('hide');
+					}
+
+					$('#app-loader').addClass('hidden-xs-up');
+					enableAll();
+				}
+			});
+		});
+
 		$('#trans-from-enviar').click(function()
 		{
 			if($(this).hasAttr('disabled'))
@@ -1120,12 +1166,24 @@
 			{
 				populateFormFields(loggedUser, 'reg-');
 
+				$('#alert-ecsl2018').hide();
+
+				@if (!Agent::isMobile())
+
+				$('#reg-country-label').setAutocompleteLabel(loggedUser.country_id);
+
+				@else
+
+				$('#reg-country-id').val(loggedUser.country_id);
+
+				@endif
+
 				$('#trans-from-id').val(loggedUser.arriving_transportation_request_id);
 				$('#trans-to-id').val(loggedUser.leaving_transportation_request_id);
-				$('#reg-password, #reg-confirm-password').removeAttr('data-mg-required');
-				$('#reg-password-col, #reg-confirm-password-col').find('p').remove();
+				$('#reg-password, #reg-password-confirmation').removeAttr('data-mg-required');
+				$('#reg-password-col, #reg-password-confirmation-col').find('p').remove();
 				customGender(loggedUser.gender);
-				changeIdLabel(loggedUser.country);
+				changeIdLabel(loggedUser.country_id);
 			}
 
 			if(!empty(payment))
@@ -1169,13 +1227,16 @@
 				}
 				else
 				{
-					$('.card-payment-deck').find('.card').each(function()
-					{
-						if($(this).attr('data-type') != undefined && $(this).attr('data-type') == 'B')
-						{
-							$(this).addClass('bg-danger');
-						}
-					});
+					//opción única de pago
+					$('#pay-bank-transfer-slsv-payment-form').click();
+
+					// $('.card-payment-deck').find('.card').each(function()
+					// {
+					// 	if($(this).attr('data-type') != undefined && $(this).attr('data-type') == 'B')
+					// 	{
+					// 		$(this).addClass('bg-danger');
+					// 	}
+					// });
 				}
 			}
 
