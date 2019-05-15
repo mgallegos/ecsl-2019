@@ -153,6 +153,7 @@
                     '47' => 'Colombia',
                     '60' => 'Ecuador',
                     '224' => 'Estados Unidos de América',
+                    '65' => 'España',
                     '202' => 'El Salvador',
                     '77' => 'French Guiana',
                     '90' => 'Guyana',

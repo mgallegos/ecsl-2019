@@ -1875,6 +1875,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				$articlesId['A'] = 190;
 	      $articlesId['B'] = 191;
 	      $articlesId['C'] = 192;
+	      $articlesId['D'] = 194;
 
 				if(empty($Payment->order_id))
 				{
