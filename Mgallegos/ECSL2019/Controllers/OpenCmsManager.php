@@ -350,7 +350,7 @@ class OpenCmsManager extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postAuthorizeECSL2019Payment()
+	public function postAuthorizeEcsl2019Payment()
 	{
 		return $this->OpenCmsManagerService->authorizePayment( $this->Input->json()->all() );
 	}
@@ -360,7 +360,7 @@ class OpenCmsManager extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postAuthorizeECSL2019Presentation()
+	public function postAuthorizeEcsl019Presentation()
 	{
 		return $this->OpenCmsManagerService->authorizePresentation( $this->Input->json()->all() );
 	}
@@ -370,7 +370,7 @@ class OpenCmsManager extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postAuthorizeECSL2019TransportationRequest()
+	public function postAuthorizeEcsl2019TransportationRequest()
 	{
 		return $this->OpenCmsManagerService->authorizeTransportationRequest( $this->Input->json()->all() );
 	}

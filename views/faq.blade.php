@@ -47,7 +47,7 @@
 
       <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="Two">
         <div class="card-body">
-          El Encuentro Centroamericano de Software Libre 2019 se llevará a cabo en la Universidad Mesoamericana Sede Quetzaltenango los días 4, 5 y 6 de Julio del 2019, su ubicación es Facultad de Ingeniería, Campus Las Américas zona 9. Quetzaltenango, Quetzaltenango.
+          El Encuentro Centroamericano de Software Libre 2019 se llevará a cabo en la Universidad Mesoamericana sede Quetzaltenango los días 4, 5 y 6 de Julio del 2019, su ubicación es Facultad de Ingeniería, Campus Las Américas zona 9. Quetzaltenango, Quetzaltenango.
         </div>
       </div>
     </div>

@@ -1863,10 +1863,10 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				$Payment->user_id,
 				$this->cmsDatabaseConnectionName
 			);
-      $RegistrationForm = $this->RegistrationForm->byUserId(
-				$Payment->user_id,
-				$this->cmsDatabaseConnectionName
-			)->first();
+      // $RegistrationForm = $this->RegistrationForm->byUserId(
+			// 	$Payment->user_id,
+			// 	$this->cmsDatabaseConnectionName
+			// )->first();
       $date = $this->Carbon->createFromFormat('Y-m-d', date('Y-m-d'), 'UTC')
         ->setTimezone($this->timezone)
         ->format('Y-m-d');
@@ -1929,7 +1929,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 	            'emission_date' => $date,
 	            'collection_date' => $recordDatetime->format('Y-m-d'),
 	            'payment_date' => $recordDatetime->format('Y-m-d'),
-	            'client_id' => $RegistrationForm->client_id,
+	            'client_id' => $User->client_id,
 	            'sale_point_id' => 1,
 	            'sale_point_label' => 'Oficina central',
 	            'document_type_id' => '7',
@@ -1939,7 +1939,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 	            'payment_form_id' => 2,
 	            'payment_form_label' => 'Transferencia bancaria',
 	            'bank_account_id' => 1,
-	            'bank_account_label' => 'Moisés Oswaldo Larín y Carlos Juan Martín Pérez (Banco de América Central)',
+	            'bank_account_label' => 'Transacciones Digitales, S A (Banco de América Central)',
 	            'remark' => $input['remark'],
 	            'document_number' => $this->SaleManager->getDocumentNumberByDocumentTypeId(
 	              array(
@@ -1994,21 +1994,32 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
       // 'order_id' => $response['id'],
 
-      $input['status'] = 'X';
+      // $input['status'] = 'X';
       $input['order_id'] = $response['id'];
 
-      $this->PaymentManager->update(
-				$input,
-				$Payment,
-				false,
-				false,
-				$this->cmsDatabaseConnectionName,
-				$organizationId,// $organizationId = null,
-				$loggedUserId // $loggedUserId = null,
-			);
+      // $this->PaymentManager->update(
+			// 	$input,
+			// 	$Payment,
+			// 	false,
+			// 	false,
+			// 	$this->cmsDatabaseConnectionName,
+			// 	$organizationId,// $organizationId = null,
+			// 	$loggedUserId // $loggedUserId = null,
+			// );
 
-      $Journal = $this->Journal->create(array('journalized_id' => $Payment->id, 'journalized_type' => $Payment->getTable(), 'user_id' => $loggedUserId, 'organization_id' => $organizationId));
-      $this->Journal->attachDetail($Journal->id, array('note' => $this->Lang->get('decima-open-cms::payment-management.authorizedJournal', array('name' => $User->firstname . ' ' . $User->lastname)), $Journal));
+      $this->PaymentManager->authorize(
+        $input,
+        $Payment,
+        $User,
+        false,
+        false,
+        $this->cmsDatabaseConnectionName,
+        $organizationId,
+        $loggedUserId
+      );
+
+      // $Journal = $this->Journal->create(array('journalized_id' => $Payment->id, 'journalized_type' => $Payment->getTable(), 'user_id' => $loggedUserId, 'organization_id' => $organizationId));
+      // $this->Journal->attachDetail($Journal->id, array('note' => $this->Lang->get('decima-open-cms::payment-management.authorizedJournal', array('name' => $User->firstname . ' ' . $User->lastname)), $Journal));
 
       $this->commit($openTransaction);
     }
@@ -2027,6 +2038,12 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 
 		if($input['payment_form_type'] != 'J')
 		{
+      $Payment = $this->PaymentManager->getPayment(
+				$input['id'],
+				$this->cmsDatabaseConnectionName
+			);
+
+			$input['number'] = $Payment->number;
 			$input['email'] = $User->email;
 			$input['name'] = $User->firstname . ' ' . $User->lastname;
 			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
@@ -2037,12 +2054,12 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
 
-			// $input['email'] = 'mgallegos@decimaerp.com';
+			$input['email'] = 'mgallegos@decimaerp.com';
 
 			$this->Mailer->queue('ecsl-2019::emails.confirmacion-pago', $input, function($message) use ($input, $subject, $replyToEmail, $replyToName)
 			{
 				$message->to($input['email'])->subject($subject)->replyTo($replyToEmail, $replyToName)
-					->cc('ecsl2019@softwarelibre.ca')
+					// ->cc('ecsl2019@softwarelibre.ca')
 					->bcc('mgallegos@decimaerp.com');
 			});
 		}

@@ -4,7 +4,8 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-    <p>Se registró la recepción del siguiente pago:</p>
+    <h1>Correlativo de pago: #{{ $number }}</h1>
+    <p>Confirmación de recepción del siguiente pago:</p>
 		<ul>
 			<li><strong>Fecha y hora:</strong> {{ $datetime }}</li>
 			<li><strong>Opción de pago:</strong> {{ $type }}</li>
@@ -12,7 +13,11 @@
 			<li><strong>Número de aprobación:</strong> {{ $reference }}</li>
 			<li><strong>Realizado por:</strong> {{ $name }}</li>
 		</ul>
-		<p>Puede descargar el comprobante de su pago en la sección “Realizar pago”, del sitio web oficial del evento.</p>
+		<p>Favor de tomar nota:</p>
+		<ul>
+			<li>Guarde su <strong>correlativo de pago</strong>, le servirá para identificar su inscripción con los miembros del comíte organizador.</li>
+			<li>Puede descargar el comprobante de su pago en la sección <strong>"Realizar pago"</strong>, del sitio web oficial del evento.</li>
+		</ul>
 		<p>Un saludo,<br>Comité Organizador del ECSL 2019.</p>
 	</body>
 </html>
