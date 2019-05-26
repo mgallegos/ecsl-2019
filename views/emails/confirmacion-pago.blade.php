@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-    <h1>Correlativo de pago: #{{ $number }}</h1>
+    <h1>Correlativo de pago #{{ $number }}</h1>
     <p>Confirmación de recepción del siguiente pago:</p>
 		<ul>
 			<li><strong>Fecha y hora:</strong> {{ $datetime }}</li>
