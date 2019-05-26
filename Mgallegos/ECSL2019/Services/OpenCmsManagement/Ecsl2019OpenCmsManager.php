@@ -2043,7 +2043,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				$this->cmsDatabaseConnectionName
 			);
 
-			$input['number'] = str_pad($Payment->number, 10, '0', STR_PAD_LEFT);
+			$input['number'] = str_pad($Payment->number, 3, '0', STR_PAD_LEFT);
 			$input['email'] = $User->email;
 			$input['name'] = $User->firstname . ' ' . $User->lastname;
 			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
