@@ -2043,18 +2043,18 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 				$this->cmsDatabaseConnectionName
 			);
 
-			$input['number'] = $Payment->number;
+			$input['number'] = str_pad($Payment->number, 10, '0', STR_PAD_LEFT);
 			$input['email'] = $User->email;
 			$input['name'] = $User->firstname . ' ' . $User->lastname;
 			$input['datetime'] = $this->Carbon->createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s'), 'UTC')->setTimezone($this->timezone)->format($this->Lang->get('form.phpDateFormat'));
 			$input['amount'] = $input['amount'];
 			$input['type'] = $input['type_label'];
 			$input['reference'] = $input['approval_number'];
-			$subject = '[ECSL 2019] Confirmación de recepción de pago ' . $input['datetime'];
+			$subject = '[ECSL 2019 - PRUEBA] Confirmación de recepción de pago ' . $input['datetime'];
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
 
-			$input['email'] = 'mgallegos@decimaerp.com';
+			$input['email'] = 'maria.castillo.martini@gmail.com';
 
 			$this->Mailer->queue('ecsl-2019::emails.confirmacion-pago', $input, function($message) use ($input, $subject, $replyToEmail, $replyToName)
 			{
