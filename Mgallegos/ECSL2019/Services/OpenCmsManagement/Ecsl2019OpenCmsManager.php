@@ -2050,7 +2050,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			$input['amount'] = $input['amount'];
 			$input['type'] = $input['type_label'];
 			$input['reference'] = $input['approval_number'];
-			$subject = '[ECSL 2019 - PRUEBA] Confirmación de recepción de pago ' . $input['datetime'];
+			$subject = '[ECSL 2019] Confirmación de recepción de pago ' . $input['datetime'];
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
 
