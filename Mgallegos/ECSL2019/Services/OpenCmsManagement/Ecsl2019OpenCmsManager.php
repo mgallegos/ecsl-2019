@@ -2477,7 +2477,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 		return $this->SaleManager->createDefaultPdf(
 			array(
 				'sale_order_id' => $input['order_id'],
-				'print_format_identifier' => 'EC0001'
+				'print_format_identifier' => 'EC0002'
 			),
 			$this->cmsDatabaseConnectionName,//$databaseConnectionName = null,
 			$this->virtualAssistantId, // $loggedUserId = null,

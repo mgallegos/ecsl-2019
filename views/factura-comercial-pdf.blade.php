@@ -285,7 +285,7 @@
   <body>
     <div class="container">
       <div class="col-left">
-        <img src="https://storage.googleapis.com/decimaerp/organizations/15/encabezado.png" style="width: 98%;height: auto;margin-top:10px;"/>
+        <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/header_ecsl2019.png" style="width: 98%;height: auto;margin-top:10px;"/>
       <center style="margin-top:10px;">
         <div class="col-fifty">
           <p ><strong>{{ Lang::get('organization/organization-management.webSite') }}: </strong>https://ecsl2019.softwarelibre.ca</p>
@@ -401,7 +401,7 @@
       </tbody>
     </table>
     <footer>
-      <img  src="https://storage.googleapis.com/decimaerp/organizations/15/PieDePagina.png" style="width: 100%;height: auto;">
+      <img  src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/footer_ecsl2019.png" style="width: 100%;height: auto;">
     </footer>
   </body>
 </html>

@@ -77,7 +77,7 @@ class ECSL2019ServiceProvider extends ServiceProvider {
 	protected function registerCustomPrintFormats()
 	{
 		$customPrintFormatsArray = $this->app->make('customPrintFormats');
-		$customPrintFormatsArray['EC0001'] = new \Mgallegos\ECSL2019\CustomFormats\FacturaComercial($this->app->make('dompdf.wrapper'));
+		$customPrintFormatsArray['EC0002'] = new \Mgallegos\ECSL2019\CustomFormats\FacturaComercial($this->app->make('dompdf.wrapper'));
 
 		$this->app->instance('customPrintFormats', $customPrintFormatsArray);
 	}
