@@ -1940,16 +1940,7 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 	            'payment_form_label' => 'Transferencia bancaria',
 	            'bank_account_id' => 1,
 	            'bank_account_label' => 'Transacciones Digitales, S A (Banco de América Central)',
-	            'remark' => $input['remark'],
-	            'document_number' => $this->SaleManager->getDocumentNumberByDocumentTypeId(
-	              array(
-	                'sale_point_id' => '1',
-	                'document_type_id' => '7',
-	                'organization_id' => $organizationId
-	              ),
-	              $this->cmsDatabaseConnectionName,
-	              false
-	            )
+	            'remark' => $input['remark']
 	          ),
 						null,
 						null,
