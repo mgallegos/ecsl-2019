@@ -92,15 +92,24 @@
 
         </div>
 
-        <!-- Movilizacion -->
-        {{-- <div class="card border-0">
+        <!-- <div class="card border-0">
+          <div class="card-header bg-white p-0 m-0 border-top">
+            <a href="#movilizacion" class="btn w-100 rounded-0">
+              <div class="font-weight-bold text-primary text-left" aria-expanded="false">
+                Movilización</div>
+            </a>
+          </div>
+        </div> -->
+
+        <!-- Hospedaje -->
+        <div class="card border-0">
           <div class="card-header bg-white p-0 m-0 border-top">
             <div class="btn w-100" id="headingMovilizacion" data-toggle="collapse" data-target="#collapseMovilizacion" aria-expanded="false">
               <div class="row ">
-                <div class="col-8 text-left">
-                  <p class="font-weight-bold text-primary my-0">Movilización</p>
+                <div class="col-9 text-center">
+                  <p class="font-weight-bold text-primary my-0 text-left">Movilización</p>
                 </div>
-                <div class="col-4 text-right">
+                <div class="col-3 text-right">
                   <i class="fa fa-chevron-down text-secondary "></i>
                 </div>
               </div>
@@ -109,26 +118,17 @@
           <div id="collapseMovilizacion" class="collapse" aria-labelledby="headingMovilizacion" data-parent="#sideLogistica">
             <div class="card-body p-0">
               <div class="list-group list-group-flush m-0">
-                <a href="#a-pie" class="list-group-item list-group-item-action py-2">A pie</a>
-                <a href="#servicio-de-autobuses" class="list-group-item list-group-item-action py-2">Servicio de Autobuses</a>
-                <a href="#servicio-de-taxis" class="list-group-item list-group-item-action py-2">Servicio de taxis</a>
-                <a href="#servicio-de-UBER" class="list-group-item list-group-item-action py-2">Servicio UBER</a>
+                <a href="#movilizacion-sede" class="list-group-item list-group-item-action py-2">Hacia la sede</a>
+                <a href="#movilizacion-quetzaltenango" class="list-group-item list-group-item-action py-2">Hacia Quetzaltenango</a>
+                <a href="#movilizacion-oficial" class="list-group-item list-group-item-action py-2">Transporte oficial</a>
+                <a href="#movilizacion-alternativo" class="list-group-item list-group-item-action py-2">Transportes alternativos</a>
+                <a href="#movilizacion-vehiculo" class="list-group-item list-group-item-action py-2">Vehículo propio</a>
               </div>
             </div>
           </div>
-        </div> --}}
-
-        <div class="card border-0">
-          <div class="card-header bg-white p-0 m-0 border-top">
-            <a href="#movilizacion" class="btn w-100 rounded-0">
-              <div class="font-weight-bold text-primary text-left" aria-expanded="false">
-                Movilización</div>
-            </a>
-          </div>
-
         </div>
 
-        <div class="card border-0">
+        <!-- <div class="card border-0">
           <div class="card-header bg-white p-0 m-0 border-top">
             <a href="#aereo" class="btn w-100 rounded-0">
               <div class="font-weight-bold text-primary text-left" aria-expanded="false">
@@ -136,7 +136,7 @@
             </a>
           </div>
 
-        </div>
+        </div> -->
 
           {{-- <!-- Opcion de Viaje -->
           <div class="card border-0">
@@ -421,7 +421,7 @@
 
         <div id="sede-oficial" class="right-block">
           <h3 class="font-weight-bold">Sede Oficial <small>(Universidad Mesoamericana Sede Quetzaltenango)</small></h3>
-          <p class="text-justify">El evento se llevará a cabo en la Universidad Mesoamericana Sede Quetzaltenango los días 4, 5 y 6 de Julio del 2019, su ubicación es en 3ª. calle 14-36 y 14-03 zona 3, Quezaltenango, Quetzaltenango, Guatemala.</p>
+          <p class="text-justify">El evento se llevará a cabo en la Universidad Mesoamericana Sede Quetzaltenango los días 4, 5 y 6 de Julio del 2019, su ubicación es Facultad de Ingeniería, Campus Las Américas zona 9. Quetzaltenango, Quetzaltenango.</p>
           <p>
             Si desea más detalles, puede utilizar esta información de contacto:<br>Teléfono: (+502) 7932-9000 <br> Sitio web: <a target="_blank" href="https://www.umes.edu.gt/sedes/sede-quetzaltenango/">Universidad Mesoamericana Sede Quetzaltenango”</a> <br>
           </p>
@@ -469,96 +469,74 @@
 
         <hr>
 
-        <div id="movilizacion" class="right-block">
+        <div id="movilizacion-sede" class="right-block">
           <h3 class="font-weight-bold">Movilización</h3>
+          <h4 class="display-6 font-italic font-weight-bold">Hacia la sede</h4>
+          <p class="text-justify">El siguiente mapa muestra la distancia y la ruta de movilización entre el lugar de hospedaje y la sede del ECSL 2019:</p>
           <div class="embed-responsive embed-responsive-16by9">
           <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d7713.510774269914!2d-91.52319297551706!3d14.838980508604031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x858e980352666293%3A0x846814725fb72a20!2sHotel+Villa+Real+Plaza%2C+4a+Calle%2C+Quezaltenango!3m2!1d14.8350624!2d-91.51839149999999!4m5!1s0x858ea2ab00334b2f%3A0xb70aba74577dd282!2sUniversidad+Mesoamericana%2C+3a+Calle%2C+Quezaltenango!3m2!1d14.842735099999999!2d-91.5181092!5e0!3m2!1ses-419!2ssv!4v1554522153833!5m2!1ses-419!2ssv" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
-          <p class="text-justify">Para movilizarse del lugar de hospedaje hacia la sede del ECSL-2019 existen varias opciones que se describen a continuación:</p>
         </div>
-
-        {{-- <div id="a-pie" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">A pie</h4>
-          <p class="text-justify">
-            Desde el hospedaje oficial a la sede del evento no hay más de 15 minutos caminando.
-            Antiguo Cuscatlán es un municipio muy seguro para llevar su equipo, no obstante, como en
-            cualquier gran ciudad, siempre es mejor ir en grupo que solo/a. En cuanto al tipo de
-            camino, solo hay que atravesar un par de calles de doble sentido sin mucho tráfico.
-          </p>
-        </div>
-
-        <div id="servicio-de-autobuses" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">Servicio de Autobuses</h4>
-          <p class="text-justify">En El Salvador es posible llegar prácticamente a cualquier lugar utilizando el servicio de autobuses.
-            <br><br> La rutas que llegan a la Universidad Centroamericana “José Simeón Cañas” (UCA):
-            <ul>
-              <li>Ruta 42 (Bus y Coaster)</li>
-              <li>Ruta 44 (Bus y Coaster)</li>
-              <!-- <li>Ruta 101</li> -->
-            </ul>
-          </p>
-        </div>
-
-        <div id="servicio-de-taxis" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">Servicio de taxis</h4>
-          <p class="text-justify">Los taxis no cuentan con taxímetro, la tarifa se negocia con el taxista antes de abordar el vehículo. El costo promedio para desplazarse desde la Universidad Centroamericana “José Simeón Cañas” (UCA) sede del evento y el Centro Loyola es de
-            $ 5.00 dólares.
-            <br><br> Cabe destacar que a la salida hacia la calle “La Sultana” de la Universidad Centroamericana “José Simeón Cañas” (UCA) se ubica un punto de taxis de los cuales puede hacer uso en el horario que usted desee.
-          </p>
-        </div>
-
-        <div id="servicio-de-UBER" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">Servicio UBER</h4>
-          <p class="text-justify">También puede optar por el servicio <a target="_blank" href="https://www.uber.com/es-ES/cities/san-salvador/">Uber</a>, para lo cual previamente debe instalar la respectiva app y configurar una cuenta. En El Salvador se ofrece la opción de UberX (4 personas).
-            Puede pagar el servicio con tarjeta de débito/crédito o con dinero en efectivo en dólares.</p>
-          <p>
-            Para consultar estimación de tarifas, puede dirigirse a <a target="_blank" href="https://www.uber.com/es-ES/fare-estimate/">este enlace.</a>
-          </p>
-        </div> --}}
-
-        <hr>
-
-        <div id="aereo" class="right-block">
-          <h3 class="font-weight-bold">Información de viaje</h3>
-          {{-- <h4 class="display-6 font-italic font-weight-bold">Aérea</h4> --}}
-          <p class="text-justify">Existen diversas empresas de buses, los cuales cuentan con traslado desde la Ciudad de Guatemala y la ciudad de Quetzaltenango. El costo aproximado es de Q70.00 ($10).</p>
-
+        <br>
+        <div id="movilizacion-quetzaltenango" class="right-block">
+          <h4 class="font-weight-bold">Hacia Quetzaltenango</h4>
+          <p class="text-justify">El traslado desde la ciudad de Guatemala hacia la ciudad de Quetzaltenango es de aproximadamente 4 horas (o un poco más dependiendo del tráfico). A continuación se detalla el transporte oficial, así como también los transportes alternativos en el caso que realice el viaje por cuenta propia.</p>
           <div class="embed-responsive embed-responsive-16by9">
             <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d987423.9913337226!2d-91.58127000713635!3d14.818242926549749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8589a15f18a23e65%3A0xa8d9f9b1ae2d4eca!2sAeropuerto+Internacional+La+Aurora%2C+Guatemala!3m2!1d14.5840977!2d-90.5276868!4m5!1s0x858e97fe3fc89d3f%3A0x3ba7ff011f0f000f!2sQuezaltenango!3m2!1d14.8446068!2d-91.5231866!5e0!3m2!1ses-419!2ssv!4v1554522255980!5m2!1ses-419!2ssv" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
         </div>
-
         <br>
-        {{-- <div id="terrestre" class="right-block">
-          <h4 class="display-6 font-italic font-weight-bold">Terrestre</h4>
-          <p class="text-justify">Llegar a San Salvador por tierra es la opción más viable para las personas que vienen de los países centroamericanos, aconsejamos verificar precios y asegúrese de consultar las promociones y descuentos especiales directamente con cada empresa
-            de transporte.</p>
-
+        <div id="movilizacion-oficial" class="right-block">
+          <h4 class="font-weight-bold">Transporte oficial</h4>
+          <p class="text-justify">La logística para el traslado al lugar del evento, es por medio de bus pullman, el cual saldrá el día jueves 4 de julio del 2019 a las 6:00 a.m. de la Gasolinera Puma del Blvd. Los Proceres hacia la ciudad de Quetzaltenango (se hará una parada en un restaurante).</p>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61777.502875686914!2d-90.55047701740244!3d14.593723240972459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3c35c428545%3A0xac06ed11c7a6092b!2sGasolinera+Puma+Proceres!5e0!3m2!1sen!2ssv!4v1560013457100!5m2!1sen!2ssv" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <br>
+        <div id="movilizacion-alternativo" class="right-block">
+          <h4 class="font-weight-bold">Transportes alternativos</h4>
+          <p class="text-justify">Existen diversas empresas de buses, los cuales cuentan con traslado desde la Ciudad de Guatemala y la ciudad de Quetzaltenango. El tiempo aproximado de viaje es de 4 horas. El costo oscila entre Q50 y Q70 dependiendo la línea de transporte.</p>
+          <p class="font-weight-bold">Trasportes Álamo</p>
           <ul>
-            <li class="text-justify">
-              <p class="font-weight-bold mb-0">Platinum:</p>
-              <p class="">Tiene un servicio de transporte con atención de primera clase hacia San Salvador, El Salvador y tiene sus puertos de salida en Guatemala, Honduras y Nicaragua posee rutas clase Platinum, King y Quality los precios van desde $69.00 USD.
-                Más información en el <a target="_blank" href="http://www.platinumcentroamerica.com/">sitio web de Platinum.</a></p>
-            </li>
-
-            <li class="text-justify">
-              <p class="font-weight-bold mb-0">TicaBus:</p>
-              <p class="">Tiene servicio de transporte de mediano costo hacia San Salvador, El Salvador y tiene puertos de salida en Guatemala, Honduras, NIcaragua y Costa Rica posee rutas turistica y ejecutiva los precio van desde $72.00 USD. hasta $131.00 USD.
-                Más información en el <a target="_blank" href="http://ticabus.com/ ">sitio web de Ticabus.</a></p>
-            </li>
-
-            <li class="text-justify">
-              <p class="font-weight-bold mb-0">Transportes del Sol:</p>
-              <p class="">Tes una de las opciones más económicas para viajar a San Salvador, El Salvador poseen cuota diferencial entre adultos y menores de edad sus puertos de salida están ubicados unicamente en Guatemala, Nicaragua y Costa Rica; los precio van
-                desde $50.00 USD. hasta $120.00 USD. <a target="_blank" href="http://www.transportedelsol.com/">sitio web de Transportes del Sol.</a></p>
-            </li>
+            <li class="text-justify">Dirección Ciudad de Guatemala: 12 Avenida “A” 0-65, Zona 7</li>
+            <li class="text-justify">Dirección Quetzaltenango: 6ta Calle 12-13, Zona 3</li>
+            <li class="text-justify">Salidas Ciudad de Guatemala: 6:15 AM, 8:00 AM, 10:30 AM, 12:30 PM, 1:45 PM, 3:00 PM, 4:00 PM, 5:30 PM.</li>
+            <li class="text-justify">Salidas Ciudad de Quetzaltenango: 4:00 AM, 4:30 AM, 6:30 AM, 8:00 AM, 10:15 AM, 12:45 AM, 2:30 PM, 4:45 PM.</li>
+            <li class="text-justify">Número de teléfono: 2471-8626 y 7763-6966</li>
           </ul>
-
-        </div> --}}
+          <p class="font-weight-bold">Transportes Cristóbal Colon</p>
+          <ul>
+            <li class="text-justify">Dirección Ciudad de Guatemala: 16 Calle 10-03, Zona 1</li>
+            <li class="text-justify">Dirección Quetzaltenango: 5ta Calle 12-44, Zona 3</li>
+            <li class="text-justify">Salidas Ciudad de Guatemala: 7 AM, 3PM</li>
+            <li class="text-justify">Salidas Ciudad de Quetzaltenango:  4 PM</li>
+            <li class="text-justify">Número de teléfono: 2415-8900 y 7767-5198</li>
+          </ul>
+          <p class="font-weight-bold">Transportes Galgos</p>
+          <ul>
+            <li class="text-justify">Dirección Ciudad de Guatemala: 7 Av. 19-44, Zona 1</li>
+            <li class="text-justify">Dirección Quetzaltenango: Calle Rodolfo Robles 17-43, Zona 1</li>
+            <li class="text-justify">Salidas Ciudad de Guatemala: 2:30 PM</li>
+            <li class="text-justify">Salidas Ciudad de Quetzaltenango:  4 AM</li>
+            <li class="text-justify">Número de teléfono: 2253-4868 y 7761-2248</li>
+          </ul>
+          <p class="font-weight-bold">“Canasteras” ó “Chicken bus”</p>
+          <p class="text-justify">Existen otro tipo de buses de menor coste pero menos cómodos, salen desde media noche hasta las 5 pm. El tiempo aproximado de viaje es de 3:30 horas. El costo es de Q35. Antes de las 4:30 AM pueden ser localizados en las siguientes direcciones:</p>
+          <ul>
+            <li class="text-justify">Dirección Ciudad de Guatemala: 7 calle, zona 3, Terminal de Buses</li>
+            <li class="text-justify">Dirección Quetzaltenango: 41 calle zona 8</li>
+            <li class="text-justify">Las líneas de buses que pasan directamente por Quetzaltenango son: Marquensita, San Juanera, Sinaloa, Mazariegos, Tacana.</li>
+          </ul>
+          <p class="text-justify">Se recomienda confirmar los horarios con cada una de las empresas.</p>
+        </div>
+        <div id="movilizacion-vehiculo" class="right-block">
+          <h4 class="font-weight-bold">Vehículo propio</h4>
+          <p class="text-justify">Para llegar a Quetzaltenango desde la ciudad de Guatemala, la ruta más recomendada es por la Carretera Interamericana CA1, para esto debe tomarse la calzada Roosevelt rumbo occidente. El tiempo aproximado en automóvil es de 3 a 4 horas. Aunque en días y horarios de tráfico el viaje puede durar hasta 5 horas. Lo recomendable es viajar por la mañana o al medio día, porque al final de la tarde el tráfico es mayor.</p>
+          <p class="text-justify">Existe una ruta alternativa por la, CA2 o carretera a la costa, pero el estado del asfalto no es muy bueno, dicha ruta es por el sur de la ciudad de Guatemala por la calzada Aguilar Batres rumbo sur, después la  CA9 rumbo sur, luego  CA2 rumbo occidente y por último la QUE-03 rumbo norte. El tiempo aproximado es de 4 a 5 horas.</p>
+        </div>
         <hr>
-
         <h3 class="font-weight-bold">Acerca de Guatemala</h3>
-
         <div id="moneda-local" class="right-block">
           <h4 class="display-6 font-italic font-weight-bold">Moneda local</h4>
           <p class="text-justify">

@@ -77,6 +77,6 @@
 
 <small class="form-text text-muted">* Ingreso para los días 4, 5 y 6 de julio.</small>
 <small class="form-text text-muted">** Almuerzo para los días 5 y 6 de julio.</small>
-<small class="form-text text-muted">*** Transporte (Ida y vuelta Guatemala - Quetzaltenango).</small>
+<small class="form-text text-muted">*** Transporte (Ida y vuelta Guatemala - Quetzaltenango), será por medio de bus pullman, el cual saldrá el día jueves 4 de julio del 2019 a las 6:00 a.m. de la Gasolinera Puma del Blvd. Los Proceres.</small>
 <small class="form-text text-muted">**** Cena para el día 4 de julio del 2019, desayuno, almuerzo y cena para los días 5 y 6 de julio.</small>
 <small class="form-text text-muted">***** Hospedaje para las noches del 4, 5 y 6 de julio del 2019.</small>
