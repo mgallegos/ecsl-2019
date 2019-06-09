@@ -16,7 +16,7 @@
 			<li>Revise que la descripción ingresada describa de la mejor manera de que trata su ponencia, esta descripción puede visualizarse desde el sitio web.</li>
 			<li>Si desea que su fotografía se muestre junto a su ponencia en el sitio web, puede asociar una imagen a su correo electrónico en <a href="http://gravatar.com" target="_blank">gravatar.com</a></li>
 			<li>Se habilitó la opción de "Adjuntar archivo" en la sección "Administrar mis ponencia" para que pueda adjuntar su presentación.</li>
-			<li>Puede compartir su ponencia en redes sociales, a través del siguiente enlace directo: <a href="https://ecsl2019.softwarelibre.ca/cms/agenda/{{$id}}" target="_blank">https://ecsl2019.softwarelibre.ca/cms/agenda/{{$id}}</a></li>
+			<li>Puede compartir su ponencia en redes sociales, a través del siguiente enlace directo: <a href="https://ecsl2019.softwarelibre.ca/cms/agenda/{{$id}}" target="_blank">https://ecsl2019.softwarelibre.ca/cms/agenda/{{$id}}</a> (una vez la agenda ya se encuentre habilitada en el sitio)</li>
 			<li>Si tiene alguna consulta o comentario, puede ponerse en contacto con nosotros a través del correo <a href="mailto:ecsl2019@softwarelibre.ca">ecsl2019@softwarelibre.ca</a>.</li>
 		</ul>
 		<p>Un saludo,<br>Comité Organizador del ECSL 2019.</p>
