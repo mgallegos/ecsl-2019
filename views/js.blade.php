@@ -1253,8 +1253,8 @@
 						$('#trans-from-enviar').attr('disabled', 'disabled');
 						$('#trans-from-status').val('Aprobada');
 						$('#trans-from-assigned-transport').val(arrivingTransportationRequest.assigned_transport);
-						$('#trans-from-responsable-user-name').val('Manuel Flores <neozeroes@gmail.com>');
-						$('#trans-from-contact-phone').val('+503 78548471, telegram: @neozerosv');
+						// $('#trans-from-responsable-user-name').val('Manuel Flores <neozeroes@gmail.com>');
+						// $('#trans-from-contact-phone').val('+503 78548471, telegram: @neozerosv');
 					}
 				}
 			}
