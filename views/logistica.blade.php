@@ -425,46 +425,7 @@
           <p>
             Si desea más detalles, puede utilizar esta información de contacto:<br>Teléfono: (+502) 7932-9000 <br> Sitio web: <a target="_blank" href="https://www.umes.edu.gt/sedes/sede-quetzaltenango/">Universidad Mesoamericana Sede Quetzaltenango”</a> <br>
           </p>
-{{--
-          @if (!Agent::isMobile())
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row mb-4 justify-content-center pl-3">
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Exterior_del_edificio_ICAS.jpg" data-toggle="lightbox" data-gallery="gallery-uca" class="col-sm-3 px-1">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Exterior_del_edificio_ICAS.jpg" class="img-fluid">
-                  </a>
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Hall_y_escalera_de_acceso_a_segundo_nivel.jpg" data-toggle="lightbox" data-gallery="gallery-uca" class="col-sm-3 px-1">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Hall_y_escalera_de_acceso_a_segundo_nivel.jpg" class="img-fluid">
-                  </a>
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Cafeteria_anexa_al_ICAS.jpg" data-toggle="lightbox" data-gallery="gallery-uca" class="col-sm-3 px-1">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Cafeteria_anexa_al_ICAS.jpg" class="img-fluid">
-                  </a>
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Auditorio.jpg" data-toggle="lightbox" data-gallery="gallery-uca" class="col-sm-3 px-1">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Auditorio.jpg" class="img-fluid">
-                  </a>
-                </div>
-              </div>
-            </div>
-          @else
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row mb-4 justify-content-center">
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Exterior_del_edificio_ICAS.jpg" data-toggle="lightbox" data-gallery="gallery-uca-mobile" class="col-6 px-1 pb-2">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Exterior_del_edificio_ICAS.jpg" class="img-fluid">
-                  </a>
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Hall_y_escalera_de_acceso_a_segundo_nivel.jpg" data-toggle="lightbox" data-gallery="gallery-uca-mobile" class="col-6 px-1 pb-2">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Hall_y_escalera_de_acceso_a_segundo_nivel.jpg" class="img-fluid">
-                  </a>
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Cafeteria_anexa_al_ICAS.jpg" data-toggle="lightbox" data-gallery="gallery-uca-mobile" class="col-6 px-1">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Cafeteria_anexa_al_ICAS.jpg" class="img-fluid">
-                  </a>
-                  <a href="https://storage.googleapis.com/decimaerp/organizations/15/Auditorio.jpg" data-toggle="lightbox" data-gallery="gallery-uca-mobile" class="col-6 px-1">
-                      <img src="https://storage.googleapis.com/decimaerp/organizations/15/Auditorio.jpg" class="img-fluid">
-                  </a>
-                </div>
-              </div>
-            </div>
-          @endif --}}
+
         </div>
 
         <hr>
@@ -660,6 +621,33 @@
               </li>
             </ul>
           </p>
+          @if (!Agent::isMobile())
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row mb-4 justify-content-center pl-3">
+                  <a href="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/2.jpeg" data-toggle="lightbox" data-gallery="gallery-uca" class="col-sm-6 px-1">
+                      <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/2.jpeg" class="img-fluid">
+                  </a>
+                  <a href="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/8.jpeg" data-toggle="lightbox" data-gallery="gallery-uca" class="col-sm-6 px-1">
+                      <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/8.jpeg" class="img-fluid">
+                  </a>
+                </div>
+              </div>
+            </div>
+          @else
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row mb-4 justify-content-center">
+                  <a href="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/2.jpeg" data-toggle="lightbox" data-gallery="gallery-uca-mobile" class="col-12 px-3 pb-2">
+                      <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/2.jpeg" class="img-fluid">
+                  </a>
+                  <a href="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/8.jpeg" data-toggle="lightbox" data-gallery="gallery-uca-mobile" class="col-12 px-3">
+                      <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/8.jpeg" class="img-fluid">
+                  </a>
+                </div>
+              </div>
+            </div>
+          @endif
         </div>
 
         <div id="recomendaciones" class="right-block">
