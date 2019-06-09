@@ -2090,12 +2090,12 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
 			$replyToEmail = 'ecsl2019@softwarelibre.ca';
 			$replyToName = 'Comité Organizador del ECSL 2019';
 
-			// $input['email'] = 'mgallegos@decimaerp.com';
+			$input['email'] = 'mgallegos76@gmail.com';
 
 			$this->Mailer->queue('ecsl-2019::emails.confirmacion-ponencia', $input, function($message) use ($input, $subject, $replyToEmail, $replyToName)
 			{
 				$message->to($input['email'])->subject($subject)->replyTo($replyToEmail, $replyToName)
-					->cc('ecsl2019@softwarelibre.ca')
+					// ->cc('ecsl2019@softwarelibre.ca')
 					->bcc('mgallegos@decimaerp.com');
 			});
 		}

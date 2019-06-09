@@ -360,7 +360,7 @@ class OpenCmsManager extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postAuthorizeEcsl019Presentation()
+	public function postAuthorizeEcsl2019Presentation()
 	{
 		return $this->OpenCmsManagerService->authorizePresentation( $this->Input->json()->all() );
 	}
