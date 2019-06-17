@@ -438,9 +438,11 @@ class Ecsl2019OpenCmsManager extends OpenCmsManager {
   {
     $data = array();
 
-    $this->RegistrationForm->byOrganization($this->organizationId, $this->cmsDatabaseConnectionName)->each(function($RegistrationForm) use (&$data)
+    $countries = $this->UserManager->getCountries();
+
+    $this->User->byOrganization($this->organizationId, $this->cmsDatabaseConnectionName)->each(function($RegistrationForm) use (&$data, $countries)
     {
-      $data[$RegistrationForm->user_id] = array('country' => $RegistrationForm->country, 'institution' => $RegistrationForm->institution);
+      $data[$RegistrationForm->id] = array('country' => $countries[$RegistrationForm->country_id], 'institution' => $RegistrationForm->institution);
     });
 
     return $data;
