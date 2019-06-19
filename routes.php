@@ -138,7 +138,7 @@ $ecsl =  function ()
 			// var_dump($PresentationManagerService->getPresentationsWithSpeaker(1, 15, true, 'ecsl2019', false));
 			// var_dump($PresentationManagerService->getPresentationsWithSpeakerAndSchedule(1, 15, true, 'ecsl2019', false));
 			// var_dump($OpenCmsManagerService->getUsersRegistrationData());die();
-			
+
 			return View::make('ecsl-2019::agenda')
 				->with('presentationId', $presentationId)
 				->with('ogTitle', $presentationTitle)

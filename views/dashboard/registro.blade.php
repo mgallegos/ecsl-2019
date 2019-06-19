@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
 
-          <div id="alert-ecsl2018" class="form-group mg-hm alert alert-success">
+          <!-- <div id="alert-ecsl2018" class="form-group mg-hm alert alert-success">
             <label><strong>¿Participó en el ECSL 2018?</strong></label>
             <hr style="margin-top:0;margin-bottom: .5rem;"/>
             <div class="row">
@@ -17,6 +17,9 @@
                 <p>Haz clic <a href="#" data-toggle="modal" data-target="#reg-imp-modal">aquí</a> para importar tus datos</p>
               </div>
             </div>
+          </div> -->
+          <div id="alert-registration-closed" class="form-group mg-hm alert alert-warning">
+            <label><strong>¡El registro al evento ya ha sido cerrado!</strong></label>
           </div>
 
           <div class="row">

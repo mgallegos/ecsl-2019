@@ -775,6 +775,12 @@
 		{
 			var url = $('#reg-form').attr('action'), action = 'new';
 
+			if($('#reg-user-id').isEmpty())
+			{
+				$('#back-to-top').click();
+				return;
+			}
+
 			if(!$('#reg-form').jqMgVal('isFormValid'))
 			{
 				return;
@@ -1166,7 +1172,7 @@
 			{
 				populateFormFields(loggedUser, 'reg-');
 
-				$('#alert-ecsl2018').hide();
+				$('#alert-ecsl2018, #alert-registration-closed').hide();
 
 				@if (!Agent::isMobile())
 

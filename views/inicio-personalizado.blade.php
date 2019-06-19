@@ -932,7 +932,8 @@ function getCountryById(id) {
           <img src="https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/logo_ecsl_2019_medium.png" class="img-fluid">
         </h2>
         <p class="website-date" style="color: #ff690d;">4, 5 y 6 de julio del 2019.</p>
-        <a class="btn btn-lg btn-welcome" href="{{ URL::to('/registro') }}">Registrarse</a>
+        <!-- <a class="btn btn-lg btn-welcome" href="{{ URL::to('/registro') }}">Registrarse</a> -->
+        <button class="btn btn-lg btn-welcome" disabled>Registro cerrado</button>
       </div>
     </div>
   </div>
