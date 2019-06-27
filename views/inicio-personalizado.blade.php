@@ -1071,7 +1071,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
+            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/vr.jpg'>
           </a>
         </div>
         <div class="card-body">
@@ -1087,39 +1087,7 @@ function getCountryById(id) {
       <div class="card card-logo">
         <div class="card-header-logo">
           <a href="#" target="_blank">
-            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="#" target="_blank" class="card-logo-title">
-              Patrocinador
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="#" target="_blank">
-            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
-          </a>
-        </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <a href="#" target="_blank" class="card-logo-title">
-              Patrocinador
-            </a>
-          </h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-      <div class="card card-logo">
-        <div class="card-header-logo">
-          <a href="#" target="_blank">
-            <img class="card-img-top img-fluid grayscale" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/proximamente_1_.png'>
+            <img class="card-img-top img-fluid" src='https://storage.googleapis.com/decimaerp-cloud-bucket/organizations/15/ccc.png'>
           </a>
         </div>
         <div class="card-body">

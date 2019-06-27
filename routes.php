@@ -63,9 +63,9 @@ $ecsl =  function ()
 			return View::make('ecsl-2019::ejes-tematicos');
 		});
 
-		Route::get('/cms/becas', function()
+		Route::get('/cms/bases-de-competencia', function()
 		{
-			return View::make('ecsl-2019::becas');
+			return View::make('ecsl-2019::bases-de-competencia');
 		});
 
 		Route::get('/cms/faq', function()
