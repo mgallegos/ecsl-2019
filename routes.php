@@ -190,6 +190,6 @@ $ecsl =  function ()
 
 };
 
-Route::group(['domain' => 'localhost'], $ecsl);
+// Route::group(['domain' => 'localhost'], $ecsl);
 Route::group(['domain' => 'app.decimaerp.com'], $ecsl);
 Route::group(['domain' => 'ecsl2019.softwarelibre.ca'], $ecsl);

@@ -120,7 +120,8 @@ class ECSL2019ServiceProvider extends ServiceProvider {
 			return new \Mgallegos\ECSL2019\Services\OpenCmsManagement\Ecsl2019OpenCmsManager(
 					$app->make('App\Kwaai\Security\Services\AuthenticationManagement\AuthenticationManagementInterface'),
 					$app->make('App\Kwaai\Security\Services\JournalManagement\JournalManagementInterface'),
-					new \App\Kwaai\Helpers\Gravatar(),
+					// new \App\Kwaai\Helpers\Gravatar(),
+					$app->make('gravatar'),
 					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\UserManagement\UserManagementInterface'),
 					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\SettingManagement\SettingManagementInterface'),
 					$app->make('Mgallegos\DecimaOpenCms\OpenCms\Services\PaymentManagement\PaymentManagementInterface'),
